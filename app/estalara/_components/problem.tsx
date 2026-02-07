@@ -30,10 +30,10 @@ export function EstalaraProblem() {
             The Problem
           </p>
           <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-white max-w-3xl mx-auto text-balance">
-            Traditional portals are failing the global transaction
+            {"Discovery doesn\u2019t create conversion."}
           </h2>
-          <p className="text-[#A3A3A3] mt-4 max-w-xl mx-auto">
-            {"Old methods create a 'Local Trap' that blocks cross-border revenue"}
+          <p className="text-[#A3A3A3] mt-4 max-w-2xl mx-auto">
+            Listings get views. Estalara closes the gap between interest and commitment.
           </p>
         </div>
 
