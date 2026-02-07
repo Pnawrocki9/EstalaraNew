@@ -5,7 +5,7 @@ export function EstalaraVision() {
     <section className="py-20 lg:py-32 px-6 lg:px-8 bg-[#F0EDE8]">
       <div className="max-w-7xl mx-auto">
         {/* Section Label */}
-        <p className="text-sm uppercase tracking-widest text-[#8B8B8B] mb-10">
+        <p className="text-sm uppercase tracking-widest text-[#8B8B8B] mb-10 text-center">
           Our Vision
         </p>
 
