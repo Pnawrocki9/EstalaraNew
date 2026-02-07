@@ -20,14 +20,45 @@ import { ArrowLeft, CheckCircle2, Calendar, Users, Globe, Sparkles } from "lucid
 export default function BookDemoPage() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsLoading(true)
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1500))
-    setIsLoading(false)
-    setIsSubmitted(true)
+    setErrorMessage(null)
+
+    const form = e.currentTarget
+    const formData = new FormData(form)
+
+    const payload = {
+      firstName: formData.get("firstName") as string,
+      lastName: formData.get("lastName") as string,
+      email: formData.get("email") as string,
+      company: formData.get("company") as string,
+      agencySize: formData.get("agencySize") as string,
+      country: formData.get("country") as string,
+      message: (formData.get("message") as string) || "",
+    }
+
+    try {
+      const response = await fetch("/api/book-demo", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      })
+
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.error || "Something went wrong. Please try again.")
+      }
+
+      setIsSubmitted(true)
+    } catch (err: any) {
+      setErrorMessage(err.message || "Something went wrong. Please try again.")
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   if (isSubmitted) {
@@ -230,6 +261,12 @@ export default function BookDemoPage() {
                     placeholder="Tell us about your goals or questions..."
                   />
                 </div>
+
+                {errorMessage && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 rounded-lg px-4 py-3 text-sm">
+                    {errorMessage}
+                  </div>
+                )}
 
                 <Button
                   type="submit"
