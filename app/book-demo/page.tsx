@@ -277,10 +277,13 @@ export default function BookDemoPage() {
                 </Button>
 
                 <p className="text-xs text-center text-[#5C5C5C]">
-                  By submitting, you agree to our{" "}
-                  <Link href="/" className="underline hover:text-[#1A1A1A]">
+                  Time2Show, Inc. will use your information to provide the content or service you requested.
+                </p>
+                <p className="text-xs text-center text-[#5C5C5C]">
+                  We may use your information to send you marketing emails. You can unsubscribe at any time using the link in our emails. Learn more in our{" "}
+                  <Link href="/legal/privacy-policy" className="underline hover:text-[#1A1A1A]">
                     Privacy Policy
-                  </Link>
+                  </Link>.
                 </p>
               </form>
             </div>
