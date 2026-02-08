@@ -4,21 +4,21 @@ export function EstalaraProblem() {
   const problems = [
     {
       icon: Eye,
-      title: "Invisibility",
+      title: "Visibility",
       description:
-        "Your listings are buried in overcrowded, expensive portals where you compete against thousands of others.",
+        "Portals help you be seen. Estalara helps you be chosen. Traditional listings get eyes on your properties. Estalara adds the confidence signals and engagement channels that turn visitors into real prospects.",
     },
     {
       icon: Globe,
       title: "Friction",
       description:
-        "Language barriers and distance create mistrust. Buyers hesitate when they can't physically visit.",
+        "Distance and language don't have to be barriers anymore. Global buyers want clarity, trust, and fast answers. Estalara brings real-time interaction, translation, and verified intent \u2014 so agents don't lose buyers to uncertainty.",
     },
     {
       icon: Wallet,
-      title: "The Extraction Model",
+      title: "Ownership",
       description:
-        "Portals drain your marketing budget for low-quality leads and low ROI. You rent an audience when you should be owning the channel.",
+        "Keep your audience and your value. Portals aggregate attention. Estalara helps you own the relationship, the data, and the outcome. That turns one-time views into repeatable high-value sales.",
     },
   ]
 
@@ -30,10 +30,10 @@ export function EstalaraProblem() {
             The Problem
           </p>
           <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-white max-w-3xl mx-auto text-balance">
-            Traditional portals are failing the global transaction
+            {"Discovery doesn\u2019t create conversion."}
           </h2>
-          <p className="text-[#A3A3A3] mt-4 max-w-xl mx-auto">
-            {"Old methods create a 'Local Trap' that blocks cross-border revenue"}
+          <p className="text-[#A3A3A3] mt-4 max-w-2xl mx-auto">
+            Listings get views. Estalara closes the gap between interest and commitment.
           </p>
         </div>
 
