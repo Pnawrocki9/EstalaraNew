@@ -8,6 +8,7 @@ import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { Checkbox } from "@/components/ui/checkbox"
 import { 
   Select,
   SelectContent,
@@ -21,9 +22,18 @@ export default function BookDemoPage() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
+  const [termsAccepted, setTermsAccepted] = useState(false)
+  const [termsError, setTermsError] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    setTermsError(false)
+
+    if (!termsAccepted) {
+      setTermsError(true)
+      return
+    }
+
     setIsLoading(true)
     setErrorMessage(null)
 
@@ -260,6 +270,38 @@ export default function BookDemoPage() {
                     className="bg-[#F8F6F3] border-[#E8E4DF] focus:border-[#1A1A1A] focus:ring-[#1A1A1A] rounded-lg resize-none"
                     placeholder="Tell us about your goals or questions..."
                   />
+                </div>
+
+                {/* Terms & Conditions checkbox */}
+                <div className="space-y-2">
+                  <div className="flex items-start gap-3">
+                    <Checkbox
+                      id="terms"
+                      checked={termsAccepted}
+                      onCheckedChange={(checked) => {
+                        setTermsAccepted(checked === true)
+                        if (checked) setTermsError(false)
+                      }}
+                      className={`mt-0.5 border-[#D1CCC6] data-[state=checked]:bg-[#1A1A1A] data-[state=checked]:border-[#1A1A1A] ${termsError ? "border-red-500" : ""}`}
+                    />
+                    <label htmlFor="terms" className="text-sm text-[#1A1A1A] leading-snug cursor-pointer select-none">
+                      I accept the{" "}
+                      <Link href="/legal/terms-and-conditions" className="underline hover:text-[#333]" target="_blank">
+                        Terms &amp; Conditions
+                      </Link>.
+                    </label>
+                  </div>
+                  {termsError && (
+                    <p className="text-xs text-red-600 ml-7">
+                      You must accept the Terms &amp; Conditions to continue.
+                    </p>
+                  )}
+                  <p className="text-xs text-[#5C5C5C] ml-7">
+                    We process personal data in accordance with our{" "}
+                    <Link href="/legal/privacy-policy" className="underline hover:text-[#1A1A1A]" target="_blank">
+                      Privacy Policy
+                    </Link>.
+                  </p>
                 </div>
 
                 {errorMessage && (
