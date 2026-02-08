@@ -4,7 +4,11 @@ import { ArrowLeft } from "lucide-react"
 
 export const metadata = {
   title: "Cookies Policy | Estalara",
-  description: "Estalara Cookies Policy",
+  description:
+    "Understand how Estalara uses cookies and similar technologies on estalara.com, including strictly necessary, analytics, functional, and marketing cookies.",
+  alternates: {
+    canonical: "/legal/cookies-policy",
+  },
 }
 
 export default function CookiesPolicyPage() {

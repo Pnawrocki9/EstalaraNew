@@ -4,7 +4,11 @@ import { ArrowLeft } from "lucide-react"
 
 export const metadata = {
   title: "Privacy Policy | Estalara",
-  description: "Estalara Privacy Policy",
+  description:
+    "Learn how Time2Show, Inc. (d/b/a Estalara) collects, processes, and protects your personal data. Covers website visits, customer communications, and SaaS platform operations under GDPR.",
+  alternates: {
+    canonical: "/legal/privacy-policy",
+  },
 }
 
 export default function PrivacyPolicyPage() {
