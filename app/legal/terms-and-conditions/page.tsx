@@ -4,7 +4,11 @@ import { ArrowLeft } from "lucide-react"
 
 export const metadata = {
   title: "Terms & Conditions | Estalara",
-  description: "Estalara Terms & Conditions",
+  description:
+    "Terms of Service governing access to the Estalara website and related services. Read the legally binding agreement between you and Time2Show, Inc. (d/b/a Estalara).",
+  alternates: {
+    canonical: "/legal/terms-and-conditions",
+  },
 }
 
 export default function TermsAndConditionsPage() {

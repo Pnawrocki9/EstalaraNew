@@ -7,6 +7,12 @@ import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ShareButton } from "./share-button"
 
+const navLinks = [
+  { href: "#features", label: "Features" },
+  { href: "#solution", label: "How It Works" },
+  { href: "#demo", label: "Contact" },
+]
+
 export function EstalaraHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -25,6 +31,19 @@ export function EstalaraHeader() {
               priority
             />
           </Link>
+
+          {/* Desktop Navigation Links */}
+          <nav className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-[#5C5C5C] hover:text-[#1A1A1A] transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
 
           {/* CTA Button */}
           <div className="hidden md:flex items-center gap-2">
@@ -51,7 +70,17 @@ export function EstalaraHeader() {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-[#E8E4DF]">
             <nav className="flex flex-col gap-4">
-              <div className="flex items-center gap-2">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-sm font-medium text-[#5C5C5C] hover:text-[#1A1A1A] transition-colors px-2 py-1"
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <div className="flex items-center gap-2 pt-2">
                 <ShareButton variant="light" size="sm" position="below" />
                 <Button
                   asChild

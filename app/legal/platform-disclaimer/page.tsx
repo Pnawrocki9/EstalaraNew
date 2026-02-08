@@ -4,7 +4,11 @@ import { ArrowLeft } from "lucide-react"
 
 export const metadata = {
   title: "Platform Disclaimer | Estalara",
-  description: "Estalara Platform Disclaimer",
+  description:
+    "Estalara is a SaaS technology provider for real estate. This disclaimer clarifies that Estalara does not act as a broker, agent, or advisor, and does not verify platform content.",
+  alternates: {
+    canonical: "/legal/platform-disclaimer",
+  },
 }
 
 export default function PlatformDisclaimerPage() {

@@ -36,6 +36,9 @@ export const metadata: Metadata = {
   title: "Estalara | From Local Listings to Live Global Sales",
   description:
     "The white-label platform that helps real estate agencies go beyond traditional portals by converting LIVE investor interactions into AI-qualified hot leads worldwide.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Estalara - From Local Listings to Live Global Sales",
     description:
@@ -67,7 +70,49 @@ export const metadata: Metadata = {
       },
     ],
   },
-    generator: 'v0.app'
+}
+
+// JSON-LD Structured Data
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Estalara",
+  legalName: "Time2Show, Inc.",
+  url: siteUrl,
+  logo: `${siteUrl}/images/estalara/estalara-logo.svg`,
+  description:
+    "The white-label platform that helps real estate agencies go beyond traditional portals by converting LIVE investor interactions into AI-qualified hot leads worldwide.",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "1111B S Governors Ave STE 20579",
+    addressLocality: "Dover",
+    addressRegion: "DE",
+    postalCode: "19904",
+    addressCountry: "US",
+  },
+  email: "estalara@estalara.com",
+  sameAs: [
+    "https://www.linkedin.com/company/estalara/",
+  ],
+}
+
+const softwareApplicationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Estalara",
+  applicationCategory: "BusinessApplication",
+  operatingSystem: "Web",
+  description:
+    "White-label SaaS platform for real estate agencies featuring LIVE global property presentations, AI-powered lead intent scoring, multilingual streaming, and automated advertising campaigns.",
+  offers: {
+    "@type": "Offer",
+    category: "SaaS",
+    availability: "https://schema.org/OnlineOnly",
+  },
+  creator: {
+    "@type": "Organization",
+    name: "Time2Show, Inc.",
+  },
 }
 
 export default function RootLayout({
@@ -80,7 +125,17 @@ export default function RootLayout({
       <head>
         <meta
           name="viewport"
-          content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover"
+          content="width=device-width, initial-scale=1, viewport-fit=cover"
+        />
+
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplicationJsonLd) }}
         />
 
         {/* Google Tag Manager (deferred) */}
