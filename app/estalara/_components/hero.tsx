@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -7,7 +8,26 @@ import { ArrowRight } from "lucide-react"
 import { LeadIntentPanel } from "./lead-intent-panel"
 import { ShareButton } from "./share-button"
 
+const heroImages = [
+  {
+    src: "/images/estalara/hero-live-walkthrough.jpg",
+    alt: "Real estate agent conducting a LIVE property walkthrough presentation",
+  },
+  {
+    src: "/images/estalara/hero-live-agent.png",
+    alt: "Real estate agent presenting during a LIVE show framework session",
+  },
+]
+
 export function EstalaraHero() {
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % heroImages.length)
+    }, 6000)
+    return () => clearInterval(interval)
+  }, [])
 
   const scrollToFeatures = () => {
     const featuresSection = document.getElementById("features")
@@ -70,14 +90,21 @@ export function EstalaraHero() {
         {/* Hero Image */}
         <div className="relative max-w-5xl mx-auto">
           <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-[#1A1A1A]/10">
-            <Image
-              src="/images/estalara/hero-live-walkthrough.jpg"
-              alt="Real estate agent conducting a LIVE property walkthrough presentation"
-              width={1200}
-              height={675}
-              className="w-full h-auto object-cover aspect-video"
-              priority
-            />
+            <div className="relative w-full aspect-video">
+              {heroImages.map((img, index) => (
+                <Image
+                  key={img.src}
+                  src={img.src}
+                  alt={img.alt}
+                  width={1200}
+                  height={675}
+                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[2000ms] ease-in-out ${
+                    index === activeIndex ? "opacity-100" : "opacity-0"
+                  }`}
+                  priority={index === 0}
+                />
+              ))}
+            </div>
             
             {/* Lead Intent Score Panel - Top Left Overlay */}
             <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-10 hidden md:block">
