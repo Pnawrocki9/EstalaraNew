@@ -66,17 +66,39 @@
     transform: scale(1);
   }
   100% {
-    transform: scale(1.08);
+    transform: scale(1.06);
   }
 }
 
 .hero-image-kenburns {
-  will-change: transform;
+  will-change: transform, opacity, filter;
   transform: scale(1);
 }
 
 .hero-image-active {
   animation: hero-kenburns-zoom 8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+/* Shimmer sweep that plays during each transition */
+@keyframes hero-shimmer-sweep {
+  0% {
+    background-position: -200% 0;
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    background-position: 200% 0;
+    opacity: 0;
+  }
+}
+
+.hero-shimmer {
+  will-change: background-position, opacity;
 }
 
 /* Subtle gradient overlay for smooth blending at edges */
@@ -99,5 +121,9 @@
   .hero-image-kenburns {
     transform: scale(1) !important;
     transition: none !important;
+  }
+
+  .hero-shimmer {
+    display: none;
   }
 }
