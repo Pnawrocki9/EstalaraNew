@@ -91,15 +91,15 @@ export function EstalaraHero() {
         <div className="relative max-w-5xl mx-auto">
           <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-[#1A1A1A]/10">
             {/* Crossfade Hero Images */}
-            <div className="relative w-full aspect-video">
+            <div className="relative w-full aspect-[4/3] sm:aspect-[3/2] lg:aspect-video bg-[#2A2A2A]">
               {heroImages.map((img, index) => (
                 <Image
                   key={img.src}
                   src={img.src}
                   alt={img.alt}
-                  width={1200}
-                  height={675}
-                  className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[2000ms] ease-in-out ${
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 1024px"
+                  className={`object-contain transition-opacity duration-[2000ms] ease-in-out ${
                     index === activeIndex ? "opacity-100" : "opacity-0"
                   }`}
                   priority={index === 0}
