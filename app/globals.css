@@ -124,6 +124,8 @@
     overflow-x: hidden;
     overscroll-behavior: none;
     background: #F8F6F3;
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
   }
 
   body {

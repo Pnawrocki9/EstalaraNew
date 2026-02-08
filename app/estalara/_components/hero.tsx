@@ -9,13 +9,6 @@ import { ShareButton } from "./share-button"
 import { HeroImageTransition } from "./hero-image-transition"
 
 export function EstalaraHero() {
-  const scrollToFeatures = () => {
-    const featuresSection = document.getElementById("features")
-    if (featuresSection) {
-      featuresSection.scrollIntoView({ behavior: "smooth", block: "start" })
-    }
-  }
-
   return (
     <section className="pt-20 sm:pt-24 lg:pt-32 pb-10 sm:pb-16 lg:pb-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -58,12 +51,12 @@ export function EstalaraHero() {
             </Button>
           </div>
           <Button
+            asChild
             variant="outline"
             size="lg"
             className="border-[#D4CFC8] text-[#1A1A1A] hover:bg-[#E8E4DF] rounded-full px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-medium bg-transparent"
-            onClick={scrollToFeatures}
           >
-            Explore Features
+            <a href="#features">Explore Features</a>
           </Button>
         </div>
 
