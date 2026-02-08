@@ -6,15 +6,15 @@ import { ShareButton } from "./share-button"
 // Ad Mockup Visualization - Expanded with multiple ad versions
 function AdsMockup() {
   return (
-    <div className="relative py-6 px-4 sm:px-6 h-full flex flex-col justify-center">
+    <div className="relative py-6 px-3 sm:px-6 h-full flex flex-col justify-center">
       {/* AI Generated Badge */}
-      <div className="absolute top-2 left-1/2 -translate-x-1/2 bg-[#1A1A1A] text-white text-[9px] px-3 py-1 rounded-full flex items-center gap-1.5 z-10 shadow-lg">
+      <div className="absolute top-2 left-1/2 -translate-x-1/2 bg-[#1A1A1A] text-white text-[8px] sm:text-[9px] px-2.5 sm:px-3 py-1 rounded-full flex items-center gap-1.5 z-10 shadow-lg whitespace-nowrap">
         <span className="w-2 h-2 bg-amber-400 rounded-full animate-pulse" />
-        AI Generated and Managed &middot; 20 Versions
+        AI Generated &middot; 20 Versions
       </div>
 
       {/* Ad Grid */}
-      <div className="mt-6 grid grid-cols-3 gap-2.5 sm:gap-3">
+      <div className="mt-6 grid grid-cols-3 gap-2 sm:gap-3">
         {/* Facebook Ad - Primary */}
         <div className="col-span-2 row-span-2 bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
           <div className="bg-[#1877F2] px-3 py-1.5 flex items-center gap-1.5">
@@ -95,7 +95,7 @@ function AdsMockup() {
 // Re-streaming Visualization - Expanded with animated flow
 function RestreamingMockup() {
   return (
-    <div className="relative py-14 sm:py-16 px-10 sm:px-12 h-full flex flex-col justify-center">
+    <div className="relative py-10 sm:py-16 px-6 sm:px-12 h-full flex flex-col justify-center">
       <style>{`
         @keyframes stream-pulse {
           0%, 100% { opacity: 0.3; transform: scale(1); }
@@ -118,13 +118,13 @@ function RestreamingMockup() {
           <div className="absolute inset-0 -m-2 rounded-2xl bg-[#1A1A1A]/10 animate-ping" style={{ animationDuration: '2s' }} />
           
           {/* Main hub */}
-          <div className="relative w-24 h-24 sm:w-28 sm:h-28 bg-[#1A1A1A] rounded-2xl flex flex-col items-center justify-center z-10 shadow-xl">
+          <div className="relative w-20 h-20 sm:w-28 sm:h-28 bg-[#1A1A1A] rounded-2xl flex flex-col items-center justify-center z-10 shadow-xl">
             {/* Estalara Logo Text */}
-            <span className="text-white font-serif text-sm sm:text-base font-bold tracking-wide">Estalara</span>
+            <span className="text-white font-serif text-xs sm:text-base font-bold tracking-wide">Estalara</span>
             {/* LIVE indicator */}
-            <div className="flex items-center gap-1.5 mt-1.5">
-              <span className="w-2.5 h-2.5 bg-red-500 rounded-full animate-pulse" />
-              <span className="text-red-400 text-[10px] sm:text-xs font-bold uppercase tracking-wider">LIVE</span>
+            <div className="flex items-center gap-1 sm:gap-1.5 mt-1 sm:mt-1.5">
+              <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 bg-red-500 rounded-full animate-pulse" />
+              <span className="text-red-400 text-[9px] sm:text-xs font-bold uppercase tracking-wider">LIVE</span>
             </div>
           </div>
         </div>
@@ -140,45 +140,45 @@ function RestreamingMockup() {
         <line x1="50%" y1="50%" x2="50%" y2="95%" stroke="#D4CFC8" strokeWidth="1.5" strokeDasharray="4 4" style={{ animation: 'dash-flow 1s linear infinite', animationDelay: '0.8s' }} />
       </svg>
 
-      {/* Platform Icons - Larger, Positioned Around Hub */}
+      {/* Platform Icons - Positioned Around Hub */}
       {/* YouTube - Top Left */}
-      <div className="absolute top-4 left-4 sm:top-6 sm:left-8 z-10" style={{ animation: 'orbit-float 3s ease-in-out infinite' }}>
-        <div className="w-11 h-11 sm:w-14 sm:h-14 bg-white rounded-xl shadow-lg border border-gray-100 flex items-center justify-center hover:scale-110 transition-transform duration-300">
-          <svg className="w-5 h-5 sm:w-7 sm:h-7 text-red-600" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+      <div className="absolute top-3 left-2 sm:top-6 sm:left-8 z-10" style={{ animation: 'orbit-float 3s ease-in-out infinite' }}>
+        <div className="w-9 h-9 sm:w-14 sm:h-14 bg-white rounded-lg sm:rounded-xl shadow-lg border border-gray-100 flex items-center justify-center hover:scale-110 transition-transform duration-300">
+          <svg className="w-4 h-4 sm:w-7 sm:h-7 text-red-600" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
         </div>
-        <span className="block text-center text-[8px] sm:text-[10px] text-[#5C5C5C] font-medium mt-1">YouTube</span>
+        <span className="block text-center text-[7px] sm:text-[10px] text-[#5C5C5C] font-medium mt-0.5 sm:mt-1">YouTube</span>
       </div>
 
       {/* Instagram - Top Right */}
-      <div className="absolute top-4 right-4 sm:top-6 sm:right-8 z-10" style={{ animation: 'orbit-float 3s ease-in-out infinite 0.3s' }}>
-        <div className="w-11 h-11 sm:w-14 sm:h-14 bg-white rounded-xl shadow-lg border border-gray-100 flex items-center justify-center hover:scale-110 transition-transform duration-300">
-          <svg className="w-5 h-5 sm:w-7 sm:h-7" viewBox="0 0 24 24"><defs><linearGradient id="ig-restream" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stopColor="#FFDC80"/><stop offset="50%" stopColor="#F77737"/><stop offset="100%" stopColor="#C13584"/></linearGradient></defs><path fill="url(#ig-restream)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+      <div className="absolute top-3 right-2 sm:top-6 sm:right-8 z-10" style={{ animation: 'orbit-float 3s ease-in-out infinite 0.3s' }}>
+        <div className="w-9 h-9 sm:w-14 sm:h-14 bg-white rounded-lg sm:rounded-xl shadow-lg border border-gray-100 flex items-center justify-center hover:scale-110 transition-transform duration-300">
+          <svg className="w-4 h-4 sm:w-7 sm:h-7" viewBox="0 0 24 24"><defs><linearGradient id="ig-restream" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stopColor="#FFDC80"/><stop offset="50%" stopColor="#F77737"/><stop offset="100%" stopColor="#C13584"/></linearGradient></defs><path fill="url(#ig-restream)" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zM12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
         </div>
-        <span className="block text-center text-[8px] sm:text-[10px] text-[#5C5C5C] font-medium mt-1">Instagram</span>
+        <span className="block text-center text-[7px] sm:text-[10px] text-[#5C5C5C] font-medium mt-0.5 sm:mt-1">Instagram</span>
       </div>
 
       {/* Facebook - Middle Left */}
-      <div className="absolute top-1/2 -translate-y-1/2 left-1 sm:left-3 z-10" style={{ animation: 'orbit-float 3s ease-in-out infinite 0.6s' }}>
-        <div className="w-11 h-11 sm:w-14 sm:h-14 bg-white rounded-xl shadow-lg border border-gray-100 flex items-center justify-center hover:scale-110 transition-transform duration-300">
-          <svg className="w-5 h-5 sm:w-7 sm:h-7 text-[#1877F2]" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      <div className="absolute top-1/2 -translate-y-1/2 left-0 sm:left-3 z-10" style={{ animation: 'orbit-float 3s ease-in-out infinite 0.6s' }}>
+        <div className="w-9 h-9 sm:w-14 sm:h-14 bg-white rounded-lg sm:rounded-xl shadow-lg border border-gray-100 flex items-center justify-center hover:scale-110 transition-transform duration-300">
+          <svg className="w-4 h-4 sm:w-7 sm:h-7 text-[#1877F2]" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
         </div>
-        <span className="block text-center text-[8px] sm:text-[10px] text-[#5C5C5C] font-medium mt-1">Facebook</span>
+        <span className="block text-center text-[7px] sm:text-[10px] text-[#5C5C5C] font-medium mt-0.5 sm:mt-1">Facebook</span>
       </div>
 
       {/* TikTok - Middle Right */}
-      <div className="absolute top-1/2 -translate-y-1/2 right-1 sm:right-3 z-10" style={{ animation: 'orbit-float 3s ease-in-out infinite 0.9s' }}>
-        <div className="w-11 h-11 sm:w-14 sm:h-14 bg-white rounded-xl shadow-lg border border-gray-100 flex items-center justify-center hover:scale-110 transition-transform duration-300">
-          <svg className="w-5 h-5 sm:w-7 sm:h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+      <div className="absolute top-1/2 -translate-y-1/2 right-0 sm:right-3 z-10" style={{ animation: 'orbit-float 3s ease-in-out infinite 0.9s' }}>
+        <div className="w-9 h-9 sm:w-14 sm:h-14 bg-white rounded-lg sm:rounded-xl shadow-lg border border-gray-100 flex items-center justify-center hover:scale-110 transition-transform duration-300">
+          <svg className="w-4 h-4 sm:w-7 sm:h-7" viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
         </div>
-        <span className="block text-center text-[8px] sm:text-[10px] text-[#5C5C5C] font-medium mt-1">TikTok</span>
+        <span className="block text-center text-[7px] sm:text-[10px] text-[#5C5C5C] font-medium mt-0.5 sm:mt-1">TikTok</span>
       </div>
 
       {/* LinkedIn - Bottom Center */}
-      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-10" style={{ animation: 'orbit-float 3s ease-in-out infinite 1.2s' }}>
-        <div className="w-11 h-11 sm:w-14 sm:h-14 bg-white rounded-xl shadow-lg border border-gray-100 flex items-center justify-center hover:scale-110 transition-transform duration-300">
-          <svg className="w-5 h-5 sm:w-7 sm:h-7 text-[#0A66C2]" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      <div className="absolute bottom-1 sm:bottom-2 left-1/2 -translate-x-1/2 z-10" style={{ animation: 'orbit-float 3s ease-in-out infinite 1.2s' }}>
+        <div className="w-9 h-9 sm:w-14 sm:h-14 bg-white rounded-lg sm:rounded-xl shadow-lg border border-gray-100 flex items-center justify-center hover:scale-110 transition-transform duration-300">
+          <svg className="w-4 h-4 sm:w-7 sm:h-7 text-[#0A66C2]" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
         </div>
-        <span className="block text-center text-[8px] sm:text-[10px] text-[#5C5C5C] font-medium mt-1">LinkedIn</span>
+        <span className="block text-center text-[7px] sm:text-[10px] text-[#5C5C5C] font-medium mt-0.5 sm:mt-1">LinkedIn</span>
       </div>
     </div>
   )
@@ -474,42 +474,42 @@ export function EstalaraAICapabilities() {
   ]
 
   return (
-    <section className="py-20 lg:py-28 px-6 lg:px-8 bg-[#F8F6F3]">
+    <section className="py-14 sm:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-[#F8F6F3]">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#1A1A1A] max-w-3xl mx-auto text-balance leading-tight mb-5">
+        <div className="text-center mb-10 sm:mb-16">
+          <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl text-[#1A1A1A] max-w-3xl mx-auto text-balance leading-tight mb-4 sm:mb-5">
             Intelligence that works while you don't
           </h2>
-          <p className="text-[#5C5C5C] max-w-xl mx-auto text-lg leading-relaxed">
+          <p className="text-[#5C5C5C] max-w-xl mx-auto text-base sm:text-lg leading-relaxed">
             Our AI handles the heavy lifting so you can focus on what you do best: closing deals.
           </p>
         </div>
 
         {/* Capabilities Grid */}
-        <div className="grid sm:grid-cols-2 gap-6 lg:gap-8 mb-12">
+        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12">
           {capabilities.map((capability, index) => (
             <div 
               key={index}
               className="group bg-white rounded-2xl border border-[#E8E4DF] hover:border-[#D4CFC8] hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col"
             >
               {/* Mockup Area */}
-              <div className="bg-[#FAFAF9] border-b border-[#E8E4DF] min-h-[400px] sm:min-h-[440px] flex items-center justify-center">
+              <div className="bg-[#FAFAF9] border-b border-[#E8E4DF] min-h-[320px] sm:min-h-[400px] lg:min-h-[440px] flex items-center justify-center">
                 <div className="w-full h-full">
                   {capability.mockup}
                 </div>
               </div>
               
               {/* Content */}
-              <div className="p-6 flex-1">
-                <h3 className="font-serif text-xl lg:text-2xl text-[#1A1A1A] mb-2">
+              <div className="p-4 sm:p-6 flex-1">
+                <h3 className="font-serif text-lg sm:text-xl lg:text-2xl text-[#1A1A1A] mb-2">
                   {capability.title}
                 </h3>
-                <p className="text-[#5C5C5C] text-sm leading-relaxed mb-4">
+                <p className="text-[#5C5C5C] text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
                   {capability.description}
                 </p>
-                <p className="text-[#1A1A1A] text-sm font-medium flex items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E]" />
+                <p className="text-[#1A1A1A] text-xs sm:text-sm font-medium flex items-start sm:items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E] flex-shrink-0 mt-1 sm:mt-0" />
                   {capability.outcome}
                 </p>
               </div>

@@ -59,7 +59,7 @@ export function EstalaraHeader() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-[#1A1A1A]"
+            className="md:hidden p-2.5 -mr-1 text-[#1A1A1A] rounded-lg active:bg-[#E8E4DF]/50 transition-colors"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -67,20 +67,24 @@ export function EstalaraHeader() {
         </div>
 
         {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-[#E8E4DF]">
-            <nav className="flex flex-col gap-4">
+        <div
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+            isMenuOpen ? "max-h-80 opacity-100" : "max-h-0 opacity-0"
+          }`}
+        >
+          <div className="py-4 border-t border-[#E8E4DF]">
+            <nav className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="text-sm font-medium text-[#5C5C5C] hover:text-[#1A1A1A] transition-colors px-2 py-1"
+                  className="text-sm font-medium text-[#5C5C5C] hover:text-[#1A1A1A] active:text-[#1A1A1A] transition-colors px-2 py-2.5 rounded-lg hover:bg-[#E8E4DF]/50 active:bg-[#E8E4DF]/70"
                 >
                   {link.label}
                 </Link>
               ))}
-              <div className="flex items-center gap-2 pt-2">
+              <div className="flex items-center gap-2 pt-3">
                 <ShareButton variant="light" size="sm" position="below" />
                 <Button
                   asChild
@@ -91,7 +95,7 @@ export function EstalaraHeader() {
               </div>
             </nav>
           </div>
-        )}
+        </div>
       </div>
     </header>
   )

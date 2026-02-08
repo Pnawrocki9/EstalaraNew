@@ -27,9 +27,9 @@ export function EstalaraFooter() {
   }, [])
 
   return (
-    <footer className="py-8 px-6 lg:px-8 border-t border-[#E8E4DF] bg-[#F8F6F3]">
+    <footer className="py-6 sm:py-8 px-4 sm:px-6 lg:px-8 border-t border-[#E8E4DF] bg-[#F8F6F3]">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
           {/* Logo + Company */}
           <div className="flex items-center gap-2">
             <Image
@@ -80,7 +80,7 @@ export function EstalaraFooter() {
               </button>
 
               {isLegalOpen && (
-                <div className="absolute bottom-full mb-2 left-1/2 -translate-x-1/2 w-64 bg-[#1A1A1A] rounded-lg shadow-xl border border-[#2A2A2A] py-4 px-5 z-50">
+                <div className="absolute bottom-full mb-2 right-0 sm:left-1/2 sm:-translate-x-1/2 sm:right-auto w-56 sm:w-64 bg-[#1A1A1A] rounded-lg shadow-xl border border-[#2A2A2A] py-4 px-5 z-50">
                   <p className="text-xs font-semibold text-[#8B8B8B] uppercase tracking-wider mb-3">
                     Legal
                   </p>

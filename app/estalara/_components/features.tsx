@@ -144,31 +144,31 @@ export function EstalaraFeatures() {
   ]
 
   return (
-    <section id="features" className="py-16 lg:py-24 px-6 lg:px-8 bg-white">
+    <section id="features" className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12 lg:mb-16">
-          <p className="text-sm uppercase tracking-widest text-[#8B8B8B] mb-4">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <p className="text-xs sm:text-sm uppercase tracking-widest text-[#8B8B8B] mb-3 sm:mb-4">
             Features
           </p>
           <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#1A1A1A] max-w-3xl mx-auto text-balance">
             Everything you need to sell globally
           </h2>
-          <p className="text-[#5C5C5C] mt-4 max-w-xl mx-auto">
+          <p className="text-[#5C5C5C] mt-3 sm:mt-4 max-w-xl mx-auto text-sm sm:text-base">
             Powerful tools that transform how agencies connect with international investors
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
           {features.map((feature, index) => (
             <TiltCard
               key={index}
               className="group"
             >
-              <div className="bg-[#F8F6F3] rounded-2xl p-6 lg:p-8 border border-[#E8E4DF] group-hover:border-[#D4CFC8] group-hover:shadow-xl transition-all duration-300 h-full">
-                <div className="mb-6">
+              <div className="bg-[#F8F6F3] rounded-2xl p-5 sm:p-6 lg:p-8 border border-[#E8E4DF] group-hover:border-[#D4CFC8] group-hover:shadow-xl transition-all duration-300 h-full">
+                <div className="mb-4 sm:mb-6">
                   <Icon3D Icon={feature.icon} />
                 </div>
-                <h3 className="text-lg lg:text-xl font-semibold text-[#1A1A1A] mb-3">
+                <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-[#1A1A1A] mb-2 sm:mb-3">
                   {feature.title}
                 </h3>
                 <p className="text-[#5C5C5C] text-sm lg:text-base leading-relaxed">
