@@ -101,6 +101,169 @@
   will-change: background-position, opacity;
 }
 
+/* ─── Transition Type: CROSSFADE ─── */
+
+@keyframes hero-crossfade-enter {
+  0% {
+    opacity: 0;
+    transform: scale(1.03);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-crossfade-exit {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.03);
+    filter: brightness(1.15);
+  }
+}
+
+.hero-anim-crossfade-enter {
+  animation: hero-crossfade-enter 1600ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.hero-anim-crossfade-exit {
+  animation: hero-crossfade-exit 1600ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ─── Transition Type: SLIDE ─── */
+
+@keyframes hero-slide-enter {
+  0% {
+    transform: translateX(100%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes hero-slide-exit {
+  0% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-100%);
+    opacity: 1;
+  }
+}
+
+.hero-anim-slide-enter {
+  animation: hero-slide-enter 1600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.hero-anim-slide-exit {
+  animation: hero-slide-exit 1600ms cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* ─── Transition Type: CLIP REVEAL (wipe from right) ─── */
+
+@keyframes hero-clip-enter {
+  0% {
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+    opacity: 1;
+  }
+  100% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    opacity: 1;
+  }
+}
+
+@keyframes hero-clip-exit {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.hero-anim-clip-enter {
+  animation: hero-clip-enter 1600ms cubic-bezier(0.77, 0, 0.175, 1) forwards;
+}
+
+.hero-anim-clip-exit {
+  animation: hero-clip-exit 1600ms ease forwards;
+}
+
+/* ─── Transition Type: ZOOM BURST ─── */
+
+@keyframes hero-zoom-enter {
+  0% {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-zoom-exit {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+.hero-anim-zoom-enter {
+  animation: hero-zoom-enter 1600ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-anim-zoom-exit {
+  animation: hero-zoom-exit 1600ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* ─── Transition Type: BLUR DISSOLVE ─── */
+
+@keyframes hero-blur-enter {
+  0% {
+    opacity: 0;
+    filter: blur(16px) brightness(1.1);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px) brightness(1);
+  }
+}
+
+@keyframes hero-blur-exit {
+  0% {
+    opacity: 1;
+    filter: blur(0px) brightness(1);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(16px) brightness(1.2);
+  }
+}
+
+.hero-anim-blur-enter {
+  animation: hero-blur-enter 1600ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.hero-anim-blur-exit {
+  animation: hero-blur-exit 1600ms cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
 /* Subtle gradient overlay for smooth blending at edges */
 .hero-transition-overlay {
   background: linear-gradient(
@@ -125,5 +288,18 @@
 
   .hero-shimmer {
     display: none;
+  }
+
+  .hero-anim-crossfade-enter,
+  .hero-anim-crossfade-exit,
+  .hero-anim-slide-enter,
+  .hero-anim-slide-exit,
+  .hero-anim-clip-enter,
+  .hero-anim-clip-exit,
+  .hero-anim-zoom-enter,
+  .hero-anim-zoom-exit,
+  .hero-anim-blur-enter,
+  .hero-anim-blur-exit {
+    animation: none !important;
   }
 }
