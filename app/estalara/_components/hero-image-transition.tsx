@@ -17,6 +17,10 @@ const heroImages: HeroImage[] = [
     src: "/images/estalara/hero-agent-phone.jpg",
     alt: "Real estate agent showcasing property listings on mobile device",
   },
+  {
+    src: "/images/estalara/hero-agent-door.jpg",
+    alt: "Real estate agent welcoming clients at the property door",
+  },
 ]
 
 // Transition types that cycle through each image swap
