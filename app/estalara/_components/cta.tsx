@@ -7,19 +7,19 @@ import { ShareButton } from "./share-button"
 
 export function EstalaraCTA() {
   return (
-    <section id="demo" className="py-16 lg:py-24 px-6 lg:px-8 bg-[#1A1A1A]">
+    <section id="demo" className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#1A1A1A]">
       <div className="max-w-4xl mx-auto text-center">
-        <p className="text-sm uppercase tracking-widest text-[#8B8B8B] mb-4">
+        <p className="text-xs sm:text-sm uppercase tracking-widest text-[#8B8B8B] mb-3 sm:mb-4">
           Get Started
         </p>
-        <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-white mb-6 text-balance">
+        <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl text-white mb-4 sm:mb-6 text-balance">
           Ready to go LIVE and GLOBAL?
         </h2>
-        <p className="text-[#A3A3A3] text-lg mb-10 max-w-xl mx-auto">
+        <p className="text-[#A3A3A3] text-base sm:text-lg mb-8 sm:mb-10 max-w-xl mx-auto">
           Book a private demo to see how we can put your listings on global map of real estate.
         </p>
 
-        <div className="flex items-center justify-center gap-3 mb-12">
+        <div className="flex items-center justify-center gap-3 mb-8 sm:mb-12">
           <ShareButton variant="dark" />
           <Button
             asChild

@@ -232,10 +232,10 @@ export function HeroImageTransition({ children }: { children?: React.ReactNode }
       )}
 
       {/* Slide indicator dots + transition label */}
-      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
+      <div className="absolute bottom-2 sm:bottom-3 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 sm:gap-3">
         {/* Transition type label */}
         <span
-          className="text-[10px] uppercase tracking-widest text-white/50 font-medium select-none transition-opacity duration-500"
+          className="text-[8px] sm:text-[10px] uppercase tracking-widest text-white/50 font-medium select-none transition-opacity duration-500 hidden sm:inline"
           style={{ opacity: isTransitioning ? 1 : 0.4 }}
         >
           {transitionLabels[currentTransition]}
@@ -257,9 +257,10 @@ export function HeroImageTransition({ children }: { children?: React.ReactNode }
               }}
               className={`transition-all duration-500 rounded-full ${
                 index === activeIndex
-                  ? "w-6 h-2 bg-white/90"
+                  ? "w-5 sm:w-6 h-2 bg-white/90"
                   : "w-2 h-2 bg-white/40 hover:bg-white/60"
               }`}
+              style={{ minHeight: '8px', minWidth: '8px' }}
               aria-label={`Show image ${index + 1}`}
             />
           ))}

@@ -30,11 +30,11 @@ export function EstalaraSolution() {
   ]
 
   return (
-    <section id="solution" className="py-16 lg:py-24 px-6 lg:px-8">
+    <section id="solution" className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
-        <div className="text-center mb-12 lg:mb-16">
-          <p className="text-sm uppercase tracking-widest text-[#8B8B8B] mb-4">
+        <div className="text-center mb-8 sm:mb-12 lg:mb-16">
+          <p className="text-xs sm:text-sm uppercase tracking-widest text-[#8B8B8B] mb-3 sm:mb-4">
             The Solution
           </p>
           <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#1A1A1A] max-w-3xl mx-auto text-balance">
@@ -43,7 +43,7 @@ export function EstalaraSolution() {
         </div>
 
         {/* Benefits Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-12 sm:mb-20">
           <div>
             <ul className="space-y-6">
               {benefits.map((benefit, index) => (
@@ -73,25 +73,25 @@ export function EstalaraSolution() {
               />
             </div>
             {/* Stats Overlay */}
-            <div className="absolute -bottom-6 -left-6 bg-white rounded-xl p-4 shadow-lg border border-[#E8E4DF]">
-              <p className="text-2xl font-semibold text-[#1A1A1A]">34 to 19 days</p>
-              <p className="text-sm text-[#8B8B8B]">Average sales cycle reduction</p>
+            <div className="relative sm:absolute sm:-bottom-6 sm:-left-6 mt-4 sm:mt-0 bg-white rounded-xl p-3 sm:p-4 shadow-lg border border-[#E8E4DF]">
+              <p className="text-xl sm:text-2xl font-semibold text-[#1A1A1A]">34 to 19 days</p>
+              <p className="text-xs sm:text-sm text-[#8B8B8B]">Average sales cycle reduction</p>
             </div>
           </div>
         </div>
 
         {/* Steps */}
-        <div className="border-t border-[#E8E4DF] pt-16">
-          <p className="text-sm uppercase tracking-widest text-[#8B8B8B] mb-8 text-center">
+        <div className="border-t border-[#E8E4DF] pt-10 sm:pt-16">
+          <p className="text-xs sm:text-sm uppercase tracking-widest text-[#8B8B8B] mb-6 sm:mb-8 text-center">
             Global dominance in three steps
           </p>
-          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+          <div className="grid md:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
             {steps.map((step, index) => (
               <div key={index} className="relative">
-                <div className="text-6xl lg:text-8xl font-serif text-[#E8E4DF] mb-4">
+                <div className="text-5xl sm:text-6xl lg:text-8xl font-serif text-[#E8E4DF] mb-3 sm:mb-4">
                   {step.step}
                 </div>
-                <h3 className="text-lg lg:text-xl font-semibold text-[#1A1A1A] mb-3">
+                <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-[#1A1A1A] mb-2 sm:mb-3">
                   {step.title}
                 </h3>
                 <p className="text-[#5C5C5C] text-sm lg:text-base leading-relaxed">
