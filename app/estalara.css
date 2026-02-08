@@ -57,3 +57,47 @@
     background-color: transparent;
   }
 }
+
+/* ─── Hero Image Transition Animations ─── */
+
+/* Ken Burns slow zoom effect for active hero images */
+@keyframes hero-kenburns-zoom {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.08);
+  }
+}
+
+.hero-image-kenburns {
+  will-change: transform;
+  transform: scale(1);
+}
+
+.hero-image-active {
+  animation: hero-kenburns-zoom 8s cubic-bezier(0.25, 0.1, 0.25, 1) forwards;
+}
+
+/* Subtle gradient overlay for smooth blending at edges */
+.hero-transition-overlay {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    transparent 85%,
+    rgba(248, 246, 243, 0.3) 95%,
+    rgba(248, 246, 243, 0.6) 100%
+  );
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .hero-image-active {
+    animation: none;
+  }
+  
+  .hero-image-kenburns {
+    transform: scale(1) !important;
+    transition: none !important;
+  }
+}

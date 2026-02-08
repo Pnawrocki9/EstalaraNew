@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
 import { LeadIntentPanel } from "./lead-intent-panel"
 import { ShareButton } from "./share-button"
+import { HeroImageTransition } from "./hero-image-transition"
 
 export function EstalaraHero() {
   const scrollToFeatures = () => {
@@ -66,18 +67,9 @@ export function EstalaraHero() {
           </Button>
         </div>
 
-        {/* Hero Image */}
+        {/* Hero Image with Transition Effect */}
         <div className="relative max-w-5xl mx-auto">
-          <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-[#1A1A1A]/10">
-            <Image
-              src="/images/estalara/hero-live-walkthrough.jpg"
-              alt="Real estate agent conducting a LIVE property walkthrough presentation"
-              width={1200}
-              height={675}
-              className="w-full h-auto object-cover aspect-video"
-              priority
-            />
-            
+          <HeroImageTransition>
             {/* Lead Intent Score Panel - Top Left Overlay */}
             <div className="absolute top-4 left-4 sm:top-6 sm:left-6 z-10 hidden md:block">
               <LeadIntentPanel />
@@ -109,8 +101,11 @@ export function EstalaraHero() {
               </div>
             </div>
 
+            {/* Subtle gradient overlay for smooth edge blending */}
+            <div className="absolute inset-0 z-[2] hero-transition-overlay pointer-events-none" />
+
             {/* Overlay UI Elements */}
-            <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between">
+            <div className="absolute bottom-6 left-6 right-6 z-10 flex items-end justify-between">
               <div className="flex flex-col gap-2">
                 {/* Investor Flags - Above LIVE Presentation */}
                 <div className="bg-white/90 backdrop-blur-sm rounded-lg px-3 py-2 shadow-md">
@@ -188,7 +183,7 @@ export function EstalaraHero() {
                 <p className="text-xs text-[#5C5C5C] mt-1">English to German, Spanish, Mandarin</p>
               </div>
             </div>
-          </div>
+          </HeroImageTransition>
         </div>
 
         {/* Property Preview Cards */}
