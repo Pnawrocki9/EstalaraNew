@@ -138,10 +138,10 @@ export async function POST(request: Request) {
       // --- Send email notification ---
       if (notificationEmail) {
         const countryLabel = COUNTRY_LABELS[data.country] || data.country
-        // IMPORTANT: Use onboarding@resend.dev as the from address.
-        // Custom domain "from" addresses require a verified domain in Resend.
+        // The "from" address MUST use a verified domain in Resend.
+        // Our verified domain is contact.estalara.com, so we use noreply@contact.estalara.com.
         // See: https://resend.com/docs/dashboard/domains/introduction
-        const fromEmail = process.env.RESEND_FROM_EMAIL || "Estalara <onboarding@resend.dev>"
+        const fromEmail = process.env.RESEND_FROM_EMAIL || "Estalara <noreply@contact.estalara.com>"
 
         try {
           const { data: emailData, error: emailError } = await resend.emails.send({
@@ -192,14 +192,16 @@ export async function POST(request: Request) {
 
           if (emailError) {
             console.error("[book-demo] Resend email send error:", JSON.stringify(emailError))
-            console.error("[book-demo] Hint: If you see a 403/validation_error, your NOTIFICATION_EMAIL must match the Resend account owner email OR you need a verified domain. Current from:", fromEmail, "Current to:", notificationEmail)
+            console.error("[book-demo] Debug info – from:", fromEmail, "| to:", notificationEmail)
+            console.error("[book-demo] Hint: The 'from' address MUST use a verified Resend domain (e.g. noreply@contact.estalara.com). Check RESEND_FROM_EMAIL env var.")
           } else {
             emailSuccess = true
             console.log("[book-demo] Successfully sent notification email, id:", emailData?.id)
           }
         } catch (emailError: any) {
           console.error("[book-demo] Failed to send notification email:", emailError?.message || JSON.stringify(emailError))
-          console.error("[book-demo] Hint: Verify RESEND_FROM_EMAIL uses a verified domain or 'onboarding@resend.dev'. NOTIFICATION_EMAIL must be the Resend account owner email for free tier.")
+          console.error("[book-demo] Debug info – from:", fromEmail, "| to:", notificationEmail)
+          console.error("[book-demo] Hint: The 'from' address MUST use a verified Resend domain (e.g. noreply@contact.estalara.com). Check RESEND_FROM_EMAIL env var.")
         }
       } else {
         console.warn("[book-demo] NOTIFICATION_EMAIL not set – skipping email notification.")
