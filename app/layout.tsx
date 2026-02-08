@@ -36,6 +36,13 @@ export const metadata: Metadata = {
   title: "Estalara | From Local Listings to Live Global Sales",
   description:
     "The white-label platform that helps real estate agencies go beyond traditional portals by converting LIVE investor interactions into AI-qualified hot leads worldwide.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/apple-icon.png",
+  },
   alternates: {
     canonical: "/",
   },
