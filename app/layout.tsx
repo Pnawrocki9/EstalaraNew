@@ -155,6 +155,7 @@ export default function RootLayout({
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
             gtag('config', 'G-W6LV22900R');
+            gtag('config', 'G-XMTER2MDBX');
           `}
         </Script>
       </head>
