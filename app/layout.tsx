@@ -128,14 +128,6 @@ export default function RootLayout({
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
 
-        {/* Google Search Console – site ownership verification */}
-        {process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && (
-          <meta
-            name="google-site-verification"
-            content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION}
-          />
-        )}
-
         {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
