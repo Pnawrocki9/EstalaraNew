@@ -1,4 +1,6 @@
-const URLS = [
+import { articles, categories } from "../knowledge/_data/articleContent"
+
+const BASE_URLS = [
   { url: "/", priority: "1.0", changefreq: "weekly" },
   { url: "/book-demo", priority: "0.9", changefreq: "monthly" },
   { url: "/pl/dla-biur-nieruchomosci", priority: "0.8", changefreq: "monthly" },
@@ -11,6 +13,28 @@ const URLS = [
   { url: "/legal/cookies-policy", priority: "0.5", changefreq: "monthly" },
   { url: "/legal/platform-disclaimer", priority: "0.5", changefreq: "monthly" },
 ]
+
+const KNOWLEDGE_STATIC_URLS = [
+  { url: "/knowledge", priority: "0.8", changefreq: "weekly" },
+  { url: "/knowledge/research", priority: "0.8", changefreq: "monthly" },
+  { url: "/knowledge/insights", priority: "0.8", changefreq: "weekly" },
+  { url: "/knowledge/privacy", priority: "0.3", changefreq: "yearly" },
+  { url: "/knowledge/terms", priority: "0.3", changefreq: "yearly" },
+]
+
+const KNOWLEDGE_CATEGORY_URLS = categories.map((category: any) => ({
+  url: `/knowledge/insights/${category.id}`,
+  priority: "0.7",
+  changefreq: "monthly",
+}))
+
+const KNOWLEDGE_ARTICLE_URLS = Object.values(articles).map((article: any) => ({
+  url: `/knowledge/insights/${article.category}/${article.slug}`,
+  priority: "0.7",
+  changefreq: "monthly",
+}))
+
+const URLS = [...BASE_URLS, ...KNOWLEDGE_STATIC_URLS, ...KNOWLEDGE_CATEGORY_URLS, ...KNOWLEDGE_ARTICLE_URLS]
 
 export async function GET(request: Request) {
   const { origin } = new URL(request.url)
