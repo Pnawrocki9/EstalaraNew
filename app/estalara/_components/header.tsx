@@ -3,18 +3,20 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
+import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ShareButton } from "./share-button"
 
-const navLinks = [
-  { href: "#features", label: "Features" },
-  { href: "#solution", label: "How It Works" },
-  { href: "#demo", label: "Contact" },
-]
-
 export function EstalaraHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const pathname = usePathname()
+  const anchorPrefix = pathname === "/" ? "" : "/"
+  const navLinks = [
+    { href: `${anchorPrefix}#features`, label: "Features" },
+    { href: `${anchorPrefix}#solution`, label: "How It Works" },
+    { href: `${anchorPrefix}#demo`, label: "Contact" },
+  ]
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#F8F6F3]/80 backdrop-blur-md border-b border-[#E8E4DF]">
