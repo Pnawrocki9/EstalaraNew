@@ -10,7 +10,7 @@ export function KnowledgeHeader() {
     <header className="sticky top-0 z-50 bg-[#FAF8F5] border-b border-[#E8E4DE]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link href="/knowledge" className="flex items-center" data-testid="header-logo">
+          <Link href="https://www.estalara.com" className="flex items-center" data-testid="header-logo">
             <img src="/estalara-logo.png" alt="Estalara" className="h-8 w-auto" />
           </Link>
 

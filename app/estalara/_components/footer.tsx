@@ -8,6 +8,7 @@ const productLinks = [
   { name: "Features", href: "/#features" },
   { name: "How It Works", href: "/#solution" },
   { name: "AI Intelligence", href: "/#ai" },
+  { name: "Why now", href: "/knowledge" },
   { name: "Book a Demo", href: "/book-demo" },
 ]
 
