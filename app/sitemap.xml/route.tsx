@@ -1,6 +1,11 @@
 const URLS = [
   { url: "/", priority: "1.0", changefreq: "weekly" },
   { url: "/book-demo", priority: "0.9", changefreq: "monthly" },
+  { url: "/pl/dla-biur-nieruchomosci", priority: "0.8", changefreq: "monthly" },
+  { url: "/es/para-inmobiliarias", priority: "0.8", changefreq: "monthly" },
+  { url: "/uk/estate-agency-software", priority: "0.8", changefreq: "monthly" },
+  { url: "/us/real-estate-agency-software", priority: "0.8", changefreq: "monthly" },
+  { url: "/ae/real-estate-agency-software-dubai", priority: "0.8", changefreq: "monthly" },
   { url: "/legal/privacy-policy", priority: "0.5", changefreq: "monthly" },
   { url: "/legal/terms-and-conditions", priority: "0.5", changefreq: "monthly" },
   { url: "/legal/cookies-policy", priority: "0.5", changefreq: "monthly" },

@@ -2,112 +2,144 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { useState, useRef, useEffect } from "react"
-import { ChevronUp } from "lucide-react"
+
+const productLinks = [
+  { name: "Features", href: "/#features" },
+  { name: "How It Works", href: "/#solution" },
+  { name: "AI Intelligence", href: "/#ai" },
+  { name: "Book a Demo", href: "/book-demo" },
+]
 
 const legalLinks = [
   { name: "Privacy Policy", href: "/legal/privacy-policy" },
-  { name: "Terms & Conditions", href: "/legal/terms-and-conditions" },
-  { name: "Cookies Policy", href: "/legal/cookies-policy" },
-  { name: "Platform Disclaimer", href: "/legal/platform-disclaimer" },
+  { name: "Terms of Service", href: "/legal/terms-and-conditions" },
+  { name: "Cookie Policy", href: "/legal/cookies-policy" },
+]
+
+const regionLinks = [
+  { name: "Polska", href: "/pl/dla-biur-nieruchomosci" },
+  { name: "España", href: "/es/para-inmobiliarias" },
+  { name: "United Kingdom", href: "/uk/estate-agency-software" },
+  { name: "United States", href: "/us/real-estate-agency-software" },
+  { name: "Dubai", href: "/ae/real-estate-agency-software-dubai" },
 ]
 
 export function EstalaraFooter() {
-  const [isLegalOpen, setIsLegalOpen] = useState(false)
-  const legalRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (legalRef.current && !legalRef.current.contains(event.target as Node)) {
-        setIsLegalOpen(false)
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => document.removeEventListener("mousedown", handleClickOutside)
-  }, [])
-
   return (
-    <footer className="py-6 sm:py-8 px-4 sm:px-6 lg:px-8 border-t border-[#E8E4DF] bg-[#F8F6F3]">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
-          {/* Logo + Company */}
-          <div className="flex items-center gap-2">
-            <Image
-              src="/images/estalara/estalara-logo.svg"
-              alt="Estalara"
-              width={110}
-              height={34}
-              className="h-7 w-auto"
-            />
-            <span className="text-[#8B8B8B] text-sm">by Time2Show, Inc.</span>
+    <footer className="bg-[#FAFAF9] border-t border-[#E4E4E7]/50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+        {/* Main Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-8">
+          {/* Logo + Tagline + Email */}
+          <div className="sm:col-span-2 lg:col-span-2">
+            <div className="flex items-center">
+              <Image
+                src="/images/estalara/estalara-logo.svg"
+                alt="Estalara"
+                width={110}
+                height={34}
+                className="h-7 w-auto"
+              />
+            </div>
+            <p className="text-sm text-[#A1A1AA] mt-3 max-w-xs leading-relaxed">
+              From Local Listings to Live Global Sales
+            </p>
+            <a
+              href="mailto:estalara@estalara.com"
+              className="text-sm text-[#C9A66B] hover:text-[#B8923D] transition-colors duration-200 mt-4 inline-block font-medium"
+            >
+              estalara@estalara.com
+            </a>
           </div>
 
-          {/* Center: LinkedIn + Legal */}
-          <div className="flex items-center gap-6">
-            {/* LinkedIn */}
+          {/* Product */}
+          <div>
+            <h4 className="text-xs font-semibold text-[#18181B] uppercase tracking-[0.15em] mb-4">
+              Product
+            </h4>
+            <ul className="space-y-3">
+              {productLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-[#A1A1AA] hover:text-[#18181B] transition-colors duration-200"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h4 className="text-xs font-semibold text-[#18181B] uppercase tracking-[0.15em] mb-4">
+              Legal
+            </h4>
+            <ul className="space-y-3">
+              {legalLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-[#A1A1AA] hover:text-[#18181B] transition-colors duration-200"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Regions */}
+          <div>
+            <h4 className="text-xs font-semibold text-[#18181B] uppercase tracking-[0.15em] mb-4">
+              Regions
+            </h4>
+            <ul className="space-y-3">
+              {regionLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-sm text-[#A1A1AA] hover:text-[#18181B] transition-colors duration-200"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Separator */}
+        <div className="my-10 h-px bg-[#E4E4E7]/50" />
+
+        {/* Bottom Row */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-[#A1A1AA] text-center sm:text-left">
+            &copy; {new Date().getFullYear()} Time2Show, Inc. All rights reserved.
+          </p>
+          <div className="flex items-center gap-4 sm:gap-6 flex-wrap justify-center">
             <a
               href="https://www.linkedin.com/company/estalara/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm text-[#5C5C5C] hover:text-[#0A66C2] transition-colors"
-              aria-label="Estalara on LinkedIn"
+              className="text-[10px] text-[#A1A1AA] hover:text-[#18181B] transition-colors duration-200 uppercase tracking-wider font-medium"
             >
-              <svg
-                className="w-5 h-5"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-              >
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-              </svg>
-              <span className="hidden sm:inline">LinkedIn</span>
+              LinkedIn
             </a>
-
-            {/* Legal Dropdown */}
-            <div className="relative" ref={legalRef}>
-              <button
-                onClick={() => setIsLegalOpen(!isLegalOpen)}
-                className="flex items-center gap-1.5 text-sm text-[#5C5C5C] hover:text-[#1A1A1A] transition-colors"
-                aria-expanded={isLegalOpen}
-                aria-haspopup="true"
-              >
-                Legal
-                <ChevronUp
-                  className={`w-4 h-4 transition-transform duration-200 ${
-                    isLegalOpen ? "" : "rotate-180"
-                  }`}
-                />
-              </button>
-
-              {isLegalOpen && (
-                <div className="absolute bottom-full mb-2 right-0 sm:left-1/2 sm:-translate-x-1/2 sm:right-auto w-56 sm:w-64 bg-[#1A1A1A] rounded-lg shadow-xl border border-[#2A2A2A] py-4 px-5 z-50">
-                  <p className="text-xs font-semibold text-[#8B8B8B] uppercase tracking-wider mb-3">
-                    Legal
-                  </p>
-                  <nav className="flex flex-col gap-2">
-                    {legalLinks.map((link, index) => (
-                      <Link
-                        key={link.name}
-                        href={link.href}
-                        className={`text-sm transition-colors ${
-                          index === 0
-                            ? "text-white font-semibold hover:text-[#C9A96E]"
-                            : "text-[#8B8B8B] hover:text-white"
-                        }`}
-                      >
-                        {link.name}
-                      </Link>
-                    ))}
-                  </nav>
-                </div>
-              )}
-            </div>
+            <Link
+              href="/legal/privacy-policy"
+              className="text-[10px] text-[#A1A1AA] hover:text-[#18181B] transition-colors duration-200 uppercase tracking-wider font-medium"
+            >
+              Privacy
+            </Link>
+            <Link
+              href="/legal/terms-and-conditions"
+              className="text-[10px] text-[#A1A1AA] hover:text-[#18181B] transition-colors duration-200 uppercase tracking-wider font-medium"
+            >
+              Terms
+            </Link>
           </div>
-
-          {/* Copyright */}
-          <p className="text-xs text-[#8B8B8B]">
-            {new Date().getFullYear()} Time2Show, Inc. All rights reserved.
-          </p>
         </div>
       </div>
     </footer>
