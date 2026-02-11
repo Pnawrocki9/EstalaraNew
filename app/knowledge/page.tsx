@@ -32,14 +32,14 @@ export default function KnowledgeHomePage() {
               className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-white bg-[#1A1A1A] rounded-full hover:bg-[#2A2A2A] transition-colors"
               data-testid="explore-research-btn"
             >
-              Explore the Research
+              Key Signals
             </Link>
             <Link
               href="/knowledge/insights"
               className="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-[#1A1A1A] border border-[#1A1A1A] rounded-full hover:bg-[#1A1A1A] hover:text-white transition-colors"
               data-testid="browse-insights-btn"
             >
-              Browse Insights
+              Research
             </Link>
           </div>
         </div>
