@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
+import { Linkedin } from "lucide-react"
 
 const productLinks = [
   { name: "Features", href: "/#features" },
@@ -123,22 +124,11 @@ export function EstalaraFooter() {
               href="https://www.linkedin.com/company/estalara/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[10px] text-[#A1A1AA] hover:text-[#18181B] transition-colors duration-200 uppercase tracking-wider font-medium"
+              className="inline-flex items-center gap-1.5 text-[10px] text-[#A1A1AA] hover:text-[#18181B] transition-colors duration-200 uppercase tracking-wider font-medium"
             >
+              <Linkedin className="h-3.5 w-3.5" aria-hidden="true" />
               LinkedIn
             </a>
-            <Link
-              href="/legal/privacy-policy"
-              className="text-[10px] text-[#A1A1AA] hover:text-[#18181B] transition-colors duration-200 uppercase tracking-wider font-medium"
-            >
-              Privacy
-            </Link>
-            <Link
-              href="/legal/terms-and-conditions"
-              className="text-[10px] text-[#A1A1AA] hover:text-[#18181B] transition-colors duration-200 uppercase tracking-wider font-medium"
-            >
-              Terms
-            </Link>
           </div>
         </div>
       </div>
