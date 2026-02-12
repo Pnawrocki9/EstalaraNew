@@ -10,7 +10,7 @@ export function KnowledgeHeader() {
     <header className="sticky top-0 z-50 bg-[#FAF8F5] border-b border-[#E8E4DE]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          <Link href="https://www.estalara.com" className="flex items-center" data-testid="header-logo">
+          <Link href="/" className="flex items-center" data-testid="header-logo">
             <img src="/estalara-logo.png" alt="Estalara" className="h-8 w-auto" />
           </Link>
 
@@ -29,15 +29,13 @@ export function KnowledgeHeader() {
             >
               Research
             </Link>
-            <a
-              href="https://estalara.com/book-demo"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/book-demo"
               className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-[#1A1A1A] rounded-full hover:bg-[#2A2A2A] transition-colors"
               data-testid="book-demo-btn"
             >
               Book a Demo
-            </a>
+            </Link>
           </nav>
 
           <button
@@ -98,14 +96,12 @@ export function KnowledgeHeader() {
               >
                 Research
               </Link>
-              <a
-                href="https://estalara.com/book-demo"
-                target="_blank"
-                rel="noopener noreferrer"
+              <Link
+                href="/book-demo"
                 className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white bg-[#1A1A1A] rounded-full hover:bg-[#2A2A2A] transition-colors mx-2"
               >
                 Book a Demo
-              </a>
+              </Link>
             </nav>
           </div>
         )}

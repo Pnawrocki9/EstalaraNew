@@ -1,6 +1,5 @@
 import type { Metadata } from "next"
-
-const SITE_URL = "https://www.estalara.com"
+import { SITE_URL } from "@/lib/site"
 
 type KnowledgeMetadataInput = {
   title: string

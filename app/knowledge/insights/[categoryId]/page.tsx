@@ -1,5 +1,6 @@
 import Link from "next/link"
 import type { Metadata } from "next"
+import { notFound } from "next/navigation"
 
 import { articles, categories } from "../../_data/articleContent"
 import { buildKnowledgeMetadata } from "../../_lib/metadata"
@@ -15,6 +16,8 @@ export function generateStaticParams() {
     categoryId: category.id,
   }))
 }
+
+export const dynamicParams = false
 
 export function generateMetadata({ params }: CategoryPageProps): Metadata {
   const category = categories.find((item: any) => item.id === params.categoryId)
@@ -38,14 +41,7 @@ export default function CategoryPage({ params }: CategoryPageProps) {
   const categoryArticles = Object.values(articles).filter((article: any) => article.category === params.categoryId) as any[]
 
   if (!category) {
-    return (
-      <div className="py-16 px-4 text-center">
-        <h1 className="font-serif text-3xl mb-4">Category Not Found</h1>
-        <Link href="/knowledge/insights" className="text-[#1A1A1A] underline">
-          Back to Insights
-        </Link>
-      </div>
-    )
+    notFound()
   }
 
   return (

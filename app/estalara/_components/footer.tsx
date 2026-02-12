@@ -16,6 +16,7 @@ const legalLinks = [
   { name: "Privacy Policy", href: "/legal/privacy-policy" },
   { name: "Terms of Service", href: "/legal/terms-and-conditions" },
   { name: "Cookie Policy", href: "/legal/cookies-policy" },
+  { name: "Platform Disclaimer", href: "/legal/platform-disclaimer" },
 ]
 
 const regionLinks = [

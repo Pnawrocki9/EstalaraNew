@@ -6,6 +6,7 @@ import { Inter, Playfair_Display } from "next/font/google"
 import Script from "next/script"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { Analytics } from "@vercel/analytics/react"
+import { SITE_URL } from "@/lib/site"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -19,26 +20,11 @@ const playfair = Playfair_Display({
   variable: "--font-playfair",
 })
 
-function getMetadataBaseUrl() {
-  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
-    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  }
-  if (process.env.VERCEL_URL) {
-    return `https://${process.env.VERCEL_URL}`
-  }
-  return "http://localhost:3000"
-}
-
-const siteUrl = getMetadataBaseUrl()
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: "Estalara | From Local Listings to Live Global Sales",
   description:
     "The white-label platform that helps real estate agencies go beyond traditional portals by converting LIVE investor interactions into AI-qualified hot leads worldwide.",
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     title: "Estalara - From Local Listings to Live Global Sales",
     description:
@@ -78,8 +64,8 @@ const organizationJsonLd = {
   "@type": "Organization",
   name: "Estalara",
   legalName: "Time2Show, Inc.",
-  url: siteUrl,
-  logo: `${siteUrl}/images/estalara/estalara-logo.svg`,
+  url: SITE_URL,
+  logo: `${SITE_URL}/images/estalara/estalara-logo.svg`,
   description:
     "The white-label platform that helps real estate agencies go beyond traditional portals by converting LIVE investor interactions into AI-qualified hot leads worldwide.",
   address: {

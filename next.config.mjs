@@ -6,15 +6,19 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  images: {
-    unoptimized: true,
-  },
 
   // 301 redirects — old static HTML pages from the previous website.
   // Tells Google these pages have permanently moved, so it drops them
   // from the index and transfers any SEO value to the new URLs.
   async redirects() {
     return [
+      // Force a single canonical host to consolidate ranking signals.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "estalara.com" }],
+        destination: "https://www.estalara.com/:path*",
+        permanent: true,
+      },
       { source: "/about.html", destination: "/", permanent: true },
       { source: "/pricing.html", destination: "/book-demo", permanent: true },
       { source: "/faq.html", destination: "/", permanent: true },

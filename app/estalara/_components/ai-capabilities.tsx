@@ -474,7 +474,7 @@ export function EstalaraAICapabilities() {
   ]
 
   return (
-    <section className="py-14 sm:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-[#F8F6F3]">
+    <section id="ai" className="py-14 sm:py-20 lg:py-28 px-4 sm:px-6 lg:px-8 bg-[#F8F6F3]">
       <div className="max-w-6xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-10 sm:mb-16">

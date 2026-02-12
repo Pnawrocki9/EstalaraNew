@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { EstalaraHeader } from "@/app/estalara/_components/header"
 import { EstalaraFooter } from "@/app/estalara/_components/footer"
 import { RegionLandingPage, type RegionLandingContent } from "@/app/estalara/_components/region-landing-page"
+import { HOMEPAGE_LANGUAGE_ALTERNATES } from "@/lib/site"
 
 const content: RegionLandingContent = {
   cta: "Book a demo",
@@ -106,6 +107,7 @@ export const metadata: Metadata = {
     "real estate agency software, real estate marketing platform, real estate lead generation, property marketing software, tools for real estate brokers",
   alternates: {
     canonical: "/us/real-estate-agency-software",
+    languages: HOMEPAGE_LANGUAGE_ALTERNATES,
   },
   openGraph: {
     title: "Real Estate Agency Software | Estalara",
@@ -119,7 +121,7 @@ export default function USLandingPage() {
   return (
     <div className="min-h-screen bg-[#FAFAF9]">
       <EstalaraHeader />
-      <main>
+      <main lang="en-US">
         <RegionLandingPage content={content} />
       </main>
       <EstalaraFooter />
