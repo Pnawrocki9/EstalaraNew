@@ -1,14 +1,238 @@
 import Link from "next/link"
 import type { Metadata } from "next"
+import { notFound } from "next/navigation"
+import type { ReactNode } from "react"
 
 import { articles, categories } from "../../../_data/articleContent"
 import { buildKnowledgeMetadata } from "../../../_lib/metadata"
+import { toAbsoluteUrl } from "@/lib/site"
 
 type ArticlePageProps = {
   params: {
     categoryId: string
     slug: string
   }
+}
+
+type TableData = {
+  headers: string[]
+  rows: string[][]
+}
+
+const monthMap: Record<string, number> = {
+  january: 0,
+  february: 1,
+  march: 2,
+  april: 3,
+  may: 4,
+  june: 5,
+  july: 6,
+  august: 7,
+  september: 8,
+  october: 9,
+  november: 10,
+  december: 11,
+}
+
+function toIsoDate(rawDate: string | undefined): string | undefined {
+  if (!rawDate || !rawDate.trim()) return undefined
+
+  const value = rawDate.trim()
+
+  if (/^\d{4}-\d{2}-\d{2}/.test(value)) {
+    const parsed = new Date(value)
+    return Number.isNaN(parsed.getTime()) ? undefined : parsed.toISOString()
+  }
+
+  const [monthText, yearText] = value.split(/\s+/)
+  const month = monthMap[monthText?.toLowerCase()]
+  const year = Number.parseInt(yearText ?? "", 10)
+  if (month === undefined || Number.isNaN(year)) return undefined
+
+  return new Date(Date.UTC(year, month, 1)).toISOString()
+}
+
+function parseTableRow(line: string): string[] {
+  return line
+    .trim()
+    .replace(/^\|/, "")
+    .replace(/\|$/, "")
+    .split("|")
+    .map((cell) => cell.trim())
+}
+
+function isTableSeparator(line: string): boolean {
+  const cells = parseTableRow(line)
+  return cells.length > 0 && cells.every((cell) => /^:?-{3,}:?$/.test(cell.replace(/\s+/g, "")))
+}
+
+function parseMarkdownTable(lines: string[], startIndex: number): { table: TableData; nextIndex: number } {
+  const tableLines: string[] = []
+  let index = startIndex
+
+  while (index < lines.length && lines[index].trim().startsWith("|")) {
+    tableLines.push(lines[index].trim())
+    index += 1
+  }
+
+  const headerLine = tableLines[0] ?? ""
+  const separatorOffset = tableLines[1] && isTableSeparator(tableLines[1]) ? 2 : 1
+  const rowLines = tableLines.slice(separatorOffset)
+
+  return {
+    table: {
+      headers: parseTableRow(headerLine),
+      rows: rowLines.map(parseTableRow),
+    },
+    nextIndex: index,
+  }
+}
+
+function renderArticleContent(content: string): ReactNode[] {
+  const lines = content.split("\n")
+  const blocks: ReactNode[] = []
+  let index = 0
+
+  while (index < lines.length) {
+    const rawLine = lines[index]
+    const line = rawLine.trim()
+
+    if (!line) {
+      index += 1
+      continue
+    }
+
+    if (line.startsWith("```")) {
+      const codeLines: string[] = []
+      index += 1
+      while (index < lines.length && !lines[index].trim().startsWith("```")) {
+        codeLines.push(lines[index])
+        index += 1
+      }
+      if (index < lines.length) {
+        index += 1
+      }
+      blocks.push(
+        <pre key={`code-${blocks.length}`} className="my-6 overflow-x-auto rounded-lg bg-[#1A1A1A] p-4 text-sm text-white">
+          <code>{codeLines.join("\n")}</code>
+        </pre>,
+      )
+      continue
+    }
+
+    if (line.startsWith("## ")) {
+      blocks.push(
+        <h2 key={`h2-${blocks.length}`} className="font-serif text-2xl mt-10 mb-4 text-[#1A1A1A]">
+          {line.replace("## ", "")}
+        </h2>,
+      )
+      index += 1
+      continue
+    }
+
+    if (line.startsWith("### ")) {
+      blocks.push(
+        <h3 key={`h3-${blocks.length}`} className="font-serif text-xl mt-8 mb-3 text-[#1A1A1A]">
+          {line.replace("### ", "")}
+        </h3>,
+      )
+      index += 1
+      continue
+    }
+
+    if (line.startsWith("|")) {
+      const { table, nextIndex } = parseMarkdownTable(lines, index)
+      blocks.push(
+        <div key={`table-${blocks.length}`} className="my-6 overflow-x-auto">
+          <table className="min-w-full border-collapse text-sm">
+            <thead>
+              <tr className="border-b border-[#D9D6D0] bg-[#F5F3F0]">
+                {table.headers.map((header, headerIdx) => (
+                  <th key={`th-${headerIdx}`} className="px-3 py-2 text-left font-semibold text-[#1A1A1A]">
+                    {header}
+                  </th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {table.rows.map((row, rowIdx) => (
+                <tr key={`row-${rowIdx}`} className="border-b border-[#EEEAE3]">
+                  {row.map((cell, cellIdx) => (
+                    <td key={`cell-${rowIdx}-${cellIdx}`} className="px-3 py-2 align-top">
+                      {cell}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>,
+      )
+      index = nextIndex
+      continue
+    }
+
+    if (line.startsWith("- ")) {
+      const items: string[] = []
+      while (index < lines.length && lines[index].trim().startsWith("- ")) {
+        items.push(lines[index].trim().replace("- ", ""))
+        index += 1
+      }
+      blocks.push(
+        <ul key={`ul-${blocks.length}`} className="my-4 list-disc pl-6 space-y-2">
+          {items.map((item, itemIdx) => (
+            <li key={`ul-item-${itemIdx}`}>{item}</li>
+          ))}
+        </ul>,
+      )
+      continue
+    }
+
+    if (/^\d+\.\s/.test(line)) {
+      const items: string[] = []
+      while (index < lines.length && /^\d+\.\s/.test(lines[index].trim())) {
+        items.push(lines[index].trim().replace(/^\d+\.\s/, ""))
+        index += 1
+      }
+      blocks.push(
+        <ol key={`ol-${blocks.length}`} className="my-4 list-decimal pl-6 space-y-2">
+          {items.map((item, itemIdx) => (
+            <li key={`ol-item-${itemIdx}`}>{item}</li>
+          ))}
+        </ol>,
+      )
+      continue
+    }
+
+    if (line.startsWith("*Source:") || line.startsWith("*Based on")) {
+      blocks.push(
+        <p key={`source-${blocks.length}`} className="text-sm text-[#6A6A6A] italic my-4">
+          {line.replace(/^\*/, "").replace(/\*$/, "")}
+        </p>,
+      )
+      index += 1
+      continue
+    }
+
+    if (line.startsWith("**") && line.endsWith("**")) {
+      blocks.push(
+        <p key={`strong-${blocks.length}`} className="font-semibold my-4">
+          {line.replace(/\*\*/g, "")}
+        </p>,
+      )
+      index += 1
+      continue
+    }
+
+    blocks.push(
+      <p key={`p-${blocks.length}`} className="my-4">
+        {line}
+      </p>,
+    )
+    index += 1
+  }
+
+  return blocks
 }
 
 function SocialShare({ title, url }: { title: string; url: string }) {
@@ -83,9 +307,11 @@ export function generateStaticParams() {
   }))
 }
 
+export const dynamicParams = false
+
 export function generateMetadata({ params }: ArticlePageProps): Metadata {
   const article = (articles as any)[params.slug]
-  if (!article) {
+  if (!article || article.category !== params.categoryId) {
     return buildKnowledgeMetadata({
       title: "Article Not Found | Estalara Knowledge",
       description: "The requested article could not be found.",
@@ -96,29 +322,87 @@ export function generateMetadata({ params }: ArticlePageProps): Metadata {
   return buildKnowledgeMetadata({
     title: `${article.title} | Estalara Knowledge`,
     description: article.excerpt,
-    path: `/knowledge/insights/${params.categoryId}/${params.slug}`,
+    path: `/knowledge/insights/${article.category}/${article.slug}`,
   })
 }
 
 export default function ArticlePage({ params }: ArticlePageProps) {
   const article = (articles as any)[params.slug]
-  const relatedArticles = article?.relatedArticles?.map((relSlug: string) => (articles as any)[relSlug]).filter(Boolean).slice(0, 4) || []
-  const category = categories.find((item: any) => item.id === params.categoryId) as any
-  const shareUrl = `https://www.estalara.com/knowledge/insights/${params.categoryId}/${params.slug}`
+  if (!article || article.category !== params.categoryId) {
+    notFound()
+  }
 
-  if (!article) {
-    return (
-      <div className="py-16 px-4 text-center">
-        <h1 className="font-serif text-3xl mb-4">Article Not Found</h1>
-        <Link href="/knowledge/insights" className="text-[#1A1A1A] underline">
-          Back to Insights
-        </Link>
-      </div>
-    )
+  const relatedArticles = article.relatedArticles?.map((relSlug: string) => (articles as any)[relSlug]).filter(Boolean).slice(0, 4) || []
+  const category = categories.find((item: any) => item.id === article.category) as any
+  const sharePath = `/knowledge/insights/${article.category}/${article.slug}`
+  const shareUrl = toAbsoluteUrl(sharePath)
+  const publishedIso = toIsoDate(article.publishedDate)
+  const updatedIso = toIsoDate(article.updatedDate || article.publishedDate)
+
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.excerpt,
+    author: {
+      "@type": "Organization",
+      name: "Estalara Research",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Estalara",
+      logo: {
+        "@type": "ImageObject",
+        url: toAbsoluteUrl("/images/estalara/estalara-logo.svg"),
+      },
+    },
+    datePublished: publishedIso,
+    dateModified: updatedIso || publishedIso,
+    mainEntityOfPage: shareUrl,
+    keywords: Array.isArray(article.tags) ? article.tags.join(", ") : undefined,
+  }
+
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: toAbsoluteUrl("/"),
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Knowledge",
+        item: toAbsoluteUrl("/knowledge"),
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Insights",
+        item: toAbsoluteUrl("/knowledge/insights"),
+      },
+      {
+        "@type": "ListItem",
+        position: 4,
+        name: category?.title || "Category",
+        item: toAbsoluteUrl(`/knowledge/insights/${article.category}`),
+      },
+      {
+        "@type": "ListItem",
+        position: 5,
+        name: article.title,
+        item: shareUrl,
+      },
+    ],
   }
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <article className="py-12 px-4" data-testid="article-page">
         <div className="max-w-3xl mx-auto">
           <nav className="mb-8" data-testid="article-breadcrumb">
@@ -159,61 +443,7 @@ export default function ArticlePage({ params }: ArticlePageProps) {
 
           <div className="prose prose-lg max-w-none" data-testid="article-content">
             <div className="article-content text-[#2A2A2A] leading-relaxed">
-              {article.content.split("\n").map((paragraph: string, idx: number) => {
-                if (paragraph.startsWith("## ")) {
-                  return (
-                    <h2 key={idx} className="font-serif text-2xl mt-10 mb-4 text-[#1A1A1A]">
-                      {paragraph.replace("## ", "")}
-                    </h2>
-                  )
-                }
-                if (paragraph.startsWith("### ")) {
-                  return (
-                    <h3 key={idx} className="font-serif text-xl mt-8 mb-3 text-[#1A1A1A]">
-                      {paragraph.replace("### ", "")}
-                    </h3>
-                  )
-                }
-                if (paragraph.startsWith("**") && paragraph.endsWith("**")) {
-                  return (
-                    <p key={idx} className="font-semibold my-4">
-                      {paragraph.replace(/\*\*/g, "")}
-                    </p>
-                  )
-                }
-                if (paragraph.startsWith("| ")) {
-                  return null
-                }
-                if (paragraph.startsWith("- ")) {
-                  return (
-                    <li key={idx} className="ml-6 mb-2">
-                      {paragraph.replace("- ", "")}
-                    </li>
-                  )
-                }
-                if (paragraph.startsWith("1. ") || paragraph.startsWith("2. ") || paragraph.startsWith("3. ")) {
-                  return (
-                    <li key={idx} className="ml-6 mb-2 list-decimal">
-                      {paragraph.replace(/^\d+\. /, "")}
-                    </li>
-                  )
-                }
-                if (paragraph.trim() === "") {
-                  return null
-                }
-                if (paragraph.startsWith("*Source:") || paragraph.startsWith("*Based on")) {
-                  return (
-                    <p key={idx} className="text-sm text-[#6A6A6A] italic my-4">
-                      {paragraph.replace(/^\*/, "").replace(/\*$/, "")}
-                    </p>
-                  )
-                }
-                return (
-                  <p key={idx} className="my-4">
-                    {paragraph}
-                  </p>
-                )
-              })}
+              {renderArticleContent(article.content)}
             </div>
           </div>
 
@@ -285,15 +515,13 @@ export default function ArticlePage({ params }: ArticlePageProps) {
           <p className="text-[#4A4A4A] mb-8">
             See how Estalara helps real estate professionals leverage live presentations and behavioral analytics.
           </p>
-          <a
-            href="https://estalara.com/book-demo"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/book-demo"
             className="inline-flex items-center justify-center px-8 py-3 text-sm font-medium text-white bg-[#1A1A1A] rounded-full hover:bg-[#2A2A2A] transition-colors"
             data-testid="article-book-demo"
           >
             Book a Demo
-          </a>
+          </Link>
         </div>
       </section>
     </>

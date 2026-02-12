@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { EstalaraHeader } from "@/app/estalara/_components/header"
 import { EstalaraFooter } from "@/app/estalara/_components/footer"
 import { RegionLandingPage, type RegionLandingContent } from "@/app/estalara/_components/region-landing-page"
+import { HOMEPAGE_LANGUAGE_ALTERNATES } from "@/lib/site"
 
 const content: RegionLandingContent = {
   cta: "Umów demo",
@@ -106,6 +107,7 @@ export const metadata: Metadata = {
     "oprogramowanie dla biur nieruchomości, marketing nieruchomości dla biur, pozyskiwanie leadów nieruchomości, prezentacja ofert nieruchomości online, narzędzia dla agencji nieruchomości",
   alternates: {
     canonical: "/pl/dla-biur-nieruchomosci",
+    languages: HOMEPAGE_LANGUAGE_ALTERNATES,
   },
   openGraph: {
     title: "Oprogramowanie dla biur nieruchomości | Estalara",
@@ -119,7 +121,7 @@ export default function PolandLandingPage() {
   return (
     <div className="min-h-screen bg-[#FAFAF9]">
       <EstalaraHeader />
-      <main>
+      <main lang="pl-PL">
         <RegionLandingPage content={content} />
       </main>
       <EstalaraFooter />

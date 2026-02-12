@@ -15,7 +15,7 @@ export function EstalaraHeader() {
   const navLinks = [
     { href: `${anchorPrefix}#features`, label: "Features" },
     { href: `${anchorPrefix}#solution`, label: "How It Works" },
-    { href: "https://www.estalara.com/knowledge", label: "Why now" },
+    { href: "/knowledge", label: "Why now" },
     { href: `${anchorPrefix}#demo`, label: "Contact" },
   ]
 

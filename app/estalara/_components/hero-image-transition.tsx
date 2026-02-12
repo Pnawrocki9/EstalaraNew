@@ -194,7 +194,7 @@ export function HeroImageTransition({ children }: { children?: React.ReactNode }
                 width={1200}
                 height={675}
                 className={`w-full h-full object-cover hero-image-kenburns ${isActive && !isTransitioning ? "hero-image-active" : ""}`}
-                priority
+                priority={index === 0}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1024px"
               />
             </div>

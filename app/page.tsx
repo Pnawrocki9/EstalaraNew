@@ -9,24 +9,14 @@ import { EstalaraVision } from "./estalara/_components/vision"
 import { EstalaraCTA } from "./estalara/_components/cta"
 import { EstalaraHeader } from "./estalara/_components/header"
 import { EstalaraFooter } from "./estalara/_components/footer"
+import { HOMEPAGE_LANGUAGE_ALTERNATES, SITE_URL } from "@/lib/site"
 
 export const metadata: Metadata = {
   alternates: {
     canonical: "/",
+    languages: HOMEPAGE_LANGUAGE_ALTERNATES,
   },
 }
-
-function getMetadataBaseUrl() {
-  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
-    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  }
-  if (process.env.VERCEL_URL) {
-    return `https://${process.env.VERCEL_URL}`
-  }
-  return "http://localhost:3000"
-}
-
-const siteUrl = getMetadataBaseUrl()
 
 const breadcrumbJsonLd = {
   "@context": "https://schema.org",
@@ -36,7 +26,7 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: siteUrl,
+      item: SITE_URL,
     },
   ],
 }

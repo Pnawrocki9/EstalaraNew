@@ -168,10 +168,8 @@ export default function KnowledgeHomePage() {
             authentic, data-informed client engagement.
           </p>
           <div className="text-center">
-            <a
-              href="https://estalara.com"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/"
               className="inline-flex items-center text-sm text-[#1A1A1A] font-medium hover:underline"
               data-testid="learn-about-estalara"
             >
@@ -190,7 +188,7 @@ export default function KnowledgeHomePage() {
               >
                 <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3" />
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
       </section>

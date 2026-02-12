@@ -1,17 +1,6 @@
 import type { Metadata } from "next"
 import type React from "react"
-
-function getMetadataBaseUrl() {
-  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
-    return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
-  }
-  if (process.env.VERCEL_URL) {
-    return `https://${process.env.VERCEL_URL}`
-  }
-  return "http://localhost:3000"
-}
-
-const siteUrl = getMetadataBaseUrl()
+import { SITE_URL } from "@/lib/site"
 
 export const metadata: Metadata = {
   title: "Book a Demo | Estalara - See LIVE Global Property Presentations",
@@ -36,13 +25,13 @@ const breadcrumbJsonLd = {
       "@type": "ListItem",
       position: 1,
       name: "Home",
-      item: siteUrl,
+      item: SITE_URL,
     },
     {
       "@type": "ListItem",
       position: 2,
       name: "Book a Demo",
-      item: `${siteUrl}/book-demo`,
+      item: `${SITE_URL}/book-demo`,
     },
   ],
 }

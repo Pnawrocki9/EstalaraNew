@@ -11,7 +11,7 @@ function getBaseUrl() {
   if (typeof window !== "undefined") {
     return window.location.origin
   }
-  return "https://estalara.com"
+  return "https://www.estalara.com"
 }
 
 interface ShareButtonProps {

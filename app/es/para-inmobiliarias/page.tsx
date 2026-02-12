@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { EstalaraHeader } from "@/app/estalara/_components/header"
 import { EstalaraFooter } from "@/app/estalara/_components/footer"
 import { RegionLandingPage, type RegionLandingContent } from "@/app/estalara/_components/region-landing-page"
+import { HOMEPAGE_LANGUAGE_ALTERNATES } from "@/lib/site"
 
 const content: RegionLandingContent = {
   cta: "Solicitar demostración",
@@ -106,6 +107,7 @@ export const metadata: Metadata = {
     "software para inmobiliarias, marketing inmobiliario digital, captación de leads inmobiliarios, páginas web para propiedades, herramientas para agencias inmobiliarias",
   alternates: {
     canonical: "/es/para-inmobiliarias",
+    languages: HOMEPAGE_LANGUAGE_ALTERNATES,
   },
   openGraph: {
     title: "Software para inmobiliarias | Estalara",
@@ -119,7 +121,7 @@ export default function SpainLandingPage() {
   return (
     <div className="min-h-screen bg-[#FAFAF9]">
       <EstalaraHeader />
-      <main>
+      <main lang="es-ES">
         <RegionLandingPage content={content} />
       </main>
       <EstalaraFooter />
