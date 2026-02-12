@@ -1,4 +1,4 @@
-const DEFAULT_SITE_URL = "https://www.estalara.com"
+const DEFAULT_SITE_URL = "https://estalara.com"
 
 function normalizeSiteUrl(value: string): string {
   const trimmed = value.trim()
