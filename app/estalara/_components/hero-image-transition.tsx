@@ -6,6 +6,7 @@ import { useEffect, useState, useCallback, useRef } from "react"
 interface HeroImage {
   src: string
   alt: string
+  objectPosition?: string
 }
 
 const heroImages: HeroImage[] = [
@@ -16,6 +17,7 @@ const heroImages: HeroImage[] = [
   {
     src: "/images/estalara/hero-agent-phone.jpg",
     alt: "Real estate agent showcasing property listings on mobile device",
+    objectPosition: "50% 30%",
   },
   {
     src: "/images/estalara/hero-agent-door.jpg",
@@ -194,6 +196,7 @@ export function HeroImageTransition({ children }: { children?: React.ReactNode }
                 width={1200}
                 height={675}
                 className={`w-full h-full object-cover hero-image-kenburns ${isActive && !isTransitioning ? "hero-image-active" : ""}`}
+                style={image.objectPosition ? { objectPosition: image.objectPosition } : undefined}
                 priority={index === 0}
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1024px"
               />
