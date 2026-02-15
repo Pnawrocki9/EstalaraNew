@@ -199,3 +199,12 @@
   z-index: 2147483646 !important;
   position: fixed !important;
 }
+
+/* Mobile: the body sets touch-action:manipulation which is inherited by
+   all children. Override it for the Cookiebot dialog so that all normal
+   touch gestures (scroll, tap, swipe) work inside the consent popup. */
+#CybotCookiebotDialog,
+#CybotCookiebotDialog * {
+  touch-action: auto !important;
+  -webkit-overflow-scrolling: touch;
+}
