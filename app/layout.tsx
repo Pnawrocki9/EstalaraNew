@@ -151,6 +151,16 @@ export default function RootLayout({
         {/* Vercel Speed Insights and Analytics components */}
         <SpeedInsights />
         <Analytics />
+
+        {/* Start of HubSpot Embed Code */}
+        <script
+          type="text/javascript"
+          id="hs-script-loader"
+          async
+          defer
+          src="//js-eu1.hs-scripts.com/147800534.js"
+        />
+        {/* End of HubSpot Embed Code */}
       </body>
     </html>
   )
