@@ -114,6 +114,14 @@ export default function RootLayout({
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
 
+        <script
+          id="Cookiebot"
+          src="https://consent.cookiebot.com/uc.js"
+          data-cbid="5fd355f7-f170-4b9b-9787-213f9175f316"
+          data-blockingmode="auto"
+          type="text/javascript"
+        />
+
         {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
