@@ -157,3 +157,45 @@
     min-height: 100dvh;
   }
 }
+
+/* ─── Cookiebot Consent Dialog Protection ───
+   Tailwind v4 base layer resets border/margin/padding to 0 on every element
+   and makes all <button> backgrounds transparent. These unlayered rules
+   revert those resets for the Cookiebot dialog tree. Because Next.js CSS
+   loads before Cookiebot's own stylesheet, Cookiebot's styles will
+   ultimately override these with the proper values once the script runs. */
+
+#CybotCookiebotDialog,
+#CybotCookiebotDialog *,
+#CybotCookiebotDialogBodyUnderlay {
+  margin: revert;
+  padding: revert;
+  border: revert;
+  font: revert;
+  color: revert;
+  line-height: revert;
+  text-align: revert;
+  list-style: revert;
+}
+
+#CybotCookiebotDialog button,
+#CybotCookiebotDialog a[role="button"],
+#CybotCookiebotDialog a.CybotCookiebotDialogBodyButton {
+  background-color: revert;
+  border-radius: revert;
+  color: revert;
+  cursor: pointer;
+  opacity: 1;
+}
+
+/* Guarantee the dialog sits above the fixed site header (z-50)
+   and is not clipped by overflow:hidden on html/body. */
+#CybotCookiebotDialog {
+  z-index: 2147483647 !important;
+  position: fixed !important;
+}
+
+#CybotCookiebotDialogBodyUnderlay {
+  z-index: 2147483646 !important;
+  position: fixed !important;
+}
