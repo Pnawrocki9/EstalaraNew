@@ -114,12 +114,35 @@ export default function RootLayout({
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
 
-        <Script
+        {/* Cookiebot Consent Management — uses a raw <script> tag instead
+            of next/script to prevent the Script component's client-side
+            lifecycle from re-initializing Cookiebot during React hydration,
+            which was causing the consent dialog to flash and disappear. */}
+        <script
           id="Cookiebot"
           src="https://consent.cookiebot.com/uc.js"
           data-cbid="5fd355f7-f170-4b9b-9787-213f9175f316"
           data-blockingmode="auto"
-          strategy="beforeInteractive"
+          type="text/javascript"
+        />
+
+        {/* Google Consent Mode v2 defaults — must run before GTM / gtag
+            so that analytics and ads default to "denied" until Cookiebot
+            collects explicit consent from the visitor. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('consent', 'default', {
+                ad_storage: 'denied',
+                ad_user_data: 'denied',
+                ad_personalization: 'denied',
+                analytics_storage: 'denied',
+                wait_for_update: 500
+              });
+            `,
+          }}
         />
 
         {/* JSON-LD Structured Data */}
