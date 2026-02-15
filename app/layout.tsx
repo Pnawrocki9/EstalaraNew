@@ -114,18 +114,6 @@ export default function RootLayout({
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
 
-        {/* Cookiebot Consent Management — uses a raw <script> tag instead
-            of next/script to prevent the Script component's client-side
-            lifecycle from re-initializing Cookiebot during React hydration,
-            which was causing the consent dialog to flash and disappear. */}
-        <script
-          id="Cookiebot"
-          src="https://consent.cookiebot.com/uc.js"
-          data-cbid="5fd355f7-f170-4b9b-9787-213f9175f316"
-          data-blockingmode="auto"
-          type="text/javascript"
-        />
-
         {/* Google Consent Mode v2 defaults — must run before GTM / gtag
             so that analytics and ads default to "denied" until Cookiebot
             collects explicit consent from the visitor. */}
@@ -178,6 +166,22 @@ export default function RootLayout({
       </head>
       <body className="estalara-root">
         {children}
+
+        {/* Cookiebot Consent Management — loaded with afterInteractive so it
+            runs AFTER React hydration. This prevents Cookiebot's auto-blocking
+            from interfering with Next.js chunk scripts (which Next.js injects
+            into <head> before user elements) and avoids the consent dialog
+            being torn down during hydration reconciliation. Cookiebot still
+            loads before lazyOnload scripts (GTM, GA, HubSpot), so consent
+            is collected before any analytics or marketing tags fire. */}
+        <Script
+          id="Cookiebot"
+          src="https://consent.cookiebot.com/uc.js"
+          data-cbid="5fd355f7-f170-4b9b-9787-213f9175f316"
+          data-blockingmode="auto"
+          type="text/javascript"
+          strategy="afterInteractive"
+        />
 
         {/* Vercel Speed Insights and Analytics components */}
         <SpeedInsights />
