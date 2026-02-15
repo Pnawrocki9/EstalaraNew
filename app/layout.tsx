@@ -1,7 +1,7 @@
 import type React from "react"
 import "./globals.css"
 import "./estalara.css"
-import type { Metadata } from "next"
+import type { Metadata, Viewport } from "next"
 import { Inter, Playfair_Display } from "next/font/google"
 import Script from "next/script"
 import { SpeedInsights } from "@vercel/speed-insights/next"
@@ -58,6 +58,12 @@ export const metadata: Metadata = {
   },
 }
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+}
+
 // JSON-LD Structured Data
 const organizationJsonLd = {
   "@context": "https://schema.org",
@@ -109,11 +115,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable} ${inter.className}`}>
       <head>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, viewport-fit=cover"
-        />
-
         {/* Google Consent Mode v2 defaults — must run before GTM / gtag
             so that analytics and ads default to "denied" until Cookiebot
             collects explicit consent from the visitor. */}
