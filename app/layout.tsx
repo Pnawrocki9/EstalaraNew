@@ -114,12 +114,12 @@ export default function RootLayout({
           content="width=device-width, initial-scale=1, viewport-fit=cover"
         />
 
-        <script
+        <Script
           id="Cookiebot"
           src="https://consent.cookiebot.com/uc.js"
           data-cbid="5fd355f7-f170-4b9b-9787-213f9175f316"
           data-blockingmode="auto"
-          type="text/javascript"
+          strategy="beforeInteractive"
         />
 
         {/* JSON-LD Structured Data */}
@@ -161,12 +161,10 @@ export default function RootLayout({
         <Analytics />
 
         {/* Start of HubSpot Embed Code */}
-        <script
-          type="text/javascript"
+        <Script
           id="hs-script-loader"
-          async
-          defer
-          src="//js-eu1.hs-scripts.com/147800534.js"
+          src="https://js-eu1.hs-scripts.com/147800534.js"
+          strategy="lazyOnload"
         />
         {/* End of HubSpot Embed Code */}
       </body>
