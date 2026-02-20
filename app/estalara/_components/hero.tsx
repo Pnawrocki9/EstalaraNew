@@ -23,9 +23,7 @@ export function EstalaraHero() {
         <div className="flex justify-center mb-6 sm:mb-8">
           <Link href="/book-demo" className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#E8E4DF] border border-[#D4CFC8] hover:bg-[#DDD9D3] transition-colors">
             <span className="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse" />
-            <span className="text-xs sm:text-sm text-[#5C5C5C]">
-              Now accepting agencies worldwide
-            </span>
+            <span className="text-xs sm:text-sm text-[#5C5C5C]">Now accepting 10 Design Partners (cross-border agencies)</span>
             <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#5C5C5C]" />
           </Link>
         </div>
@@ -33,12 +31,12 @@ export function EstalaraHero() {
         {/* Main Headline */}
         <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-12">
           <h1 className="font-serif text-3xl sm:text-5xl lg:text-7xl font-normal text-[#1A1A1A] leading-[1.1] tracking-tight mb-4 sm:mb-6 text-balance">
-            From Local Listings
+            Turn international interest into AI-qualified HOT leads
             <br />
-            to Live Global Sales
+            — not just portal views.
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-[#5C5C5C] max-w-2xl mx-auto leading-relaxed text-pretty">
-            The white-label platform that helps real estate agencies go beyond traditional portals by converting LIVE investor interactions into AI-qualified hot leads worldwide.
+            Run white-label LIVE property showcases for overseas buyers and capture intent signals (questions, watch time, engagement) so your team focuses only on serious investors.
           </p>
         </div>
 
@@ -46,16 +44,21 @@ export function EstalaraHero() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-12 sm:mb-16">
           <div className="flex items-center gap-2">
             <ShareButton variant="light" />
-            <Button
-              asChild
-              size="lg"
-              className="bg-[#1A1A1A] text-white hover:bg-[#333] rounded-full px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-medium"
-            >
-              <Link href="/book-demo" className="flex items-center gap-2">
-                Book a Demo
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-            </Button>
+            <div className="flex flex-col items-center">
+              <Button
+                asChild
+                size="lg"
+                className="bg-[#1A1A1A] text-white hover:bg-[#333] rounded-full px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-medium"
+              >
+                <Link href="/book-demo" className="flex items-center gap-2">
+                  Book a 20-min Demo
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </Button>
+              <p className="mt-2 text-[10px] sm:text-xs text-[#5C5C5C] text-center lg:whitespace-nowrap">
+                Import listing → AI ads → LIVE show → HOT lead scoring. No new tools to learn.
+              </p>
+            </div>
           </div>
           <Button
             variant="outline"
