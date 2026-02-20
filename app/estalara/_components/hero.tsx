@@ -41,10 +41,10 @@ export function EstalaraHero() {
         </div>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-12 sm:mb-16">
-          <div className="flex items-center gap-2">
-            <ShareButton variant="light" />
-            <div className="flex flex-col items-center">
+        <div className="mb-12 sm:mb-16">
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+            <div className="flex items-center gap-2">
+              <ShareButton variant="light" />
               <Button
                 asChild
                 size="lg"
@@ -55,19 +55,19 @@ export function EstalaraHero() {
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </Button>
-              <p className="mt-2 text-[10px] sm:text-xs text-[#5C5C5C] text-center lg:whitespace-nowrap">
-                Import listing → AI ads → LIVE show → HOT lead scoring. No new tools to learn.
-              </p>
             </div>
+            <Button
+              variant="outline"
+              size="lg"
+              className="border-[#D4CFC8] text-[#1A1A1A] hover:bg-[#E8E4DF] rounded-full px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-medium bg-transparent"
+              onClick={scrollToFeatures}
+            >
+              Explore Features
+            </Button>
           </div>
-          <Button
-            variant="outline"
-            size="lg"
-            className="border-[#D4CFC8] text-[#1A1A1A] hover:bg-[#E8E4DF] rounded-full px-6 sm:px-8 py-5 sm:py-6 text-sm sm:text-base font-medium bg-transparent"
-            onClick={scrollToFeatures}
-          >
-            Explore Features
-          </Button>
+          <p className="mt-2 text-[10px] sm:text-xs text-[#5C5C5C] text-center px-4 lg:whitespace-nowrap">
+            Import listing → AI ads → LIVE show → HOT lead scoring. No new tools to learn.
+          </p>
         </div>
 
         {/* Hero Image with Transition Effect */}
