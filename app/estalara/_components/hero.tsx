@@ -31,7 +31,7 @@ export function EstalaraHero() {
         {/* Main Headline */}
         <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-12">
           <h1 className="font-serif text-3xl sm:text-5xl lg:text-7xl font-normal text-[#1A1A1A] leading-[1.1] tracking-tight mb-4 sm:mb-6 text-balance">
-            Turn international interest into AI-qualified HOT leads - not just portal views.
+            Stop chasing portal ghosts. Start talking to buyers who are actually ready.
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-[#5C5C5C] max-w-2xl mx-auto leading-relaxed text-pretty">
             Run white-label LIVE property showcases for overseas buyers and capture intent signals (questions, watch time, engagement) so your team focuses only on serious investors.
