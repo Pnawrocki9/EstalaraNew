@@ -23,7 +23,7 @@ export function EstalaraHero() {
         <div className="flex justify-center mb-6 sm:mb-8">
           <Link href="/book-demo" className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#E8E4DF] border border-[#D4CFC8] hover:bg-[#DDD9D3] transition-colors">
             <span className="w-2 h-2 rounded-full bg-[#22C55E] animate-pulse" />
-            <span className="text-xs sm:text-sm text-[#5C5C5C]">Now accepting 10 Design Partners (cross-border agencies)</span>
+            <span className="text-xs sm:text-sm text-[#5C5C5C]">Now accepting 10 Design Partners. Join us!</span>
             <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#5C5C5C]" />
           </Link>
         </div>
