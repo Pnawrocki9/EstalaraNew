@@ -36,6 +36,7 @@ export function EstalaraSolution() {
   ]
 
   return (
+    <>
     <section id="solution" className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#1A1A1A]">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
