@@ -79,37 +79,49 @@ export function EstalaraStats() {
             <p className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-[#5C5C5C] text-center leading-tight">
               Foreign buyers represent up to{" "}
               <span className="text-[#1A1A1A] font-semibold">40%</span>{" "}
-              of premium transactions in key markets.
+              of premium property sales in key markets.
             </p>
           </AnimatedLine>
 
           {/* Line 2 */}
           <AnimatedLine>
             <p className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-[#5C5C5C] text-center leading-tight">
-              They come ready to pay.{" "}
-              <span className="text-[#8B8B8B]">The question is whether they can find you.</span>
+              They have the budget. They have the intent.
             </p>
           </AnimatedLine>
 
           {/* Line 3 */}
           <AnimatedLine>
             <p className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-[#5C5C5C] text-center leading-tight">
-              But they won't fly in just to browse.
-            </p>
-            <p className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-[#8B8B8B] text-center leading-tight mt-2 sm:mt-4">
-              They want to see before they commit.
+              But no one is going to fly across the world just to look around.
             </p>
           </AnimatedLine>
 
-          {/* Line 4 - Highlight */}
+          {/* Line 4 */}
+          <AnimatedLine>
+            <p className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-[#5C5C5C] text-center leading-tight">
+              They need to see it. Feel it. Trust it.
+            </p>
+            <p className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-[#8B8B8B] text-center leading-tight mt-2 sm:mt-4">
+              Before they ever book a flight.
+            </p>
+          </AnimatedLine>
+
+          {/* Line 5 */}
+          <AnimatedLine>
+            <p className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-[#5C5C5C] text-center leading-tight">
+              That's the gap most agencies never close.
+            </p>
+          </AnimatedLine>
+
+          {/* Line 6 - Highlight */}
           <AnimatedLine className="mt-4 sm:mt-8">
             <p className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-[#1A1A1A] text-center leading-tight">
-              That's where{" "}
               <span className="font-semibold relative inline-block">
-                LIVE
+                Estalara
                 <span className="absolute -bottom-1 sm:-bottom-2 left-0 right-0 h-[2px] sm:h-[3px] bg-[#1A1A1A]/40"></span>
               </span>{" "}
-              changes everything.
+              closes it.
             </p>
           </AnimatedLine>
         </div>
