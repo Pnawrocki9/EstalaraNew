@@ -4,6 +4,7 @@ import { EstalaraBenefits } from "./estalara/_components/benefits"
 import { EstalaraStats } from "./estalara/_components/stats"
 import { EstalaraProblem } from "./estalara/_components/problem"
 import { EstalaraSolution } from "./estalara/_components/solution"
+import { SlidingTagline } from "./estalara/_components/sliding-tagline"
 import { EstalaraFeatures } from "./estalara/_components/features"
 import { EstalaraAICapabilities } from "./estalara/_components/ai-capabilities"
 import { EstalaraVision } from "./estalara/_components/vision"
@@ -46,6 +47,7 @@ export default function Page() {
         <EstalaraStats />
         <EstalaraProblem />
         <EstalaraSolution />
+        <SlidingTagline />
         <EstalaraFeatures />
         <EstalaraAICapabilities />
         <EstalaraVision />
