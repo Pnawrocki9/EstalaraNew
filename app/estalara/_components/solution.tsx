@@ -87,23 +87,29 @@ export function EstalaraSolution() {
         </div>
 
         {/* Steps */}
-        <div className="border-t border-[#3A3A3A] pt-10 sm:pt-16">
+      </div>
+    </section>
+    
+    {/* How It Works - Beige Section */}
+    <section className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#F8F6F3]">
+      <div className="max-w-7xl mx-auto">
+        <div className="pt-2">
           <p className="text-xs sm:text-sm uppercase tracking-widest text-[#8B8B8B] mb-3 sm:mb-4 text-center">
             How it works
           </p>
-          <h3 className="font-serif text-xl sm:text-2xl lg:text-3xl text-white mb-8 sm:mb-12 text-center">
+          <h3 className="font-serif text-xl sm:text-2xl lg:text-3xl text-[#1A1A1A] mb-8 sm:mb-12 text-center">
             Global dominance in four steps
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
             {steps.map((step, index) => (
               <div key={index} className="relative">
-                <div className="text-5xl sm:text-6xl lg:text-8xl font-serif text-[#3A3A3A] mb-3 sm:mb-4">
+                <div className="text-5xl sm:text-6xl lg:text-8xl font-serif text-[#E8E4DF] mb-3 sm:mb-4">
                   {step.step}
                 </div>
-                <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-white mb-2 sm:mb-3">
+                <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-[#1A1A1A] mb-2 sm:mb-3">
                   {step.title}
                 </h3>
-                <p className="text-[#A3A3A3] text-sm lg:text-base leading-relaxed">
+                <p className="text-[#5C5C5C] text-sm lg:text-base leading-relaxed">
                   {step.description}
                 </p>
               </div>
@@ -112,5 +118,6 @@ export function EstalaraSolution() {
         </div>
       </div>
     </section>
+    </>
   )
 }
