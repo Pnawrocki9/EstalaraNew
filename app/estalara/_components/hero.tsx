@@ -34,7 +34,7 @@ export function EstalaraHero() {
             Portals show your listings. Estalara sells them.
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-[#5C5C5C] max-w-2xl mx-auto leading-relaxed text-pretty">
-            International buyers are already looking. Estalara makes sure they find you, trust you, and we tell you who's ready - before you pick up the phone.
+            International buyers are already looking. Estalara makes sure they find you, trust you, and will tell you who's ready - before you pick up the phone.
           </p>
         </div>
 
