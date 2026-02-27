@@ -11,21 +11,27 @@ export function EstalaraSolution() {
   const steps = [
     {
       step: "01",
-      title: "Flash Import",
+      title: "Import your listing",
       description:
-        "Paste a listing link from any portal. Estalara automatically converts it into a modern, high-performing property page built to attract attention and capture serious leads.",
+        "Paste link from integrated portal. We create a property page in 30 seconds.",
     },
     {
       step: "02",
-      title: "AI-Driven Advertising",
+      title: "We find buyers for you",
       description:
-        "Auto-generate campaigns targeting international investors on Facebook, Google, and more. Zero marketing expertise required.",
+        "AI runs your ads on Facebook, Google, Instagram. Targets foreign investors looking in your area. No online marketing knowledge required.",
     },
     {
       step: "03",
-      title: "Go LIVE",
+      title: "You go LIVE from the property",
       description:
-        "Present to investors worldwide with 1-to-many interactive showcases. Re-stream to YouTube, Instagram, and Facebook instantly to engage even more investors.",
+        "Show the apartment, answer questions, build trust. We record who engages, who asks, who stays till the end and much more.",
+    },
+    {
+      step: "04",
+      title: "You get hot leads",
+      description:
+        "After LIVE: list of serious buyers with contact details and engagement scores in your mailbox.",
     },
   ]
 
@@ -82,10 +88,13 @@ export function EstalaraSolution() {
 
         {/* Steps */}
         <div className="border-t border-[#E8E4DF] pt-10 sm:pt-16">
-          <p className="text-xs sm:text-sm uppercase tracking-widest text-[#8B8B8B] mb-6 sm:mb-8 text-center">
-            Global dominance in three steps
+          <p className="text-xs sm:text-sm uppercase tracking-widest text-[#8B8B8B] mb-3 sm:mb-4 text-center">
+            How it works
           </p>
-          <div className="grid md:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
+          <h3 className="font-serif text-xl sm:text-2xl lg:text-3xl text-[#1A1A1A] mb-8 sm:mb-12 text-center">
+            Global dominance in four steps
+          </h3>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 lg:gap-10">
             {steps.map((step, index) => (
               <div key={index} className="relative">
                 <div className="text-5xl sm:text-6xl lg:text-8xl font-serif text-[#E8E4DF] mb-3 sm:mb-4">
