@@ -44,8 +44,10 @@ export function EstalaraSolution() {
           <p className="text-xs sm:text-sm uppercase tracking-widest text-[#8B8B8B] mb-3 sm:mb-4">
             The Solution
           </p>
-          <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-white max-w-3xl mx-auto text-balance">
-            Stop renting visibility. Own the global channel.
+          <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-white max-w-4xl mx-auto leading-snug">
+            The traditional real estate portal gets the traffic.
+            <span className="block mt-2">You get the buyer.</span>
+            <span className="block mt-2 text-[#A3A3A3]">There's a difference.</span>
           </h2>
         </div>
 
