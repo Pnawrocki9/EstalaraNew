@@ -44,8 +44,8 @@ export default function Page() {
       <main>
         <EstalaraHero />
         <EstalaraBenefits />
-        <EstalaraStats />
         <EstalaraProblem />
+        <EstalaraStats />
         <EstalaraSolution />
         <SlidingTagline />
         <EstalaraFeatures />
