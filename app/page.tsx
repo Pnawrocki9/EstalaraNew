@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { EstalaraHero } from "./estalara/_components/hero"
+import { EstalaraBenefits } from "./estalara/_components/benefits"
 import { EstalaraStats } from "./estalara/_components/stats"
 import { EstalaraProblem } from "./estalara/_components/problem"
 import { EstalaraSolution } from "./estalara/_components/solution"
@@ -41,6 +42,7 @@ export default function Page() {
       <EstalaraHeader />
       <main>
         <EstalaraHero />
+        <EstalaraBenefits />
         <EstalaraStats />
         <EstalaraProblem />
         <EstalaraSolution />
