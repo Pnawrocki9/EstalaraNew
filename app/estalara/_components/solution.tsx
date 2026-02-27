@@ -82,9 +82,9 @@ export function EstalaraSolution() {
               />
             </div>
             {/* Stats Overlay */}
-            <div className="relative sm:absolute sm:-bottom-6 sm:-left-6 mt-4 sm:mt-0 bg-[#2A2A2A] rounded-xl p-3 sm:p-4 shadow-lg border border-[#3A3A3A]">
-              <p className="text-xl sm:text-2xl font-semibold text-white">34 to 19 days</p>
-              <p className="text-xs sm:text-sm text-[#8B8B8B]">Average sales cycle reduction</p>
+            <div className="relative sm:absolute sm:-bottom-6 sm:-left-6 mt-4 sm:mt-0 bg-white rounded-xl p-3 sm:p-4 shadow-lg border border-[#E8E4DF]">
+              <p className="text-xl sm:text-2xl font-semibold text-[#1A1A1A]">34 to 19 days</p>
+              <p className="text-xs sm:text-sm text-[#5C5C5C]">Average sales cycle reduction</p>
             </div>
           </div>
         </div>
