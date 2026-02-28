@@ -55,8 +55,8 @@ const benefits = [
 
 const problems = [
   { icon: Eye, title: "Visibility", paragraphs: ["Portals show your listings to many people.", "Estalara brings you real buyers, not just views.\nPeople who are ready to ask questions and move forward."] },
-  { icon: Globe, title: "No More Barriers", paragraphs: ["International buyers often hesitate because of language, distance, or uncertainty.", "Estalara helps them understand the property clearly and confirm their interest before they contact you or you contact them.", "You speak only with serious buyers."] },
-  { icon: Shield, title: "Your Brand Comes First", paragraphs: ["Traditional portals promote listings.\nEstalara promotes your agency.", "Every buyer interacts with your brand.\nEvery conversation strengthens your market position.", "Over time, you are not just selling properties.\nYou are becoming the trusted entry point for investors in your country."] },
+  { icon: Globe, title: "Barriers", paragraphs: ["International buyers often hesitate because of language, distance, or uncertainty.", "Estalara helps them understand the property clearly and confirm their interest before they contact you or you contact them.", "You speak only with serious buyers."] },
+  { icon: Shield, title: "Not Your Brand", paragraphs: ["Traditional portals promote listings.\nEstalara promotes your agency.", "Every buyer interacts with your brand.\nEvery conversation strengthens your market position.", "Over time, you are not just selling properties.\nYou are becoming the trusted entry point for investors in your country."] },
 ];
 
 /* ─── Scroll Reveal Hook ─── */

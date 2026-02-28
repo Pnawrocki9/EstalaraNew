@@ -12,7 +12,7 @@ export function EstalaraProblem() {
     },
     {
       icon: Globe,
-      title: "No More Barriers",
+      title: "Barriers",
       paragraphs: [
         "International buyers often hesitate because of language, distance, or uncertainty.",
         "Estalara helps them understand the property clearly and confirm their interest before they contact you or you contact them.",
@@ -21,7 +21,7 @@ export function EstalaraProblem() {
     },
     {
       icon: Shield,
-      title: "Your Brand Comes First",
+      title: "Not Your Brand",
       paragraphs: [
         "Traditional portals promote listings.\nEstalara promotes your agency.",
         "Every buyer interacts with your brand.\nEvery conversation strengthens your market position.",
