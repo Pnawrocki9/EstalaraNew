@@ -46,8 +46,8 @@ export function EstalaraSolution() {
           </p>
           <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-white max-w-4xl mx-auto leading-snug">
             The traditional real estate portal gets the traffic.
-            <span className="block mt-2">You get the buyer.</span>
-            <span className="block mt-2 text-[#A3A3A3]">There's a difference.</span>
+            <span className="block mt-2">Estalara turns traffic into qualified buyers under your brand.</span>
+            <span className="block mt-2 text-[#A3A3A3]">That's the difference.</span>
           </h2>
         </div>
 
