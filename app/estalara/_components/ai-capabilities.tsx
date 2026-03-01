@@ -589,10 +589,10 @@ export function EstalaraAICapabilities() {
           ))}
         </div>
 
-        {/* Row 2: Subtitles + Cards - each subtitle directly above its card on mobile */}
+        {/* Row 2: Subtitles + Cards — DOM order optimized for mobile, explicit grid placement for desktop */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 pt-8 sm:pt-10 lg:pt-14 mb-8 sm:mb-12">
-          {/* Subtitle 2 - AI */}
-          <div className="flex items-center justify-center text-center px-4 py-4 sm:py-6 lg:py-8 order-1 sm:order-1">
+          {/* 1. Subtitle 2 — mobile: first, desktop: row1 col1 */}
+          <div className="flex items-center justify-center text-center px-4 py-4 sm:py-6 lg:py-8 sm:col-start-1 sm:row-start-1">
             <h3
               className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-[#1A1A1A] tracking-tight text-balance leading-[1.15]"
               style={{ textShadow: "0 4px 40px rgba(0,0,0,0.06)" }}
@@ -601,13 +601,13 @@ export function EstalaraAICapabilities() {
             </h3>
           </div>
 
-          {/* Card: AI Chat (directly after subtitle 2 on mobile) */}
-          <div className="order-2 sm:order-3">
+          {/* 2. Card: AI Chat — mobile: second (right after subtitle 2), desktop: row2 col1 */}
+          <div className="sm:col-start-1 sm:row-start-2">
             <CapabilityCard capability={capabilities[2]} />
           </div>
 
-          {/* Subtitle 3 - Intent */}
-          <div className="flex items-center justify-center text-center px-4 py-4 sm:py-6 lg:py-8 order-3 sm:order-2">
+          {/* 3. Subtitle 3 — mobile: third, desktop: row1 col2 */}
+          <div className="flex items-center justify-center text-center px-4 py-4 sm:py-6 lg:py-8 sm:col-start-2 sm:row-start-1">
             <h3
               className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-[#1A1A1A] tracking-tight text-balance leading-[1.15]"
               style={{ textShadow: "0 4px 40px rgba(0,0,0,0.06)" }}
@@ -616,8 +616,8 @@ export function EstalaraAICapabilities() {
             </h3>
           </div>
 
-          {/* Card: Lead Scoring (directly after subtitle 3 on mobile) */}
-          <div className="order-4 sm:order-4">
+          {/* 4. Card: Lead Scoring — mobile: fourth (right after subtitle 3), desktop: row2 col2 */}
+          <div className="sm:col-start-2 sm:row-start-2">
             <CapabilityCard capability={capabilities[3]} />
           </div>
         </div>
