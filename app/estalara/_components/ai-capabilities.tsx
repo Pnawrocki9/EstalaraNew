@@ -589,31 +589,35 @@ export function EstalaraAICapabilities() {
           ))}
         </div>
 
-        {/* Subtitles 2 & 3 + Cards - paired on mobile, side-by-side on desktop */}
-        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 pt-8 sm:pt-10 lg:pt-14 mb-8 sm:mb-12">
-          {/* Left column: Subtitle 2 + AI Chat card */}
-          <div className="flex flex-col gap-4 sm:gap-6 lg:gap-8">
-            <div className="flex items-center justify-center text-center px-4 py-4 sm:py-6 lg:py-8">
-              <h3
-                className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-[#1A1A1A] tracking-tight text-balance leading-[1.15]"
-                style={{ textShadow: "0 4px 40px rgba(0,0,0,0.06)" }}
-              >
-                {"Estalara AI knows everything so you don\u2019t have to answer all the questions."}
-              </h3>
-            </div>
+        {/* Row 2: Subtitles + Cards - each subtitle directly above its card on mobile */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 pt-8 sm:pt-10 lg:pt-14 mb-8 sm:mb-12">
+          {/* Subtitle 2 - AI */}
+          <div className="flex items-center justify-center text-center px-4 py-4 sm:py-6 lg:py-8 order-1 sm:order-1">
+            <h3
+              className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-[#1A1A1A] tracking-tight text-balance leading-[1.15]"
+              style={{ textShadow: "0 4px 40px rgba(0,0,0,0.06)" }}
+            >
+              {"Estalara AI knows everything so you don\u2019t have to answer all the questions."}
+            </h3>
+          </div>
+
+          {/* Card: AI Chat (directly after subtitle 2 on mobile) */}
+          <div className="order-2 sm:order-3">
             <CapabilityCard capability={capabilities[2]} />
           </div>
 
-          {/* Right column: Subtitle 3 + Lead Scoring card */}
-          <div className="flex flex-col gap-4 sm:gap-6 lg:gap-8">
-            <div className="flex items-center justify-center text-center px-4 py-4 sm:py-6 lg:py-8">
-              <h3
-                className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-[#1A1A1A] tracking-tight text-balance leading-[1.15]"
-                style={{ textShadow: "0 4px 40px rgba(0,0,0,0.06)" }}
-              >
-                And we give you more than just a hunch.
-              </h3>
-            </div>
+          {/* Subtitle 3 - Intent */}
+          <div className="flex items-center justify-center text-center px-4 py-4 sm:py-6 lg:py-8 order-3 sm:order-2">
+            <h3
+              className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-[#1A1A1A] tracking-tight text-balance leading-[1.15]"
+              style={{ textShadow: "0 4px 40px rgba(0,0,0,0.06)" }}
+            >
+              And we give you more than just a hunch.
+            </h3>
+          </div>
+
+          {/* Card: Lead Scoring (directly after subtitle 3 on mobile) */}
+          <div className="order-4 sm:order-4">
             <CapabilityCard capability={capabilities[3]} />
           </div>
         </div>
