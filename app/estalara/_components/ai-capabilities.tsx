@@ -486,34 +486,47 @@ export function EstalaraAICapabilities() {
           </p>
         </div>
 
-        {/* Capabilities Grid */}
-        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12">
-          {capabilities.map((capability, index) => (
-            <div 
-              key={index}
-              className="group bg-white rounded-2xl border border-[#E8E4DF] hover:border-[#D4CFC8] hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col"
+        {/* Subtitle 1 - Traffic source story */}
+        <div className="text-center py-6 sm:py-8 lg:py-10">
+          <h3
+            className="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal text-[#1A1A1A] tracking-tight max-w-4xl mx-auto text-balance leading-[1.1]"
+            style={{ textShadow: "0 4px 40px rgba(0,0,0,0.06)" }}
+          >
+            From Ads &amp; Socials to your LIVE.
+          </h3>
+        </div>
+
+        {/* Row 1: Ads + Restreaming */}
+        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
+          {capabilities.slice(0, 2).map((capability, index) => (
+            <CapabilityCard key={index} capability={capability} />
+          ))}
+        </div>
+
+        {/* Subtitles 2 & 3 - AI + Intent story */}
+        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 py-8 sm:py-10 lg:py-14">
+          <div className="flex items-center justify-center text-center px-4">
+            <h3
+              className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-[#1A1A1A] tracking-tight text-balance leading-[1.15]"
+              style={{ textShadow: "0 4px 40px rgba(0,0,0,0.06)" }}
             >
-              {/* Mockup Area */}
-              <div className="bg-[#FAFAF9] border-b border-[#E8E4DF] min-h-[320px] sm:min-h-[400px] lg:min-h-[440px] flex items-center justify-center">
-                <div className="w-full h-full">
-                  {capability.mockup}
-                </div>
-              </div>
-              
-              {/* Content */}
-              <div className="p-4 sm:p-6 flex-1">
-                <h3 className="font-serif text-lg sm:text-xl lg:text-2xl text-[#1A1A1A] mb-2">
-                  {capability.title}
-                </h3>
-                <p className="text-[#5C5C5C] text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
-                  {capability.description}
-                </p>
-                <p className="text-[#1A1A1A] text-xs sm:text-sm font-medium flex items-start sm:items-center gap-2">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E] flex-shrink-0 mt-1 sm:mt-0" />
-                  {capability.outcome}
-                </p>
-              </div>
-            </div>
+              {"Estalara AI knows everything so you don\u2019t have to answer all the questions."}
+            </h3>
+          </div>
+          <div className="flex items-center justify-center text-center px-4">
+            <h3
+              className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-[#1A1A1A] tracking-tight text-balance leading-[1.15]"
+              style={{ textShadow: "0 4px 40px rgba(0,0,0,0.06)" }}
+            >
+              And we give you more than just a hunch.
+            </h3>
+          </div>
+        </div>
+
+        {/* Row 2: AI Chat + Lead Scoring */}
+        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12">
+          {capabilities.slice(2, 4).map((capability, index) => (
+            <CapabilityCard key={index + 2} capability={capability} />
           ))}
         </div>
 
