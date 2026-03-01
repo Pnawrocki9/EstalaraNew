@@ -505,7 +505,8 @@ function TiltCard({
 // Capability Card Component
 function CapabilityCard({ capability }: { capability: { title: string; description: string; outcome: string; mockup: React.ReactNode } }) {
   return (
-    <div className="group bg-white rounded-2xl border border-[#E8E4DF] hover:border-[#D4CFC8] hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col">
+    <TiltCard className="group">
+      <div className="bg-white rounded-2xl border border-[#E8E4DF] group-hover:border-[#D4CFC8] group-hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col h-full">
       {/* Mockup Area */}
       <div className="bg-[#FAFAF9] border-b border-[#E8E4DF] min-h-[320px] sm:min-h-[400px] lg:min-h-[440px] flex items-center justify-center">
         <div className="w-full h-full">
