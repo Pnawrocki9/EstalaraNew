@@ -445,6 +445,33 @@ function SentimentMockup() {
   )
 }
 
+// Capability Card Component
+function CapabilityCard({ capability }: { capability: { title: string; description: string; outcome: string; mockup: React.ReactNode } }) {
+  return (
+    <div className="group bg-white rounded-2xl border border-[#E8E4DF] hover:border-[#D4CFC8] hover:shadow-lg transition-all duration-300 overflow-hidden flex flex-col">
+      {/* Mockup Area */}
+      <div className="bg-[#FAFAF9] border-b border-[#E8E4DF] min-h-[320px] sm:min-h-[400px] lg:min-h-[440px] flex items-center justify-center">
+        <div className="w-full h-full">
+          {capability.mockup}
+        </div>
+      </div>
+      {/* Content */}
+      <div className="p-4 sm:p-6 flex-1">
+        <h3 className="font-serif text-lg sm:text-xl lg:text-2xl text-[#1A1A1A] mb-2">
+          {capability.title}
+        </h3>
+        <p className="text-[#5C5C5C] text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
+          {capability.description}
+        </p>
+        <p className="text-[#1A1A1A] text-xs sm:text-sm font-medium flex items-start sm:items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#22C55E] flex-shrink-0 mt-1 sm:mt-0" />
+          {capability.outcome}
+        </p>
+      </div>
+    </div>
+  )
+}
+
 export function EstalaraAICapabilities() {
   const capabilities = [
     {
