@@ -171,6 +171,9 @@ export function EstalaraFeatures() {
                 <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-[#1A1A1A] mb-2 sm:mb-3">
                   {feature.title}
                 </h3>
+                <p className="text-[#1A1A1A] font-medium text-sm lg:text-base mb-2">
+                  {feature.tagline}
+                </p>
                 <p className="text-[#5C5C5C] text-sm lg:text-base leading-relaxed">
                   {feature.description}
                 </p>
