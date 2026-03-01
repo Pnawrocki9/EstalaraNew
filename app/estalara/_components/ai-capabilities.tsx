@@ -479,10 +479,10 @@ export function EstalaraAICapabilities() {
         {/* Section Header */}
         <div className="text-center mb-10 sm:mb-16">
           <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl text-[#1A1A1A] max-w-3xl mx-auto text-balance leading-tight mb-4 sm:mb-5">
-            Intelligence that works while you don't
+            {"We don\u2019t generate more leads. We generate ready-to-buy investors."}
           </h2>
           <p className="text-[#5C5C5C] max-w-xl mx-auto text-base sm:text-lg leading-relaxed">
-            Our AI handles the heavy lifting so you can focus on what you do best: closing deals.
+            Less time chasing cold inquiries. More time closing serious buyers.
           </p>
         </div>
 
