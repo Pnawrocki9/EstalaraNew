@@ -530,6 +530,8 @@ function CapabilityCard({ capability }: { capability: { title: string; descripti
     </TiltCard>
   )
 }
+
+export function EstalaraAICapabilities() {
   const capabilities = [
     {
       title: "Ads that write themselves",
