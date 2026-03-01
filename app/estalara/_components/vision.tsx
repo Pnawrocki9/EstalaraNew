@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export function EstalaraVision() {
   return (
-    <section className="py-14 sm:py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-[#F0EDE8]">
+    <section className="py-14 sm:py-20 lg:py-32 px-4 sm:px-6 lg:px-8 bg-[#F8F6F3]">
       <div className="max-w-7xl mx-auto">
         {/* Section Label */}
         <p className="text-xs sm:text-sm uppercase tracking-widest text-[#8B8B8B] mb-6 sm:mb-10 text-center">
