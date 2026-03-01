@@ -589,31 +589,33 @@ export function EstalaraAICapabilities() {
           ))}
         </div>
 
-        {/* Subtitles 2 & 3 - AI + Intent story */}
-        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 py-8 sm:py-10 lg:py-14">
-          <div className="flex items-center justify-center text-center px-4">
-            <h3
-              className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-[#1A1A1A] tracking-tight text-balance leading-[1.15]"
-              style={{ textShadow: "0 4px 40px rgba(0,0,0,0.06)" }}
-            >
-              {"Estalara AI knows everything so you don\u2019t have to answer all the questions."}
-            </h3>
+        {/* Subtitles 2 & 3 + Cards - paired on mobile, side-by-side on desktop */}
+        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 pt-8 sm:pt-10 lg:pt-14 mb-8 sm:mb-12">
+          {/* Left column: Subtitle 2 + AI Chat card */}
+          <div className="flex flex-col gap-4 sm:gap-6 lg:gap-8">
+            <div className="flex items-center justify-center text-center px-4 py-4 sm:py-6 lg:py-8">
+              <h3
+                className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-[#1A1A1A] tracking-tight text-balance leading-[1.15]"
+                style={{ textShadow: "0 4px 40px rgba(0,0,0,0.06)" }}
+              >
+                {"Estalara AI knows everything so you don\u2019t have to answer all the questions."}
+              </h3>
+            </div>
+            <CapabilityCard capability={capabilities[2]} />
           </div>
-          <div className="flex items-center justify-center text-center px-4">
-            <h3
-              className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-[#1A1A1A] tracking-tight text-balance leading-[1.15]"
-              style={{ textShadow: "0 4px 40px rgba(0,0,0,0.06)" }}
-            >
-              And we give you more than just a hunch.
-            </h3>
-          </div>
-        </div>
 
-        {/* Row 2: AI Chat + Lead Scoring */}
-        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12">
-          {capabilities.slice(2, 4).map((capability, index) => (
-            <CapabilityCard key={index + 2} capability={capability} />
-          ))}
+          {/* Right column: Subtitle 3 + Lead Scoring card */}
+          <div className="flex flex-col gap-4 sm:gap-6 lg:gap-8">
+            <div className="flex items-center justify-center text-center px-4 py-4 sm:py-6 lg:py-8">
+              <h3
+                className="font-serif text-2xl sm:text-3xl lg:text-4xl font-normal text-[#1A1A1A] tracking-tight text-balance leading-[1.15]"
+                style={{ textShadow: "0 4px 40px rgba(0,0,0,0.06)" }}
+              >
+                And we give you more than just a hunch.
+              </h3>
+            </div>
+            <CapabilityCard capability={capabilities[3]} />
+          </div>
         </div>
 
         {/* Bottom CTA */}
