@@ -93,27 +93,20 @@ function App() {
 
           {/* Row 2: Subtitles + Cards with explicit grid placement */}
           <div className="ai-grid-paired" data-testid="ai-grid-paired">
-            {/* 1. Subtitle 2 — mobile: first, desktop: row1 col1 */}
-            <div className="ai-subtitle-cell ai-subtitle-cell-1" data-testid="subtitle-2">
+            <div className="ai-paired-subtitle-1 ai-subtitle-cell" data-testid="subtitle-2">
               <h3 className="ai-subtitle-text ai-subtitle-md">
                 Estalara AI knows everything so you don&rsquo;t have to answer all the questions.
               </h3>
             </div>
-
-            {/* 2. Card AI — mobile: second, desktop: row2 col1 */}
-            <div className="ai-card-cell ai-card-cell-1" data-testid="card-ai">
+            <div className="ai-paired-card-1" data-testid="card-ai">
               <CapabilityCard capability={capabilities[2]} />
             </div>
-
-            {/* 3. Subtitle 3 — mobile: third, desktop: row1 col2 */}
-            <div className="ai-subtitle-cell ai-subtitle-cell-2" data-testid="subtitle-3">
+            <div className="ai-paired-subtitle-2 ai-subtitle-cell" data-testid="subtitle-3">
               <h3 className="ai-subtitle-text ai-subtitle-md">
                 And we give you more than just a hunch.
               </h3>
             </div>
-
-            {/* 4. Card Lead — mobile: fourth, desktop: row2 col2 */}
-            <div className="ai-card-cell ai-card-cell-2" data-testid="card-lead">
+            <div className="ai-paired-card-2" data-testid="card-lead">
               <CapabilityCard capability={capabilities[3]} />
             </div>
           </div>
