@@ -446,6 +446,62 @@ function SentimentMockup() {
   )
 }
 
+// 3D Tilt Card Component (matching Features section)
+function TiltCard({ 
+  children,
+  className = ""
+}: { 
+  children: React.ReactNode
+  className?: string
+}) {
+  const [transform, setTransform] = useState("")
+  const [glarePosition, setGlarePosition] = useState({ x: 50, y: 50 })
+  const cardRef = useRef<HTMLDivElement>(null)
+
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return
+    const rect = cardRef.current.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    const centerX = rect.width / 2
+    const centerY = rect.height / 2
+    const rotateX = ((y - centerY) / centerY) * -8
+    const rotateY = ((x - centerX) / centerX) * 8
+    const glareX = (x / rect.width) * 100
+    const glareY = (y / rect.height) * 100
+    setTransform(`perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`)
+    setGlarePosition({ x: glareX, y: glareY })
+  }, [])
+
+  const handleMouseLeave = useCallback(() => {
+    setTransform("")
+    setGlarePosition({ x: 50, y: 50 })
+  }, [])
+
+  return (
+    <div
+      ref={cardRef}
+      className={`relative transition-transform duration-200 ease-out ${className}`}
+      style={{ transform, transformStyle: "preserve-3d" }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
+      <div 
+        className="absolute inset-0 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-hidden"
+        style={{ transform: "translateZ(1px)" }}
+      >
+        <div 
+          className="absolute w-full h-full"
+          style={{
+            background: `radial-gradient(circle at ${glarePosition.x}% ${glarePosition.y}%, rgba(255,255,255,0.15) 0%, transparent 60%)`,
+          }}
+        />
+      </div>
+      {children}
+    </div>
+  )
+}
+
 // Capability Card Component
 function CapabilityCard({ capability }: { capability: { title: string; description: string; outcome: string; mockup: React.ReactNode } }) {
   return (
