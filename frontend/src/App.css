@@ -94,34 +94,32 @@
 .ai-grid-paired {
   display: grid;
   grid-template-columns: 1fr;
-  gap: clamp(16px, 2.5vw, 32px);
-  padding-top: clamp(32px, 4vw, 56px);
-  margin-bottom: clamp(32px, 4vw, 48px);
+  gap: 1rem;
+  padding-top: 2rem;
+  margin-bottom: 2rem;
 }
 
-/* MOBILE (default): DOM order rules — Subtitle2, CardAI, Subtitle3, CardLead */
-/* No explicit placement needed — items flow in DOM order */
+/* Mobile: DOM order rules — Subtitle2, CardAI, Subtitle3, CardLead */
 
-/* DESKTOP (640px+): explicit grid placement */
+/* Desktop: explicit 2-column placement */
 @media (min-width: 640px) {
   .ai-grid-paired {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    padding-top: 2.5rem;
+    margin-bottom: 3rem;
   }
-  .ai-subtitle-cell-1 {
-    grid-column: 1;
-    grid-row: 1;
-  }
-  .ai-card-cell-1 {
-    grid-column: 1;
-    grid-row: 2;
-  }
-  .ai-subtitle-cell-2 {
-    grid-column: 2;
-    grid-row: 1;
-  }
-  .ai-card-cell-2 {
-    grid-column: 2;
-    grid-row: 2;
+  .ai-paired-subtitle-1 { grid-column: 1; grid-row: 1; }
+  .ai-paired-card-1 { grid-column: 1; grid-row: 2; }
+  .ai-paired-subtitle-2 { grid-column: 2; grid-row: 1; }
+  .ai-paired-card-2 { grid-column: 2; grid-row: 2; }
+}
+
+@media (min-width: 1024px) {
+  .ai-grid-paired {
+    gap: 2rem;
+    padding-top: 3.5rem;
+    margin-bottom: 3rem;
   }
 }
 
