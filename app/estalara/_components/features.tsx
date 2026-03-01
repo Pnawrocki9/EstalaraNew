@@ -101,45 +101,45 @@ export function EstalaraFeatures() {
   const features = [
     {
       icon: Video,
-      title: "LIVE Interactive Showcases",
+      title: "Show the property to the world \u2013 live \u2013 without travel.",
+      tagline: "Show one property. Reach 47 buyers. In one evening.",
       description:
-        "1-to-many presentations that eliminate the 'distance tax' on trust. Answer questions in real-time to global audiences.",
-
+        "Walk through the apartment with your phone. Buyers from China to USA watch live, ask questions, and fall in love \u2013 before they ever book a flight. Same as an open house. Just without the travel costs.",
     },
     {
       icon: Languages,
-      title: "Natural Language Translation",
+      title: "Instant Multilingual Communication",
+      tagline: "You speak. They understand. Automatically.",
       description:
-        "Sell to a German investor in English while they read in German. Your local team becomes a polyglot global sales force.",
-
+        "Talk through the property in English while your German buyer reads every word in German \u2014 in real time. No translator on call, no awkward pauses. Your local team suddenly speaks every language.",
     },
     {
       icon: Bot,
-      title: "AI Assistant",
+      title: "24/7 Smart Assistant",
+      tagline: "It\u2019s 2 AM in Tokyo. A buyer has a question. It\u2019s answered.",
       description:
-        "24/7 availability across all time zones. Handles inquiries with hallucination-free accuracy on property details.",
-
+        "Estalara\u2019s AI knows every detail of every listing and replies instantly \u2013 in the buyer\u2019s language. It even knows the nearest schools and gyms. You wake up to a conversation that\u2019s already halfway to a showing.",
     },
     {
       icon: Target,
-      title: "Hot Lead Scoring",
+      title: "Lead Readiness Scoring",
+      tagline: "Stop guessing who\u2019s serious. We\u2019ll just tell you.",
       description:
-        "Engagement scoring analyzes viewer questions, watch time, and interaction intensity to flag high-probability prospects instantly.",
-
+        "After every LIVE, you get a ranked list: who watched the whole thing, who asked about financing, who came back three times. James at the top? Call James first. It\u2019s that simple.",
     },
     {
       icon: Zap,
-      title: "Social Amplification",
+      title: "One Presentation, Many Channels",
+      tagline: "One LIVE session. YouTube, Instagram, and Facebook \u2014 all at once.",
       description:
-        "Re-stream to YouTube, Instagram, and Facebook instantly. Maximize reach without additional effort.",
-
+        "You present once from the property. We broadcast it everywhere your buyers scroll. More eyes, zero extra effort. The only thing you need to do is show up.",
     },
     {
       icon: Clock,
-      title: "Speed to Close",
+      title: "Faster Sales Close Time",
+      tagline: "From first look to signed contract in 19 days \u2013 not 34 (US statistics)",
       description:
-        "VR and LIVE technologies reduce average sales time from 34 days to 19 days. Focus only on closing ready buyers.",
-
+        "Buyers who\u2019ve seen a property live and had their questions answered don\u2019t need convincing on arrival. They come ready. That\u2019s one extra commission per quarter, for every agent on your team.",
     },
   ]
 
