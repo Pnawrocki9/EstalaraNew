@@ -37,17 +37,17 @@ export function EstalaraSolution() {
 
   return (
     <>
-    <section id="solution" className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#1A1A1A]">
+    <section id="solution" className="py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#F8F6F3]">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <p className="text-xs sm:text-sm uppercase tracking-widest text-[#8B8B8B] mb-3 sm:mb-4">
             The Solution
           </p>
-          <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-white max-w-4xl mx-auto leading-snug">
+          <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#1A1A1A] max-w-4xl mx-auto leading-snug">
             The traditional real estate portal gets the traffic.
             <span className="block mt-2">Estalara turns traffic into qualified buyers under your brand.</span>
-            <span className="block mt-2 text-[#A3A3A3]">That's the difference.</span>
+            <span className="block mt-2 text-[#5C5C5C]">That's the difference.</span>
           </h2>
         </div>
 
@@ -57,22 +57,22 @@ export function EstalaraSolution() {
             <ul className="space-y-6">
               {benefits.map((benefit, index) => (
                 <li key={index} className="flex items-start gap-4">
-                  <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <Check className="w-4 h-4 text-[#1A1A1A]" />
+                  <div className="w-6 h-6 rounded-full bg-[#1A1A1A] flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <Check className="w-4 h-4 text-white" />
                   </div>
-                  <p className="text-[#A3A3A3] text-base lg:text-lg leading-relaxed">
+                  <p className="text-[#5C5C5C] text-base lg:text-lg leading-relaxed">
                     {benefit}
                   </p>
                 </li>
               ))}
             </ul>
-            <p className="mt-8 text-white font-medium text-lg">
+            <p className="mt-8 text-[#1A1A1A] font-medium text-lg">
               {"This isn't just the future. It's the new reality for agencies ready to scale."}
             </p>
           </div>
 
           <div className="relative">
-            <div className="rounded-2xl overflow-hidden shadow-xl border border-[#3A3A3A]">
+            <div className="rounded-2xl overflow-hidden shadow-xl border border-[#E8E4DF]">
               <Image
                 src="/images/estalara/property-3.jpg"
                 alt="Luxury beachfront property"

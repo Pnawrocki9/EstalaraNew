@@ -47,6 +47,9 @@ export function EstalaraBenefits() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+          <p className="text-xs sm:text-sm uppercase tracking-widest text-[#8B8B8B] mb-3 sm:mb-4">
+            Benefits
+          </p>
           <h2 className="font-serif text-2xl sm:text-3xl lg:text-5xl text-[#1A1A1A] max-w-3xl mx-auto text-balance leading-tight">
             You don't need more tools. You need better outcomes.
           </h2>
