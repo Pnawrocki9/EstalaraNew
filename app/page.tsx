@@ -45,11 +45,11 @@ export default function Page() {
         <EstalaraHero />
         <EstalaraProblem />
         <EstalaraSolution />
+        <SlidingTagline />
         <EstalaraStats />
         <EstalaraBenefits />
         <EstalaraFeatures />
         <EstalaraAICapabilities />
-        <SlidingTagline />
         <EstalaraVision />
         <EstalaraCTA />
       </main>
