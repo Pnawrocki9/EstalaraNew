@@ -43,7 +43,7 @@ export function EstalaraProblem() {
         },
       ],
       quote:
-        "\u201CZillow/OtoDom leads are often people who just want to see a house in an hour, not buy it.\u201D \u2014 Common Agent Complaint on Reddit.",
+        "\u201CTraditional Real Estate portal leads are often people who just want to see a house in an hour, not buy it.\u201D \u2014 Common Agent Complaint on Reddit.",
     },
     {
       icon: ShieldOff,
