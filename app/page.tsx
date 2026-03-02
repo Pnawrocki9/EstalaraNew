@@ -43,13 +43,13 @@ export default function Page() {
       <EstalaraHeader />
       <main>
         <EstalaraHero />
-        <EstalaraBenefits />
         <EstalaraProblem />
-        <EstalaraStats />
         <EstalaraSolution />
-        <SlidingTagline />
+        <EstalaraStats />
+        <EstalaraBenefits />
         <EstalaraFeatures />
         <EstalaraAICapabilities />
+        <SlidingTagline />
         <EstalaraVision />
         <EstalaraCTA />
       </main>
