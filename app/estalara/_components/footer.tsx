@@ -47,6 +47,11 @@ export function EstalaraFooter() {
             <p className="text-sm text-[#A1A1AA] mt-3 max-w-xs leading-relaxed">
               From Local Listings to Live Global Sales
             </p>
+            <div className="mt-3 text-xs text-[#A1A1AA]/70 leading-relaxed">
+              <p className="font-medium text-[#A1A1AA]">Time2Show, Inc.</p>
+              <p>1111B S Governors Ave STE 20579</p>
+              <p>Dover, Delaware 19904, US</p>
+            </div>
             <a
               href="mailto:estalara@estalara.com"
               className="text-sm text-[#C9A66B] hover:text-[#B8923D] transition-colors duration-200 mt-4 inline-block font-medium"
@@ -117,15 +122,10 @@ export function EstalaraFooter() {
         <div className="my-10 h-px bg-[#E4E4E7]/50" />
 
         {/* Bottom Row */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <div className="text-center sm:text-left">
-            <p className="text-xs text-[#A1A1AA]">
-              &copy; {new Date().getFullYear()} Time2Show, Inc. All rights reserved.
-            </p>
-            <p className="text-[10px] text-[#A1A1AA]/70 mt-1 leading-relaxed">
-              1111B S Governors Ave STE 20579, Dover, Delaware, 19904, US
-            </p>
-          </div>
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-[#A1A1AA] text-center sm:text-left">
+            &copy; {new Date().getFullYear()} Time2Show, Inc. All rights reserved.
+          </p>
           <div className="flex items-center gap-4 sm:gap-6 flex-wrap justify-center">
             <a
               href="https://www.linkedin.com/company/estalara/"
