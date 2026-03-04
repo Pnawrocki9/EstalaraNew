@@ -117,10 +117,15 @@ export function EstalaraFooter() {
         <div className="my-10 h-px bg-[#E4E4E7]/50" />
 
         {/* Bottom Row */}
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-[#A1A1AA] text-center sm:text-left">
-            &copy; {new Date().getFullYear()} Time2Show, Inc. All rights reserved.
-          </p>
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="text-center sm:text-left">
+            <p className="text-xs text-[#A1A1AA]">
+              &copy; {new Date().getFullYear()} Time2Show, Inc. All rights reserved.
+            </p>
+            <p className="text-[10px] text-[#A1A1AA]/70 mt-1 leading-relaxed">
+              1111B S Governors Ave STE 20579, Dover, Delaware, 19904, US
+            </p>
+          </div>
           <div className="flex items-center gap-4 sm:gap-6 flex-wrap justify-center">
             <a
               href="https://www.linkedin.com/company/estalara/"
