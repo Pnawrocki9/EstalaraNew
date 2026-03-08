@@ -87,6 +87,9 @@ export default function CategoryPage({ params }: CategoryPageProps) {
                 {article.featured && (
                   <span className="inline-block text-xs bg-[#1A1A1A] text-white px-2 py-1 rounded mb-3">Featured</span>
                 )}
+                {article.businessCase && (
+                  <span className="inline-block text-xs bg-[#2563EB] text-white px-2 py-1 rounded mb-3">Business Case</span>
+                )}
                 <h3 className="font-serif text-lg text-[#1A1A1A] mb-3 group-hover:underline leading-tight">{article.title}</h3>
                 <p className="text-sm text-[#4A4A4A] mb-4 line-clamp-3">{article.excerpt}</p>
                 <div className="flex items-center text-xs text-[#6A6A6A]">

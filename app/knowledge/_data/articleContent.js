@@ -2732,6 +2732,134 @@ The agents who build the capability now will define the category when it arrives
       "the-213b-opportunity-understanding-global-real-estate-capital-flows",
       "trust-at-a-distance-the-psychology-of-remote-property-transactions"
     ]
+  },
+
+  "evergrande-38-apartments-one-second": {
+    id: "15",
+    slug: "evergrande-38-apartments-one-second",
+    title: "38 Apartments. One Second. 3.8 Million Viewers. What Evergrande's Livestream Proved About the Future of Property Sales",
+    category: "global-selling",
+    subcategory: "Global Selling Dynamics",
+    excerpt: "On April 24, 2020, Evergrande's property livestream attracted 3.8 million viewers — and sold 38 discounted apartments in one second. Here's what the global industry still hasn't learned from that moment.",
+    readTime: 5,
+    publishedDate: "March 2026",
+    updatedDate: "March 2026",
+    featured: false,
+    businessCase: true,
+    tags: ["Evergrande", "China", "livestream sales", "case study", "COVID-19", "live commerce"],
+    content: `
+## Why This Moment Matters
+
+On April 24, 2020, while most of the world was in lockdown, Evergrande Group — at the time one of China's largest real estate companies — ran a property livestream that the global industry still hasn't fully absorbed.
+
+The broadcast attracted **3.8 million live viewers** and racked up **7.12 million likes**.
+
+During the session, Evergrande released a batch of 38 discounted apartments.
+
+They sold out **in one second.**
+
+Not in an hour. Not during the broadcast. In a single second, from a single product drop during a live video stream.
+
+The date is significant. April 2020 was the height of China's first COVID lockdowns. Traditional property showrooms were closed. In-person viewings were impossible. The entire model of face-to-face real estate sales had been forced offline — simultaneously, across one of the world's largest property markets.
+
+What happened next wasn't a workaround. It was an acceleration.
+
+Real estate companies were trying all sorts of online marketing tactics to stay afloat — encouraging employees to communicate with clients on social media, film short videos, and host livestreams. But Evergrande's result stood apart from the rest. The numbers it produced — 3.8 million viewers, 38 units gone in a second — weren't a niche experiment. They were a demonstration of what becomes possible when buyer demand meets a real-time, frictionless purchase environment at scale.
+
+## The Broader Picture: Property Sales Via Live Video Was Taking Over
+
+Evergrande's broadcast wasn't an isolated event. It was the headline moment in a wave reshaping how Chinese developers sold homes.
+
+During a Poly Real Estate live streaming around the same period, 102 apartments were sold in half an hour, and over 1,000 in a day. The platform Fang.com handled over 120,000 live streams in a single month, with over 5 million viewers watching their shows every day.
+
+The behavioral shift was confirmed in the transaction data too: using VR viewing platforms, a salesperson could serve 70 customers a day — far more than the 30 a salesperson could serve offline — and 1,068 homes out of 1,472 in one development sold in 8 minutes and 16 seconds.
+
+This is the scale reality that pre-recorded listings, static photography, and in-person-only showrooms were never designed to handle.
+
+## What the Agents Who Adapted Have to Say
+
+The agents who embraced live property selling during this period didn't go back.
+
+"Beauty Wang," a real estate agent who first took to selling houses on Douyin in April 2020, sold around ten to sixteen apartments each month for two years running, making over 2 million yuan ($278,000) in annual profit. Her summary of what changed: "In my livestreams, I'm reaching them where they are and information is two-way for all to see — that's how you build trust."
+
+Georg Chmiel, chair of real estate firm Juwai-IQI, noted that livestreaming was particularly appealing to overseas buyers who were unable to visit properties in person.
+
+The conversion data from those who built real infrastructure around the format is just as striking: the average sale conversion rate for Kuaishou's property livestreamers is between 20% and 30%, with those with a large following reaching up to 50%.
+
+## What This Tells Us About Buyer Behavior
+
+The Evergrande moment was possible because of a specific set of conditions: a large, engaged live audience; discounted inventory released at a single moment; a real-time purchase mechanism. The buyers who moved in that second were not impulse-buying. They were informed, pre-qualified viewers who had been engaging with the broadcast, evaluating the offer, and were ready to act the moment the opportunity appeared.
+
+This is the behavioral dynamic that live video creates and static media can never replicate: a concentrated moment of peak intent, among buyers who have already been through a self-directed qualification process during the broadcast itself.
+
+The one-second sell-out wasn't luck. It was the product of an audience that had been sitting in a real-time engagement environment — watching, asking questions, and building confidence — until the moment of decision arrived.
+
+For the global real estate industry, still largely relying on listing photographs and contact forms, that dynamic represents both a challenge and a significant opportunity.
+
+## The Question for Agencies Everywhere
+
+Evergrande's April 2020 broadcast happened under crisis conditions — a locked-down market with no alternative channel. Most markets globally haven't faced that same forcing function.
+
+But the underlying behavioral mechanics that produced that result don't disappear when showrooms reopen. Buyers who engage with live video build trust faster, self-qualify more precisely, and arrive at the moment of decision with more conviction than buyers navigating static listings alone.
+
+The agencies and developers building live video infrastructure now — before they're forced to — are positioning themselves to capture the same dynamic on their own terms.
+
+"If you're not livestreaming, you won't be able to sell a single home — you'd be obsolete."
+
+That's not a prediction. For China's most successful property agents, it's already the present tense.
+
+## Key Takeaways
+
+- Evergrande's April 2020 livestream attracted 3.8 million viewers and sold 38 apartments in one second — demonstrating the scale potential of live property commerce.
+- The result wasn't an outlier: Poly Real Estate sold 102 apartments in 30 minutes; Fang.com processed 120,000 livestreams monthly with 5 million daily viewers.
+- Agents who adapted to livestream selling report conversion rates of 20-50% — far exceeding traditional channels.
+- The one-second sell-out was possible because live video creates concentrated moments of peak intent among self-qualified buyers.
+- The behavioral mechanics that produced these results don't require crisis conditions — agencies building live video infrastructure now are positioning for the future of property sales.
+    `,
+    sources: [
+      {
+        name: "TechNode",
+        data: "Livestreaming in China: only for sales or is there brand value? - Evergrande 3.8M viewers data",
+        url: "https://technode.com/2020/06/12/livestreaming-in-china-only-for-sales-or-is-there-brand-value/",
+        accessed: "March 2026"
+      },
+      {
+        name: "CGTN",
+        data: "How are VR and live streaming helping China's housing market during the epidemic?",
+        url: "https://news.cgtn.com/news/2020-03-05/VR-and-live-streaming-help-China-s-housing-market-during-the-epidemic-OCdBBO7SCI/index.html",
+        accessed: "March 2026"
+      },
+      {
+        name: "Bloomberg",
+        data: "China Real Estate Agents Turn to Livestreaming During Property Downturn",
+        url: "https://www.bloomberg.com/news/articles/2023-08-25/china-livestream-real-estate-ads-give-agents-leg-up-in-downturn",
+        accessed: "March 2026"
+      },
+      {
+        name: "DAO Insights",
+        data: "How short video platforms became a salvation for China's housing market",
+        url: "https://daoinsights.com/opinions/short-video-platforms-became-a-salvation-for-chinas-housing-market/",
+        accessed: "March 2026"
+      },
+      {
+        name: "Sixth Tone",
+        data: "Tough Sell: China's Agents Shill Homes via Livestream Amid Epidemic",
+        url: "http://www.sixthtone.com/news/1005296/tough-sell-chinas-agents-shill-homes-via-livestream-amid-epidemic",
+        accessed: "March 2026"
+      },
+      {
+        name: "Rest of World",
+        data: "The vacation town that livestream shopping built",
+        url: "https://restofworld.org/2024/xishuangbanna-livestream-real-estate-boom/",
+        accessed: "March 2026"
+      }
+    ],
+    relatedArticles: [
+      "china-live-real-estate-sales",
+      "timezone-strategy-optimizing-live-presentations-for-global-audiences",
+      "the-213b-opportunity-understanding-global-real-estate-capital-flows",
+      "trust-at-a-distance-the-psychology-of-remote-property-transactions"
+    ]
   }
 };
 
@@ -2855,6 +2983,6 @@ export const categories = [
     id: "global-selling",
     title: "Global Selling Dynamics",
     description: "Reaching international buyers: timezone strategies, cultural considerations, and cross-border credibility.",
-    articleCount: 4
+    articleCount: 5
   }
 ];

@@ -89,6 +89,33 @@ function parseMarkdownTable(lines: string[], startIndex: number): { table: Table
 }
 
 function renderArticleContent(content: string): ReactNode[] {
+  // Helper function to parse inline formatting (bold, links)
+  const parseInlineFormatting = (text: string): ReactNode[] => {
+    const parts: ReactNode[] = [];
+    let remaining = text;
+    let keyIndex = 0;
+    
+    while (remaining.length > 0) {
+      // Check for bold text **...**
+      const boldMatch = remaining.match(/\*\*(.+?)\*\*/);
+      if (boldMatch && boldMatch.index !== undefined) {
+        // Add text before the bold
+        if (boldMatch.index > 0) {
+          parts.push(remaining.substring(0, boldMatch.index));
+        }
+        // Add the bold text
+        parts.push(<strong key={`bold-${keyIndex++}`} className="font-semibold">{boldMatch[1]}</strong>);
+        remaining = remaining.substring(boldMatch.index + boldMatch[0].length);
+      } else {
+        // No more bold text, add the rest
+        parts.push(remaining);
+        break;
+      }
+    }
+    
+    return parts;
+  };
+
   const lines = content.split("\n")
   const blocks: ReactNode[] = []
   let index = 0
@@ -181,7 +208,7 @@ function renderArticleContent(content: string): ReactNode[] {
       blocks.push(
         <ul key={`ul-${blocks.length}`} className="my-4 list-disc pl-6 space-y-2">
           {items.map((item, itemIdx) => (
-            <li key={`ul-item-${itemIdx}`}>{item}</li>
+            <li key={`ul-item-${itemIdx}`}>{parseInlineFormatting(item)}</li>
           ))}
         </ul>,
       )
@@ -226,7 +253,7 @@ function renderArticleContent(content: string): ReactNode[] {
 
     blocks.push(
       <p key={`p-${blocks.length}`} className="my-4">
-        {line}
+        {parseInlineFormatting(line)}
       </p>,
     )
     index += 1
@@ -423,6 +450,7 @@ export default function ArticlePage({ params }: ArticlePageProps) {
             <div className="flex items-center gap-3 mb-4">
               <span className="text-xs bg-[#F5F3F0] px-3 py-1 rounded-full text-[#4A4A4A]">{category?.title}</span>
               {article.featured && <span className="text-xs bg-[#1A1A1A] text-white px-3 py-1 rounded-full">Featured</span>}
+              {article.businessCase && <span className="text-xs bg-[#2563EB] text-white px-3 py-1 rounded-full">Business Case</span>}
             </div>
 
             <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-[#1A1A1A] leading-tight mb-6" data-testid="article-title">
