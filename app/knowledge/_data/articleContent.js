@@ -471,8 +471,8 @@ Technical excellence in live presentations is achievable with modest investment 
     subcategory: "Live Presentations",
     excerpt: "A deep dive into engagement metrics, trust formation, and conversion rates comparing pre-recorded 3D tours with live video showings — and why the most effective agencies use both strategically.",
     readTime: 9,
-    publishedDate: "July 2025",
-    updatedDate: "July 2025",
+    publishedDate: "March 2026",
+    updatedDate: "March 2026",
     featured: false,
     tags: ["virtual tours", "live video", "buyer engagement", "conversion", "AI analytics", "cross-border sales"],
     content: `
@@ -598,43 +598,43 @@ The agents who have an answer to that question are the ones closing.
         name: "NAR Profile of Home Buyers and Sellers",
         data: "Virtual tour engagement statistics and buyer behavior patterns",
         url: "https://www.nar.realtor/research-and-statistics/research-reports/highlights-from-the-profile-of-home-buyers-and-sellers",
-        accessed: "July 2025"
+        accessed: "March 2026"
       },
       {
         name: "PhotoUp Real Estate Virtual Tour Statistics",
         data: "87% more views for properties with 3D tours, 31% faster sales",
         url: "https://www.photoup.net/virtual-tour-statistics/",
-        accessed: "July 2025"
+        accessed: "March 2026"
       },
       {
         name: "REsimpli Real Estate Marketing Statistics",
         data: "54% more likely to schedule showing after virtual tour",
         url: "https://www.resimpli.com/",
-        accessed: "July 2025"
+        accessed: "March 2026"
       },
       {
         name: "iHomeFinder AI Lead Generation Research",
         data: "AI-powered lead scoring and intent detection metrics",
         url: "https://www.ihomefinder.com/",
-        accessed: "July 2025"
+        accessed: "March 2026"
       },
       {
         name: "Fello AI Brokerage Investment Report",
         data: "73% of top brokerages investing in AI lead scoring",
         url: "https://www.fello.ai/",
-        accessed: "July 2025"
+        accessed: "March 2026"
       },
       {
         name: "MindStudio AI Real Estate Automation",
         data: "AI lead qualification and follow-up automation research",
         url: "https://www.mindstudio.ai/",
-        accessed: "July 2025"
+        accessed: "March 2026"
       },
       {
         name: "Reform AI Lead Scoring Guide",
         data: "AI lead scoring implementation and conversion improvements (21-300%)",
         url: "https://www.reform.app/",
-        accessed: "July 2025"
+        accessed: "March 2026"
       }
     ],
     relatedArticles: [
