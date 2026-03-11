@@ -43,7 +43,7 @@ export function EstalaraVision() {
           <div className="bg-[#1A1A1A] py-12 sm:py-16 lg:py-24 px-6 sm:px-10 lg:px-16">
             <div className="max-w-4xl mx-auto text-center">
               <p className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white leading-snug sm:leading-snug lg:leading-tight mb-6 sm:mb-8">
-                Our vision is to give every agency the ability to attract and serve global buyers without changing who they are, abandoning their local focus, or losing ownership of their brand and relationships.
+                A world where every property is truly seen - and every serious buyer is always found.
               </p>
               <p className="text-lg sm:text-xl lg:text-2xl text-[#C9A962] font-medium tracking-wide">
                 Estalara is the invisible engine behind your global growth.
