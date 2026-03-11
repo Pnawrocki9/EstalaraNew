@@ -27,45 +27,26 @@ export function EstalaraVision() {
             </p>
           </div>
 
-          {/* Right: Opening statement */}
+          {/* Right: Opening statement - trimmed */}
           <div className="order-1 lg:order-2">
             <h2 className="font-serif text-2xl sm:text-4xl lg:text-[2.75rem] leading-tight text-[#1A1A1A] mb-5 sm:mb-8 text-balance">
               Capital is increasingly global. Real estate demand is no longer confined by borders.
             </h2>
-            <p className="text-[#5C5C5C] text-sm sm:text-base lg:text-lg leading-relaxed mb-4 sm:mb-6">
-              Cross-border property transactions already represent a significant and high-value part of the market, especially in premium and investment-grade real estate. Yet for most agencies, international buyers remain difficult to reach consistently and efficiently.
-            </p>
-            <p className="text-[#1A1A1A] font-medium text-sm sm:text-base lg:text-lg leading-relaxed">
-              We believe this gap defines one of the largest growth opportunities in modern real estate.
+            <p className="text-[#5C5C5C] text-sm sm:text-base lg:text-lg leading-relaxed">
+              Cross-border transactions already represent a significant and high-value part of the market, especially in premium and investment-grade real estate. Yet for most agencies, international buyers remain difficult to reach consistently and efficiently.
             </p>
           </div>
         </div>
 
-        {/* Middle: Three-column editorial text */}
-        <div className="border-t border-[#D5D0C8] pt-8 sm:pt-12 lg:pt-16 mb-10 sm:mb-16 lg:mb-20">
-          <div className="grid md:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
-            <div>
-              <h3 className="font-serif text-lg font-semibold text-[#1A1A1A] mb-3">
-                Local expertise, global reach
-              </h3>
-              <p className="text-[#5C5C5C] text-sm lg:text-base leading-relaxed">
-                Agents bring local expertise, trust, and human judgment. Estalara brings intelligence, live interaction, and global reach. Together, we turn international demand into a practical, repeatable channel for local agencies.
+        {/* Vision Statement - Hero moment within the section */}
+        <div className="relative -mx-4 sm:-mx-6 lg:-mx-8 mb-10 sm:mb-16 lg:mb-20">
+          <div className="bg-[#1A1A1A] py-12 sm:py-16 lg:py-24 px-6 sm:px-10 lg:px-16">
+            <div className="max-w-4xl mx-auto text-center">
+              <p className="font-serif text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white leading-snug sm:leading-snug lg:leading-tight mb-6 sm:mb-8">
+                Our vision is to give every agency the ability to attract and serve global buyers without changing who they are, abandoning their local focus, or losing ownership of their brand and relationships.
               </p>
-            </div>
-            <div>
-              <h3 className="font-serif text-lg font-semibold text-[#1A1A1A] mb-3">
-                Beyond traditional portals
-              </h3>
-              <p className="text-[#5C5C5C] text-sm lg:text-base leading-relaxed">
-                Traditional portals play a critical role in discovery and visibility. But listings alone were never designed to support cross-border decision-making, where trust, clarity, and real-time interaction matter most. Estalara extends their reach with live showcases, multilingual communication, and real-time intent identification.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-serif text-lg font-semibold text-[#1A1A1A] mb-3">
-                Ownership of brand and relationships
-              </h3>
-              <p className="text-[#5C5C5C] text-sm lg:text-base leading-relaxed">
-                Our vision is to give every agency the ability to attract and serve global buyers without changing who they are, abandoning their local focus, or losing ownership of their brand and relationships. Estalara is the invisible engine behind your global growth.
+              <p className="text-lg sm:text-xl lg:text-2xl text-[#C9A962] font-medium tracking-wide">
+                Estalara is the invisible engine behind your global growth.
               </p>
             </div>
           </div>
