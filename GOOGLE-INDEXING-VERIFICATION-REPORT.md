@@ -8,27 +8,30 @@
 
 ## Executive Summary
 
-**estalara.com is currently NOT indexed by Google.** Neither `site:estalara.com` nor `site:www.estalara.com` returns any results. A brand-name search for "estalara" also yields no relevant results.
+Google Search Console is configured as a **domain property** for `estalara.com`. Current status:
 
-The on-page technical SEO is solid — there are no blocking directives preventing indexing. The root cause is almost certainly that **Google Search Console has not been configured** and the **sitemap has not been submitted**, so Google has no signal to discover and crawl the site.
+- **21 pages indexed** (growing since mid-February 2026)
+- **1,112 pages NOT indexed** (URL bloat from query parameters and internal paths)
+- **35 real pages** in the sitemap
+
+The 21 indexed pages confirm that Google can crawl and index the site. The 1,112 non-indexed pages are almost entirely junk URLs — query parameter variants (`?_rsc=`, `?fbclid=`, `?gclid=`, `?hs_preview=`), Next.js internal paths (`/_next/`), and tracking parameter permutations discovered during JavaScript rendering. This is wasting crawl budget and diluting indexing signals.
 
 | Check                          | Status           | Notes                                            |
 |--------------------------------|------------------|--------------------------------------------------|
-| Google index (`site:` query)   | NOT INDEXED      | Zero pages in Google's index                     |
-| Brand search ("estalara")      | NOT FOUND        | No relevant results                              |
+| Google Search Console          | CONFIGURED       | Domain property, 21 pages indexed                |
 | Site live & accessible         | PASS (200 OK)    | `https://estalara.com` returns 200               |
 | HTTPS enforced                 | PASS             | `http://` → 301 → `https://`                    |
 | www → non-www redirect         | PASS             | `www.estalara.com` → 301 → `estalara.com`       |
-| robots.txt                     | PASS             | Googlebot explicitly allowed, `/api/` blocked    |
+| robots.txt                     | IMPROVED         | Now blocks `/_next/`, `?_rsc=`, tracking params  |
 | sitemap.xml                    | PASS             | 35 URLs, valid XML, correct Content-Type         |
-| Meta robots / noindex          | PASS (none)      | No `noindex` or `nofollow` directives anywhere   |
-| X-Robots-Tag HTTP header       | PASS (absent)    | No blocking headers                              |
-| Canonical URLs                 | PASS             | All pages have correct `<link rel="canonical">`  |
+| Meta robots / noindex          | PASS (none)      | No `noindex` on content pages                    |
+| X-Robots-Tag HTTP header       | IMPROVED         | Now set on `/api/*` and `/admin/*` paths         |
+| Canonical URLs                 | PASS             | Correctly strips query params on all pages       |
 | Hreflang alternates            | PASS             | 7 language variants on homepage                  |
 | Open Graph / Twitter Cards     | PASS             | Complete metadata on all pages                   |
 | JSON-LD structured data        | PASS             | Organization, SoftwareApplication, BreadcrumbList|
-| Google Search Console verified | NOT SET UP       | No verification meta tag or file found           |
-| IndexNow support               | NOT IMPLEMENTED  | No IndexNow key or API route                     |
+| Non-indexed URL bloat          | NEEDS ATTENTION  | 1,112 junk URLs wasting crawl budget             |
+| IndexNow support               | ADDED            | `/api/indexnow` endpoint ready                   |
 
 ---
 
@@ -118,33 +121,49 @@ No IndexNow key file or API integration found. IndexNow enables proactive notifi
 
 ## Root Cause Analysis
 
-The site is **technically ready** to be indexed — there are zero on-page or server-side blockers. The lack of indexing is due to:
+### Why only 21 of 35 pages are indexed
 
-1. **No Google Search Console (GSC) setup** — Google has no explicit instruction to discover and crawl the site
-2. **No sitemap submission** — Even though `sitemap.xml` exists and is referenced in `robots.txt`, Google may not have discovered it without GSC
-3. **Insufficient inbound links** — Without external backlinks or directory listings, Google's natural discovery crawl may not have reached the site yet
-4. **No IndexNow pings** — Bing/Yandex haven't been notified of new content
+Google Search Console is active and the site is partially indexed. The 14 missing pages from the sitemap are likely in one of these GSC buckets:
+
+- **"Crawled - currently not indexed"** — Google saw the page but decided it wasn't worth indexing yet (common for thin or new pages)
+- **"Discovered - currently not indexed"** — Google knows about the URL but hasn't prioritized crawling it
+
+**Action:** Check GSC → Pages → "Why pages aren't indexed" to see which of the 35 sitemap URLs are missing and why.
+
+### Why 1,112 pages are NOT indexed (URL bloat)
+
+Google has discovered 1,112 URLs it chose not to index. These are overwhelmingly junk URLs:
+
+1. **Query parameter variants** — Next.js RSC params (`?_rsc=`), data requests (`?__nextDataReq=`), HubSpot preview params (`?hs_preview=`), ad click IDs (`?fbclid=`, `?gclid=`)
+2. **Internal Next.js paths** — `/_next/` static asset URLs discovered during JavaScript rendering
+3. **Tracking parameter permutations** — Google Ads, Facebook, LinkedIn UTM parameters creating URL variants
+
+The canonical tags are correctly set (verified: they strip all query parameters), so Google knows these are duplicates. But crawling 1,112 junk URLs wastes crawl budget.
+
+**Fixes implemented in this branch:**
+- robots.txt now blocks `/_next/`, `?_rsc=`, `?__nextDataReq=`, `?hs_preview=`, `?fbclid=`, `?gclid=`
+- `X-Robots-Tag: noindex, nofollow` header added for `/api/*` and `/admin/*` paths
 
 ---
 
 ## Action Items
 
-### Immediate (today)
+### Immediate (deploy this branch)
 
 | # | Action | Owner | Details |
 |---|--------|-------|---------|
-| 1 | **Set up Google Search Console** | Site admin | Go to [search.google.com/search-console](https://search.google.com/search-console), add `estalara.com` as a property, and verify ownership (DNS TXT record or HTML file method recommended) |
-| 2 | **Submit sitemap in GSC** | Site admin | After verification, go to Sitemaps → Add `https://estalara.com/sitemap.xml` |
-| 3 | **Request indexing of key pages** | Site admin | In GSC URL Inspection tool, submit these URLs for indexing: `https://estalara.com/`, `https://estalara.com/book-demo`, `https://estalara.com/knowledge` |
-| 4 | **Add GSC verification meta tag** | Developer | Add `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` env var with the GSC verification code (implemented in this branch) |
+| 1 | **Deploy updated robots.txt** | Developer | Blocks crawling of junk URL patterns (query params, `/_next/`) |
+| 2 | **Deploy X-Robots-Tag headers** | Developer | Prevents indexing of `/api/*` and `/admin/*` paths |
+| 3 | **Check GSC "Pages" report** | Site admin | Go to Indexing → Pages → "Why pages aren't indexed" to identify which of the 35 real pages are still missing |
+| 4 | **Request indexing of missing pages** | Site admin | For any real page that isn't indexed, use URL Inspection → "Request Indexing" |
 
 ### This week
 
 | # | Action | Owner | Details |
 |---|--------|-------|---------|
 | 5 | **Set up Bing Webmaster Tools** | Site admin | Verify at [bing.com/webmasters](https://www.bing.com/webmasters), submit sitemap |
-| 6 | **Monitor GSC coverage report** | Site admin | Check for crawl errors, excluded pages, valid indexed pages |
-| 7 | **Submit to Google Business Profile** | Site admin | If applicable, create/claim a Google Business listing |
+| 6 | **Monitor "not indexed" count** | Site admin | After robots.txt deploy, the 1,112 should decrease over 2-4 weeks as Google respects the new rules |
+| 7 | **Verify sitemap is submitted** | Site admin | GSC → Sitemaps — confirm `https://estalara.com/sitemap.xml` shows "Success" with 35 URLs |
 
 ### Next 2 weeks
 
@@ -152,24 +171,37 @@ The site is **technically ready** to be indexed — there are zero on-page or se
 |---|--------|-------|---------|
 | 8 | **Build initial backlinks** | Marketing | Submit to SaaS directories, PropTech listings, startup databases |
 | 9 | **Share on social media** | Marketing | LinkedIn company page posts linking to site |
-| 10 | **Monitor indexing progress** | Site admin | Use `site:estalara.com` weekly to track indexed page count |
+| 10 | **Target 35/35 indexed** | Site admin | All sitemap URLs should be indexed within 2-4 weeks |
 
 ---
 
 ## Changes Implemented in This Branch
 
-### 1. Google Search Console verification meta tag support
+### 1. Improved robots.txt — block junk URL crawling
+
+Updated `app/robots.txt/route.ts` to block URL patterns that waste crawl budget:
+
+- `/_next/` — Next.js internal static asset paths
+- `?_rsc=` — React Server Component flight data params
+- `?__nextDataReq=` — Next.js data request params
+- `?hs_preview=` — HubSpot preview params
+- `?fbclid=` — Facebook click IDs
+- `?gclid=` — Google Ads click IDs
+
+This should significantly reduce the 1,112 non-indexed URL count over time.
+
+### 2. X-Robots-Tag headers for non-content paths
+
+Added `headers()` config in `next.config.mjs` to emit `X-Robots-Tag: noindex, nofollow` on:
+
+- `/api/*` — API endpoints
+- `/admin/*` — Admin routes
+
+### 3. Google Search Console verification meta tag support
 
 Added `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` environment variable support in `app/layout.tsx`. When set, Next.js automatically emits `<meta name="google-site-verification" content="...">` in the HTML head.
 
-**Setup steps:**
-1. Go to Google Search Console and add `estalara.com`
-2. Choose "HTML tag" verification method
-3. Copy the verification code (just the `content` value)
-4. Add to Netlify environment variables: `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=your_code_here`
-5. Redeploy
-
-### 2. IndexNow API route
+### 4. IndexNow API route
 
 Added `app/api/indexnow/route.ts` for proactive search engine notification when content changes. Supports Bing, Yandex, and other IndexNow-compatible engines.
 
@@ -187,7 +219,7 @@ curl -X POST https://estalara.com/api/indexnow \
   -d '{"urls": ["/", "/book-demo", "/knowledge"]}'
 ```
 
-### 3. IndexNow key info endpoint
+### 5. IndexNow key info endpoint
 
 Added `app/api/indexnow-key/route.ts` to verify the configured key and its expected file location.
 
@@ -195,16 +227,15 @@ Added `app/api/indexnow-key/route.ts` to verify the configured key and its expec
 
 ## Expected Timeline
 
-After completing the immediate action items:
+After deploying this branch:
 
 | Milestone | Expected Timeframe |
 |-----------|-------------------|
-| GSC verification complete | Same day |
-| Sitemap processed by Google | 1–3 days |
-| Homepage indexed | 3–7 days |
-| Core pages indexed | 1–2 weeks |
-| Full site indexed (35 URLs) | 2–4 weeks |
-| Regional pages ranking | 4–8 weeks |
+| New robots.txt live | Same day (after deploy) |
+| Non-indexed count starts dropping | 1–2 weeks |
+| Remaining 14 pages indexed (35/35) | 2–4 weeks |
+| Non-indexed count below 200 | 4–8 weeks |
+| Start ranking for non-brand queries | 4–8 weeks |
 
 ---
 

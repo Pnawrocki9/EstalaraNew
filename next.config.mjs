@@ -7,9 +7,19 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
 
-  // 301 redirects — old static HTML pages from the previous website.
-  // Tells Google these pages have permanently moved, so it drops them
-  // from the index and transfers any SEO value to the new URLs.
+  async headers() {
+    return [
+      {
+        source: "/api/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
+      {
+        source: "/admin/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
+    ]
+  },
+
   async redirects() {
     return [
       { source: "/about.html", destination: "/", permanent: true },
