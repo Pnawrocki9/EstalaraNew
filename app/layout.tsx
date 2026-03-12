@@ -25,6 +25,13 @@ export const metadata: Metadata = {
   title: "Estalara | From Local Listings to Live Global Sales",
   description:
     "The white-label platform that helps real estate agencies go beyond traditional portals by converting LIVE investor interactions into AI-qualified hot leads worldwide.",
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? {
+        verification: {
+          google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
+        },
+      }
+    : {}),
   openGraph: {
     title: "Estalara - From Local Listings to Live Global Sales",
     description:
