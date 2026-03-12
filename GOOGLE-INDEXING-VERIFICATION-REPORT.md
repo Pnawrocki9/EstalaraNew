@@ -130,47 +130,135 @@ Google Search Console is active and the site is partially indexed. The 14 missin
 
 **Action:** Check GSC → Pages → "Why pages aren't indexed" to see which of the 35 sitemap URLs are missing and why.
 
-### Why 1,112 pages are NOT indexed (URL bloat)
+### Why 1,112 pages are NOT indexed — THE ROOT CAUSE
 
-Google has discovered 1,112 URLs it chose not to index. These are overwhelmingly junk URLs:
+**~1,050 of the 1,112 non-indexed pages are pre-signed S3 image URLs from `s3.estalara.com`.**
 
-1. **Query parameter variants** — Next.js RSC params (`?_rsc=`), data requests (`?__nextDataReq=`), HubSpot preview params (`?hs_preview=`), ad click IDs (`?fbclid=`, `?gclid=`)
-2. **Internal Next.js paths** — `/_next/` static asset URLs discovered during JavaScript rendering
-3. **Tracking parameter permutations** — Google Ads, Facebook, LinkedIn UTM parameters creating URL variants
+GSC reports them as: **"Strona zablokowana z powodu zabronionego dostępu (błąd 403)"** (Page blocked due to forbidden access — error 403).
 
-The canonical tags are correctly set (verified: they strip all query parameters), so Google knows these are duplicates. But crawling 1,112 junk URLs wastes crawl budget.
+Example URL pattern:
+```
+https://s3.estalara.com/estalara-photos/{uuid}X-Amz-Algorithm=AWS4-HMAC-SHA256
+  &X-Amz-Credential=admin/20260108/us-east-1/s3/aws4_request
+  &X-Amz-Date=20260108T034932Z
+  &X-Amz-Expires=3600
+  &X-Amz-SignedHeaders=host
+  &X-Amz-Signature={signature}
+```
 
-**Fixes implemented in this branch:**
+**How this happens:**
+1. `s3.estalara.com` is an S3-compatible storage service (MinIO behind nginx) used by the Estalara platform for property photos
+2. The GSC domain property `estalara.com` captures ALL subdomains — including `s3.estalara.com`
+3. Google discovers these pre-signed URLs (from the app, shared links, external references)
+4. Google tries to fetch `s3.estalara.com/robots.txt` to check crawl rules — it gets **403 Forbidden**
+5. Per Google's spec, a 403 on robots.txt = "no restrictions" → Google tries to crawl every discovered URL
+6. The pre-signed tokens expire (1-hour TTL), so Google gets 403 on the actual pages too
+7. All ~1,050 URLs pile up as "403 forbidden" in GSC
+
+**The remaining ~60 non-indexed URLs** are likely query parameter variants and internal Next.js paths from the marketing site.
+
+**Fixes implemented in this branch (for the marketing site):**
 - robots.txt now blocks `/_next/`, `?_rsc=`, `?__nextDataReq=`, `?hs_preview=`, `?fbclid=`, `?gclid=`
 - `X-Robots-Tag: noindex, nofollow` header added for `/api/*` and `/admin/*` paths
+
+**Fix required for S3 (infrastructure — outside this codebase):**
+- Upload a `robots.txt` to the `s3.estalara.com` bucket root — see "S3 robots.txt fix" section below
+
+---
+
+## CRITICAL FIX: S3 robots.txt for s3.estalara.com
+
+This is the single most impactful fix. It will eliminate ~1,050 of the 1,112 non-indexed URL errors.
+
+### Option A: Upload robots.txt to S3 bucket (recommended)
+
+Upload a file named `robots.txt` to the **root of the S3 bucket** that serves `s3.estalara.com`:
+
+```
+User-agent: *
+Disallow: /
+```
+
+Using MinIO client (`mc`):
+```bash
+echo -e "User-agent: *\nDisallow: /" > /tmp/robots.txt
+mc cp /tmp/robots.txt YOUR_ALIAS/estalara-photos/robots.txt
+mc anonymous set download YOUR_ALIAS/estalara-photos/robots.txt
+```
+
+Using AWS CLI:
+```bash
+echo -e "User-agent: *\nDisallow: /" > /tmp/robots.txt
+aws s3 cp /tmp/robots.txt s3://estalara-photos/robots.txt \
+  --content-type "text/plain" \
+  --acl public-read \
+  --endpoint-url https://s3.estalara.com
+```
+
+**Important:** The `robots.txt` must be publicly accessible (no auth required). Verify with:
+```bash
+curl -s https://s3.estalara.com/robots.txt
+# Should return:
+# User-agent: *
+# Disallow: /
+```
+
+### Option B: Nginx proxy rule (if S3 object upload doesn't work)
+
+If the S3 bucket can't serve `robots.txt` at the domain root, add this to the nginx config that proxies `s3.estalara.com`:
+
+```nginx
+server {
+    server_name s3.estalara.com;
+
+    location = /robots.txt {
+        return 200 "User-agent: *\nDisallow: /\n";
+        add_header Content-Type text/plain;
+    }
+
+    # ... existing S3 proxy config ...
+}
+```
+
+### What happens after the fix
+
+1. Google fetches `s3.estalara.com/robots.txt` → gets `Disallow: /`
+2. Google stops crawling all `s3.estalara.com/*` URLs
+3. Over 2-4 weeks, the ~1,050 "403 forbidden" errors clear from GSC
+4. The "not indexed" count drops from ~1,112 to ~60
 
 ---
 
 ## Action Items
 
-### Immediate (deploy this branch)
+### Immediate — highest priority
 
 | # | Action | Owner | Details |
 |---|--------|-------|---------|
-| 1 | **Deploy updated robots.txt** | Developer | Blocks crawling of junk URL patterns (query params, `/_next/`) |
-| 2 | **Deploy X-Robots-Tag headers** | Developer | Prevents indexing of `/api/*` and `/admin/*` paths |
-| 3 | **Check GSC "Pages" report** | Site admin | Go to Indexing → Pages → "Why pages aren't indexed" to identify which of the 35 real pages are still missing |
-| 4 | **Request indexing of missing pages** | Site admin | For any real page that isn't indexed, use URL Inspection → "Request Indexing" |
+| 1 | **Upload robots.txt to s3.estalara.com** | DevOps/Infra | See "CRITICAL FIX" section above. This eliminates ~1,050 of the 1,112 errors. |
+| 2 | **Deploy this branch** | Developer | Updates marketing site robots.txt + adds X-Robots-Tag headers for the remaining ~60 junk URLs |
+
+### Immediate — after deploy
+
+| # | Action | Owner | Details |
+|---|--------|-------|---------|
+| 3 | **Check GSC "Pages" report** | Site admin | Go to Indexing → Pages → "Why pages aren't indexed" to identify which of the 35 real pages are still missing from the index |
+| 4 | **Request indexing of missing pages** | Site admin | For any real page from the sitemap that isn't indexed, use URL Inspection → "Request Indexing" |
+| 5 | **Click "SPRAWDŹ POPRAWKĘ" (Validate fix)** | Site admin | On the 403 error page in GSC, click this button AFTER uploading robots.txt to S3 to tell Google to re-check |
 
 ### This week
 
 | # | Action | Owner | Details |
 |---|--------|-------|---------|
-| 5 | **Set up Bing Webmaster Tools** | Site admin | Verify at [bing.com/webmasters](https://www.bing.com/webmasters), submit sitemap |
-| 6 | **Monitor "not indexed" count** | Site admin | After robots.txt deploy, the 1,112 should decrease over 2-4 weeks as Google respects the new rules |
+| 6 | **Set up Bing Webmaster Tools** | Site admin | Verify at [bing.com/webmasters](https://www.bing.com/webmasters), submit sitemap |
 | 7 | **Verify sitemap is submitted** | Site admin | GSC → Sitemaps — confirm `https://estalara.com/sitemap.xml` shows "Success" with 35 URLs |
 
 ### Next 2 weeks
 
 | # | Action | Owner | Details |
 |---|--------|-------|---------|
-| 8 | **Build initial backlinks** | Marketing | Submit to SaaS directories, PropTech listings, startup databases |
-| 9 | **Share on social media** | Marketing | LinkedIn company page posts linking to site |
+| 8 | **Monitor "not indexed" count** | Site admin | Should drop from ~1,112 to under 100 within 2-4 weeks |
+| 9 | **Build initial backlinks** | Marketing | Submit to SaaS directories, PropTech listings, startup databases |
 | 10 | **Target 35/35 indexed** | Site admin | All sitemap URLs should be indexed within 2-4 weeks |
 
 ---
@@ -227,14 +315,17 @@ Added `app/api/indexnow-key/route.ts` to verify the configured key and its expec
 
 ## Expected Timeline
 
-After deploying this branch:
+After deploying this branch AND uploading S3 robots.txt:
 
 | Milestone | Expected Timeframe |
 |-----------|-------------------|
-| New robots.txt live | Same day (after deploy) |
+| S3 robots.txt uploaded | Day 1 |
+| Marketing site deploy (this branch) | Day 1 |
+| Google re-reads robots.txt | 1–3 days |
 | Non-indexed count starts dropping | 1–2 weeks |
+| 403 errors cleared from GSC | 2–4 weeks |
 | Remaining 14 pages indexed (35/35) | 2–4 weeks |
-| Non-indexed count below 200 | 4–8 weeks |
+| Non-indexed count below 50 | 4–6 weeks |
 | Start ranking for non-brand queries | 4–8 weeks |
 
 ---
