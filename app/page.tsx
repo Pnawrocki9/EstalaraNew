@@ -12,12 +12,39 @@ import { EstalaraCTA } from "./estalara/_components/cta"
 import { EstalaraHeader } from "./estalara/_components/header"
 import { EstalaraFooter } from "./estalara/_components/footer"
 import { HOMEPAGE_LANGUAGE_ALTERNATES, SITE_URL } from "@/lib/site"
+import { ORGANIZATION_SCHEMA, SOFTWARE_APPLICATION_SCHEMA, FAQ_SCHEMA } from "@/lib/seo-metadata"
 
 export const metadata: Metadata = {
+  title: 'Estalara — Live Property Showcasing for International Buyers',
+  description: 'Help real estate agencies reach international investors with AI-powered live streaming, multilingual chat, and intent-based lead scoring. Turn portal traffic into qualified buyers.',
+  metadataBase: new URL('https://estalara.com'),
   alternates: {
-    canonical: "/",
-    languages: HOMEPAGE_LANGUAGE_ALTERNATES,
+    canonical: 'https://estalara.com/',
+    languages: {
+      'en': 'https://estalara.com/',
+      'en-GB': 'https://estalara.com/uk/estate-agency-software',
+      'en-US': 'https://estalara.com/us/real-estate-agency-software',
+      'pl': 'https://estalara.com/pl/dla-biur-nieruchomosci',
+      'es': 'https://estalara.com/es/para-inmobiliarias',
+      'ar-AE': 'https://estalara.com/ae/real-estate-agency-software-dubai',
+    },
   },
+  openGraph: {
+    type: 'website',
+    url: 'https://estalara.com/',
+    title: 'Estalara — Live Property Showcasing for International Buyers',
+    description: 'Help real estate agencies reach international investors with AI-powered live streaming, multilingual chat, and intent-based lead scoring.',
+    siteName: 'Estalara',
+    locale: 'en_US',
+    images: [{ url: 'https://estalara.com/images/og/homepage-og.jpg', width: 1200, height: 630, alt: 'Estalara — Live Property Showcasing' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Estalara — Live Property Showcasing for International Buyers',
+    description: 'AI-powered live property streaming for real estate agencies targeting international buyers.',
+    images: ['https://estalara.com/images/og/homepage-og.jpg'],
+  },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 } },
 }
 
 const breadcrumbJsonLd = {
@@ -39,6 +66,18 @@ export default function Page() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_SCHEMA) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(SOFTWARE_APPLICATION_SCHEMA) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
       />
       <EstalaraHeader />
       <main>

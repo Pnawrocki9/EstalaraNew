@@ -3,6 +3,7 @@ import { EstalaraHeader } from "@/app/estalara/_components/header"
 import { EstalaraFooter } from "@/app/estalara/_components/footer"
 import { RegionLandingPage, type RegionLandingContent } from "@/app/estalara/_components/region-landing-page"
 import { HOMEPAGE_LANGUAGE_ALTERNATES } from "@/lib/site"
+import { DEFAULT_OG_IMAGE } from "@/lib/seo-metadata"
 
 const content: RegionLandingContent = {
   cta: "Solicitar demostración",
@@ -100,20 +101,21 @@ const content: RegionLandingContent = {
 }
 
 export const metadata: Metadata = {
-  title: "Software para inmobiliarias | Estalara",
+  title: "Software para inmobiliarias — Captación de inversores internacionales | Estalara",
   description:
-    "Software moderno para inmobiliarias. Presentación profesional de propiedades, captación de leads inmobiliarios y marketing digital sin intermediarios. Solicita demo.",
+    "Plataforma moderna para inmobiliarias. Presenta propiedades en directo a inversores internacionales, puntúa la intención de compra y capta leads sin pagar comisiones a portales.",
   keywords:
     "software para inmobiliarias, marketing inmobiliario digital, captación de leads inmobiliarios, páginas web para propiedades, herramientas para agencias inmobiliarias",
   alternates: {
-    canonical: "/es/para-inmobiliarias",
+    canonical: "https://estalara.com/es/para-inmobiliarias",
     languages: HOMEPAGE_LANGUAGE_ALTERNATES,
   },
   openGraph: {
-    title: "Software para inmobiliarias | Estalara",
+    title: "Software para inmobiliarias — Captación de inversores internacionales | Estalara",
     description:
-      "Software moderno para inmobiliarias. Presentación profesional de propiedades y captación de leads.",
+      "Plataforma moderna para inmobiliarias. Presenta propiedades en directo a inversores internacionales, puntúa la intención de compra y capta leads sin pagar comisiones a portales.",
     locale: "es_ES",
+    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: "Estalara — Software para inmobiliarias" }],
   },
 }
 

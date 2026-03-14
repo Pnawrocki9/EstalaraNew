@@ -5,11 +5,13 @@ type KnowledgeMetadataInput = {
   title: string
   description: string
   path: string
+  ogImage?: string
 }
 
-export function buildKnowledgeMetadata({ title, description, path }: KnowledgeMetadataInput): Metadata {
+export function buildKnowledgeMetadata({ title, description, path, ogImage }: KnowledgeMetadataInput): Metadata {
   const canonicalPath = path.startsWith("/") ? path : `/${path}`
   const canonical = `${SITE_URL}${canonicalPath}`
+  const imageUrl = ogImage ?? "/estalara-social-share.jpg"
 
   return {
     title,
@@ -25,7 +27,7 @@ export function buildKnowledgeMetadata({ title, description, path }: KnowledgeMe
       siteName: "Estalara",
       images: [
         {
-          url: "/estalara-social-share.jpg",
+          url: imageUrl,
           width: 1200,
           height: 630,
           alt: title,
@@ -36,7 +38,7 @@ export function buildKnowledgeMetadata({ title, description, path }: KnowledgeMe
       card: "summary_large_image",
       title,
       description,
-      images: ["/estalara-social-share.jpg"],
+      images: [imageUrl],
     },
   }
 }

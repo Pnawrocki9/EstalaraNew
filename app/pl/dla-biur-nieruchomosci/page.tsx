@@ -3,6 +3,7 @@ import { EstalaraHeader } from "@/app/estalara/_components/header"
 import { EstalaraFooter } from "@/app/estalara/_components/footer"
 import { RegionLandingPage, type RegionLandingContent } from "@/app/estalara/_components/region-landing-page"
 import { HOMEPAGE_LANGUAGE_ALTERNATES } from "@/lib/site"
+import { DEFAULT_OG_IMAGE } from "@/lib/seo-metadata"
 
 const content: RegionLandingContent = {
   cta: "Umów demo",
@@ -100,20 +101,21 @@ const content: RegionLandingContent = {
 }
 
 export const metadata: Metadata = {
-  title: "Oprogramowanie dla biur nieruchomości | Estalara",
+  title: "Oprogramowanie dla biur nieruchomości — Estalara",
   description:
-    "Nowoczesne oprogramowanie dla biur nieruchomości. Profesjonalna prezentacja ofert, pozyskiwanie leadów i marketing nieruchomości bez pośredników. Umów demo.",
+    "Nowoczesna platforma dla biur nieruchomości. Prezentuj oferty na żywo zagranicznym inwestorom, pozyskuj leady bezpośrednio i buduj własny kanał sprzedaży niezależny od portali.",
   keywords:
     "oprogramowanie dla biur nieruchomości, marketing nieruchomości dla biur, pozyskiwanie leadów nieruchomości, prezentacja ofert nieruchomości online, narzędzia dla agencji nieruchomości",
   alternates: {
-    canonical: "/pl/dla-biur-nieruchomosci",
+    canonical: "https://estalara.com/pl/dla-biur-nieruchomosci",
     languages: HOMEPAGE_LANGUAGE_ALTERNATES,
   },
   openGraph: {
-    title: "Oprogramowanie dla biur nieruchomości | Estalara",
+    title: "Oprogramowanie dla biur nieruchomości — Estalara",
     description:
-      "Nowoczesne oprogramowanie dla biur nieruchomości. Profesjonalna prezentacja ofert i pozyskiwanie leadów.",
+      "Nowoczesna platforma dla biur nieruchomości. Prezentuj oferty na żywo zagranicznym inwestorom, pozyskuj leady bezpośrednio i buduj własny kanał sprzedaży niezależny od portali.",
     locale: "pl_PL",
+    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: "Estalara — Oprogramowanie dla biur nieruchomości" }],
   },
 }
 

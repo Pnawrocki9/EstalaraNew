@@ -3,6 +3,7 @@ import { EstalaraHeader } from "@/app/estalara/_components/header"
 import { EstalaraFooter } from "@/app/estalara/_components/footer"
 import { RegionLandingPage, type RegionLandingContent } from "@/app/estalara/_components/region-landing-page"
 import { HOMEPAGE_LANGUAGE_ALTERNATES } from "@/lib/site"
+import { DEFAULT_OG_IMAGE } from "@/lib/seo-metadata"
 
 const content: RegionLandingContent = {
   cta: "Book a demo",
@@ -99,27 +100,41 @@ const content: RegionLandingContent = {
   },
 }
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://estalara.com/" },
+    { "@type": "ListItem", position: 2, name: "Estate Agency Software UK", item: "https://estalara.com/uk/estate-agency-software" },
+  ],
+}
+
 export const metadata: Metadata = {
-  title: "Estate Agency Software | Estalara",
+  title: "Estate Agency Software UK — Live Property Showcasing | Estalara",
   description:
-    "Modern estate agency software for UK property professionals. Professional property marketing platform, lead generation, and listing websites. Book a demo today.",
+    "Modern estate agency software for UK agents. Reach international buyers with live property streams, AI chat, and lead scoring. Stop renting visibility from Rightmove.",
   keywords:
     "estate agency software, property marketing platform, estate agent lead generation, property listing websites, estate agency marketing software",
   alternates: {
-    canonical: "/uk/estate-agency-software",
+    canonical: "https://estalara.com/uk/estate-agency-software",
     languages: HOMEPAGE_LANGUAGE_ALTERNATES,
   },
   openGraph: {
-    title: "Estate Agency Software | Estalara",
+    title: "Estate Agency Software UK — Live Property Showcasing | Estalara",
     description:
-      "Modern estate agency software for UK property professionals. Professional property marketing and lead generation.",
+      "Modern estate agency software for UK agents. Reach international buyers with live property streams, AI chat, and lead scoring.",
     locale: "en_GB",
+    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: "Estalara Estate Agency Software UK" }],
   },
 }
 
 export default function UKLandingPage() {
   return (
     <div className="min-h-screen bg-[#FAFAF9]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <EstalaraHeader />
       <main lang="en-GB">
         <RegionLandingPage content={content} />
