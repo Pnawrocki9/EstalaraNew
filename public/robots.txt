@@ -1,0 +1,44 @@
+# estalara.com — robots.txt
+# Last updated: March 2026
+
+# ── Standard crawlers ─────────────────────────────────────────────
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/static/
+Disallow: /admin/
+Disallow: /dashboard/
+
+# ── AI Crawlers — explicitly allowed for AI search visibility ─────
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# ── Sitemap ───────────────────────────────────────────────────────
+Sitemap: https://estalara.com/sitemap.xml
