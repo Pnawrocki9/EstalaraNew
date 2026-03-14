@@ -1,48 +1,51 @@
 # Estalara
 
-> Estalara is a B2B SaaS platform for real estate agencies that enables live property streaming to international buyers, AI-powered multilingual chat, and purchase-intent lead scoring. Built by Time2Show, Inc. (Delaware, USA).
-> 
-> Estalara helps real estate agencies replace portal dependency with their own branded channel: AI generates ads, agents go LIVE from properties, and the platform scores which viewers are ready to buy.
+> Estalara is a B2B SaaS platform for real estate agencies that enables live property streaming to international buyers, AI-powered multilingual chat, and purchase-intent lead scoring — without requiring agents to use new tools or learn new skills.
 
-## Core Product
+> Built by Time2Show, Inc. (Delaware, USA). Targeting real estate agencies in the UK, US, Poland, Spain, and Dubai.
+
+## What Estalara Does
+
+Estalara connects real estate agencies with international buyers through three core capabilities:
+
+1. **Live Property Showcasing** — agents stream live walkthroughs from the property. Buyers from any country watch in real time, ask questions, and receive instant AI translation.
+2. **AI Lead Intent Scoring** — after each live session, Estalara ranks every viewer by purchase intent using watch time, questions asked, and engagement intensity.
+3. **AI-Powered Multilingual Assistant** — a 24/7 chatbot that knows every property detail and answers buyer questions in their native language.
+
+## Key Statistics
+
+- Average sales cycle reduction: 34 days → 19 days (40% faster)
+- Foreign buyers represent up to 40% of premium property sales in key markets
+- 100% of homebuyers used the internet during their home search in 2024 (NAR 2024)
+- $53.3B in US residential real estate purchased by international buyers (NAR 2024)
+
+## Product Pages
 
 - [Homepage](https://estalara.com/)
-- [Features](https://estalara.com/#features)
+- [Features Overview](https://estalara.com/#features)
 - [How It Works](https://estalara.com/#solution)
-- [AI Intelligence](https://estalara.com/#ai)
 - [Book a Demo](https://estalara.com/book-demo)
 
 ## Regional Pages
 
-- [UK: Estate Agency Software](https://estalara.com/uk/estate-agency-software)
-- [US: Real Estate Agency Software](https://estalara.com/us/real-estate-agency-software)
-- [Poland: Oprogramowanie dla biur nieruchomości](https://estalara.com/pl/dla-biur-nieruchomosci)
-- [Spain: Software para inmobiliarias](https://estalara.com/es/para-inmobiliarias)
-- [Dubai: Real Estate Agency Software Dubai](https://estalara.com/ae/real-estate-agency-software-dubai)
+- [UK — Estate Agency Software](https://estalara.com/uk/estate-agency-software)
+- [US — Real Estate Agency Software](https://estalara.com/us/real-estate-agency-software)
+- [Poland — Oprogramowanie dla biur nieruchomości](https://estalara.com/pl/dla-biur-nieruchomosci)
+- [Spain — Software para inmobiliarias](https://estalara.com/es/para-inmobiliarias)
+- [Dubai — Real Estate Agency Software Dubai](https://estalara.com/ae/real-estate-agency-software-dubai)
 
 ## Knowledge Base
 
 - [Knowledge Hub](https://estalara.com/knowledge)
 - [Research Library](https://estalara.com/knowledge/research)
-- [Insights](https://estalara.com/knowledge/insights)
-- [Live Presentations](https://estalara.com/knowledge/insights/live-presentations)
+- [Live Presentations Research](https://estalara.com/knowledge/insights/live-presentations)
 - [Buyer Intent Signals](https://estalara.com/knowledge/insights/buyer-behavior)
-- [Digital Trust Building](https://estalara.com/knowledge/insights/digital-trust)
+- [Digital Trust in Remote Transactions](https://estalara.com/knowledge/insights/digital-trust)
 - [Global Selling Dynamics](https://estalara.com/knowledge/insights/global-selling)
-- [The 47-Minute Window: When Buyer Interest Converts to Intent](https://estalara.com/knowledge/insights/buyer-behavior/the-47-minute-window-when-buyer-interest-converts-to-intent)
-
-## Legal
-
-- [Privacy Policy](https://estalara.com/legal/privacy-policy)
-- [Terms of Service](https://estalara.com/legal/terms-and-conditions)
-- [Cookie Policy](https://estalara.com/legal/cookies-policy)
-- [Platform Disclaimer](https://estalara.com/legal/platform-disclaimer)
 
 ## Company
 
-- Name: Time2Show, Inc.
-- Address: 1111B S Governors Ave STE 20579, Dover, Delaware 19904, US
-- Email: estalara@estalara.com
-- LinkedIn: https://www.linkedin.com/company/estalara/
-- Founded: 2025
-- Product: Estalara — real estate live streaming, multilingual AI, lead scoring
+- **Legal name:** Time2Show, Inc.
+- **Address:** 1111B S Governors Ave STE 20579, Dover, Delaware 19904, US
+- **Email:** estalara@estalara.com
+- **LinkedIn:** https://www.linkedin.com/company/estalara/

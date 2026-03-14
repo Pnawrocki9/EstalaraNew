@@ -3,6 +3,7 @@ import { EstalaraHeader } from "@/app/estalara/_components/header"
 import { EstalaraFooter } from "@/app/estalara/_components/footer"
 import { RegionLandingPage, type RegionLandingContent } from "@/app/estalara/_components/region-landing-page"
 import { HOMEPAGE_LANGUAGE_ALTERNATES } from "@/lib/site"
+import { DEFAULT_OG_IMAGE } from "@/lib/seo-metadata"
 
 const content: RegionLandingContent = {
   cta: "Book a demo",
@@ -99,27 +100,41 @@ const content: RegionLandingContent = {
   },
 }
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://estalara.com/" },
+    { "@type": "ListItem", position: 2, name: "Real Estate Agency Software US", item: "https://estalara.com/us/real-estate-agency-software" },
+  ],
+}
+
 export const metadata: Metadata = {
-  title: "Real Estate Agency Software | Estalara",
+  title: "Real Estate Agency Software — International Buyer Platform | Estalara",
   description:
-    "Modern real estate agency software for US brokerages. Real estate marketing platform, lead generation tools, and property marketing software. Book a demo today.",
+    "Real estate software for US brokerages targeting international buyers. Live property streaming, AI lead scoring, multilingual chat. Own your leads, not the portal's.",
   keywords:
     "real estate agency software, real estate marketing platform, real estate lead generation, property marketing software, tools for real estate brokers",
   alternates: {
-    canonical: "/us/real-estate-agency-software",
+    canonical: "https://estalara.com/us/real-estate-agency-software",
     languages: HOMEPAGE_LANGUAGE_ALTERNATES,
   },
   openGraph: {
-    title: "Real Estate Agency Software | Estalara",
+    title: "Real Estate Agency Software — International Buyer Platform | Estalara",
     description:
-      "Modern real estate agency software for US brokerages. Real estate marketing platform and lead generation.",
+      "Real estate software for US brokerages targeting international buyers. Live property streaming, AI lead scoring, multilingual chat.",
     locale: "en_US",
+    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: "Estalara Real Estate Agency Software US" }],
   },
 }
 
 export default function USLandingPage() {
   return (
     <div className="min-h-screen bg-[#FAFAF9]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <EstalaraHeader />
       <main lang="en-US">
         <RegionLandingPage content={content} />

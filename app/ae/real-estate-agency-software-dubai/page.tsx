@@ -3,6 +3,7 @@ import { EstalaraHeader } from "@/app/estalara/_components/header"
 import { EstalaraFooter } from "@/app/estalara/_components/footer"
 import { RegionLandingPage, type RegionLandingContent } from "@/app/estalara/_components/region-landing-page"
 import { HOMEPAGE_LANGUAGE_ALTERNATES } from "@/lib/site"
+import { DEFAULT_OG_IMAGE } from "@/lib/seo-metadata"
 
 const content: RegionLandingContent = {
   cta: "Book a demo",
@@ -99,27 +100,41 @@ const content: RegionLandingContent = {
   },
 }
 
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://estalara.com/" },
+    { "@type": "ListItem", position: 2, name: "Real Estate Software Dubai", item: "https://estalara.com/ae/real-estate-agency-software-dubai" },
+  ],
+}
+
 export const metadata: Metadata = {
-  title: "Real Estate Agency Software Dubai | Estalara",
+  title: "Real Estate Agency Software Dubai — International Buyer Platform | Estalara",
   description:
-    "Real estate agency software Dubai agencies trust. Property marketing platform for reaching international buyers, lead generation, and professional property presentation. Book a demo.",
+    "Property marketing platform for Dubai real estate agencies. Live showcase to global investors, AI-powered multilingual chat, and intent scoring for the world's most competitive market.",
   keywords:
     "real estate agency software Dubai, real estate marketing Dubai, property marketing platform Dubai, real estate lead generation Dubai, international property buyers Dubai",
   alternates: {
-    canonical: "/ae/real-estate-agency-software-dubai",
+    canonical: "https://estalara.com/ae/real-estate-agency-software-dubai",
     languages: HOMEPAGE_LANGUAGE_ALTERNATES,
   },
   openGraph: {
-    title: "Real Estate Agency Software Dubai | Estalara",
+    title: "Real Estate Agency Software Dubai — International Buyer Platform | Estalara",
     description:
-      "Real estate agency software Dubai agencies trust. Property marketing platform for international buyers.",
+      "Property marketing platform for Dubai real estate agencies. Live showcase to global investors, AI-powered multilingual chat, and intent scoring.",
     locale: "en_AE",
+    images: [{ url: DEFAULT_OG_IMAGE, width: 1200, height: 630, alt: "Estalara Real Estate Agency Software Dubai" }],
   },
 }
 
 export default function DubaiLandingPage() {
   return (
     <div className="min-h-screen bg-[#FAFAF9]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <EstalaraHeader />
       <main lang="en-AE">
         <RegionLandingPage content={content} />

@@ -5,10 +5,11 @@ import { articles, categories } from "./_data/articleContent"
 import { buildKnowledgeMetadata } from "./_lib/metadata"
 
 export const metadata: Metadata = buildKnowledgeMetadata({
-  title: "Knowledge Base | Estalara",
+  title: "Real Estate Industry Research & Insights | Estalara Knowledge",
   description:
-    "Industry research and analysis on live presentations, buyer behavior, digital trust, and global real estate selling dynamics.",
+    "Research, data, and analysis on live property presentations, buyer intent signals, digital trust, and global real estate selling strategies.",
   path: "/knowledge",
+  ogImage: "https://estalara.com/images/og/default-og.jpg",
 })
 
 export default function KnowledgeHomePage() {
