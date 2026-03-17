@@ -3,7 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ShareButton } from "./share-button"
@@ -11,6 +11,7 @@ import { ShareButton } from "./share-button"
 export function EstalaraHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
+  const router = useRouter()
   const anchorPrefix = pathname === "/" ? "" : "/"
   const navLinks = [
     { href: `${anchorPrefix}#features`, label: "Features" },
@@ -18,6 +19,13 @@ export function EstalaraHeader() {
     { href: "/knowledge", label: "Why now" },
     { href: `${anchorPrefix}#demo`, label: "Contact" },
   ]
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (!href.includes('#')) {
+      e.preventDefault()
+      window.location.href = href
+    }
+  }
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-[#F8F6F3]/80 backdrop-blur-md border-b border-[#E8E4DF]">
@@ -41,6 +49,7 @@ export function EstalaraHeader() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className="text-sm font-medium text-[#5C5C5C] hover:text-[#1A1A1A] transition-colors"
               >
                 {link.label}
@@ -81,7 +90,10 @@ export function EstalaraHeader() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={(e) => {
+                    setIsMenuOpen(false)
+                    handleNavClick(e, link.href)
+                  }}
                   className="text-sm font-medium text-[#5C5C5C] hover:text-[#1A1A1A] active:text-[#1A1A1A] transition-colors px-2 py-2.5 rounded-lg hover:bg-[#E8E4DF]/50 active:bg-[#E8E4DF]/70"
                 >
                   {link.label}
