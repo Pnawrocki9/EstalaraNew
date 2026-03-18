@@ -27,6 +27,13 @@ const regionLinks = [
   { name: "Dubai", href: "/ae/real-estate-agency-software-dubai" },
 ]
 
+const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  if (!href.includes('#')) {
+    e.preventDefault()
+    window.location.href = href
+  }
+}
+
 export function EstalaraFooter() {
   return (
     <footer className="bg-[#FAFAF9] border-t border-[#E4E4E7]/50">
@@ -70,6 +77,7 @@ export function EstalaraFooter() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
+                    onClick={(e) => handleLinkClick(e, link.href)}
                     className="text-sm text-[#A1A1AA] hover:text-[#18181B] transition-colors duration-200"
                   >
                     {link.name}
