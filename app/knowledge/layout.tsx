@@ -7,7 +7,7 @@ import { buildKnowledgeMetadata } from "./_lib/metadata"
 import "./knowledge.css"
 
 export const metadata: Metadata = buildKnowledgeMetadata({
-  title: "Knowledge Base | Estalara",
+  title: "Why Now? The Case for Live Property Showcasing | Estalara",
   description:
     "Research, analysis, and market insights on how live interaction and behavioral trust signals are reshaping modern real estate sales.",
   path: "/knowledge",

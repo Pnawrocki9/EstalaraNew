@@ -3,22 +3,37 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useState } from "react"
-import { usePathname, useRouter } from "next/navigation"
+import { usePathname } from "next/navigation"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ShareButton } from "./share-button"
 
+const REGIONAL_LOCALES = ["us", "uk", "pl", "es", "ae"]
+
+function isRegionalPage(pathname: string): boolean {
+  return REGIONAL_LOCALES.some(
+    (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
+  )
+}
+
 export function EstalaraHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const pathname = usePathname()
-  const router = useRouter()
+
+  const regional = isRegionalPage(pathname)
   const anchorPrefix = pathname === "/" ? "" : "/"
-  const navLinks = [
-    { href: `${anchorPrefix}#features`, label: "Features" },
-    { href: `${anchorPrefix}#solution`, label: "How It Works" },
-    { href: "/knowledge", label: "Why now" },
-    { href: `${anchorPrefix}#demo`, label: "Contact" },
-  ]
+
+  const navLinks = regional
+    ? [
+        { href: "/knowledge", label: "Why now" },
+        { href: "/book-demo", label: "Contact" },
+      ]
+    : [
+        { href: `${anchorPrefix}#features`, label: "Features" },
+        { href: `${anchorPrefix}#solution`, label: "How It Works" },
+        { href: "/knowledge", label: "Why now" },
+        { href: `${anchorPrefix}#demo`, label: "Contact" },
+      ]
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     if (!href.includes('#')) {

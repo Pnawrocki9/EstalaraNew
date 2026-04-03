@@ -110,7 +110,7 @@ const breadcrumbJsonLd = {
 }
 
 export const metadata: Metadata = {
-  title: "Real Estate Agency Software — International Buyer Platform | Estalara",
+  title: "Real Estate Agency Software for International Buyers | AI Lead Scoring | Estalara",
   description:
     "Real estate software for US brokerages targeting international buyers. Live property streaming, AI lead scoring, multilingual chat. Own your leads, not the portal's.",
   keywords:

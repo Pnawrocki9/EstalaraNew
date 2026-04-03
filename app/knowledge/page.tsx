@@ -5,7 +5,7 @@ import { articles, categories } from "./_data/articleContent"
 import { buildKnowledgeMetadata } from "./_lib/metadata"
 
 export const metadata: Metadata = buildKnowledgeMetadata({
-  title: "Real Estate Industry Research & Insights | Estalara Knowledge",
+  title: "Why Now? The Case for Live Property Showcasing | Estalara",
   description:
     "Research, data, and analysis on live property presentations, buyer intent signals, digital trust, and global real estate selling strategies.",
   path: "/knowledge",

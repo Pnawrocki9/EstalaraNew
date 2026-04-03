@@ -110,7 +110,7 @@ const breadcrumbJsonLd = {
 }
 
 export const metadata: Metadata = {
-  title: "Estate Agency Software UK — Live Property Showcasing | Estalara",
+  title: "Estate Agency Software UK | Reach International Buyers Live | Estalara",
   description:
     "Modern estate agency software for UK agents. Reach international buyers with live property streams, AI chat, and lead scoring. Stop renting visibility from Rightmove.",
   keywords:
