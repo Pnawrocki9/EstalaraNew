@@ -3,7 +3,6 @@ import { toAbsoluteUrl } from "@/lib/site"
 const SHARED_DISALLOW = [
   "Disallow: /api/",
   "Disallow: /admin/",
-  "Disallow: /_next/",
   "Disallow: /*?_rsc=",
   "Disallow: /*?__nextDataReq=",
   "Disallow: /*?hs_preview=",

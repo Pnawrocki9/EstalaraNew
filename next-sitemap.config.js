@@ -13,6 +13,11 @@ const config = {
     '/_next/*',
     '/404',
     '/500',
+    '/robots.txt',
+    '/sitemap.xml',
+    '/llms.txt',
+    '/icon.svg',
+    '/apple-icon.png',
   ],
   transform: async (config, path) => {
     if (path === '/') return { loc: path, changefreq: 'weekly', priority: 1.0, lastmod: new Date().toISOString() }
