@@ -47,7 +47,7 @@ export const HOMEPAGE_LANGUAGE_ALTERNATES: Record<string, string> = {
   en: "/",
   "en-US": "/us/real-estate-agency-software",
   "en-GB": "/uk/estate-agency-software",
-  "en-AE": "/ae/real-estate-agency-software-dubai",
-  "es-ES": "/es/para-inmobiliarias",
-  "pl-PL": "/pl/dla-biur-nieruchomosci",
+  "ar-AE": "/ae/real-estate-agency-software-dubai",
+  es: "/es/para-inmobiliarias",
+  pl: "/pl/dla-biur-nieruchomosci",
 }
