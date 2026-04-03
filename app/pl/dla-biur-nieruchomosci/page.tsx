@@ -101,7 +101,7 @@ const content: RegionLandingContent = {
 }
 
 export const metadata: Metadata = {
-  title: "Oprogramowanie dla biur nieruchomości — Estalara",
+  title: "Oprogramowanie dla Biur Nieruchomości | Zagraniczni Kupujący na Żywo | Estalara",
   description:
     "Nowoczesna platforma dla biur nieruchomości. Prezentuj oferty na żywo zagranicznym inwestorom, pozyskuj leady bezpośrednio i buduj własny kanał sprzedaży niezależny od portali.",
   keywords:

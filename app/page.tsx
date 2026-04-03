@@ -11,16 +11,17 @@ import { EstalaraVision } from "./estalara/_components/vision"
 import { EstalaraCTA } from "./estalara/_components/cta"
 import { EstalaraHeader } from "./estalara/_components/header"
 import { EstalaraFooter } from "./estalara/_components/footer"
-import { HOMEPAGE_LANGUAGE_ALTERNATES, SITE_URL } from "@/lib/site"
-import { ORGANIZATION_SCHEMA, SOFTWARE_APPLICATION_SCHEMA, FAQ_SCHEMA } from "@/lib/seo-metadata"
+import { SITE_URL } from "@/lib/site"
+import { FAQ_SCHEMA } from "@/lib/seo-metadata"
 
 export const metadata: Metadata = {
-  title: 'Estalara — Live Property Showcasing for International Buyers',
+  title: 'Live Property Showcase Platform for Real Estate Agencies | Estalara',
   description: 'Help real estate agencies reach international investors with AI-powered live streaming, multilingual chat, and intent-based lead scoring. Turn portal traffic into qualified buyers.',
   metadataBase: new URL('https://estalara.com'),
   alternates: {
     canonical: 'https://estalara.com/',
     languages: {
+      'x-default': 'https://estalara.com/',
       'en': 'https://estalara.com/',
       'en-GB': 'https://estalara.com/uk/estate-agency-software',
       'en-US': 'https://estalara.com/us/real-estate-agency-software',
@@ -66,14 +67,6 @@ export default function Page() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(ORGANIZATION_SCHEMA) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(SOFTWARE_APPLICATION_SCHEMA) }}
       />
       <script
         type="application/ld+json"

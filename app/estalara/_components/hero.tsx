@@ -30,9 +30,12 @@ export function EstalaraHero() {
 
         {/* Main Headline */}
         <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-12">
-          <h1 className="font-serif text-3xl sm:text-5xl lg:text-7xl font-normal text-[#1A1A1A] leading-[1.1] tracking-tight mb-4 sm:mb-6 text-balance">
-            Portals show your listings. Estalara sells them.
+          <h1 className="font-serif text-xl sm:text-2xl lg:text-3xl font-normal text-[#1A1A1A] leading-snug tracking-tight mb-3 sm:mb-4 text-balance">
+            Live Property Showcase Platform for Real Estate Agencies
           </h1>
+          <p className="font-serif text-3xl sm:text-5xl lg:text-7xl font-normal text-[#1A1A1A] leading-[1.1] tracking-tight mb-4 sm:mb-6 text-balance">
+            Portals show your listings. Estalara sells them.
+          </p>
           <p className="text-base sm:text-lg lg:text-xl text-[#5C5C5C] max-w-2xl mx-auto leading-relaxed text-pretty">
             International buyers are already looking. Estalara makes sure they find you, trust you, and will tell you who's ready - before you pick up the phone.
           </p>

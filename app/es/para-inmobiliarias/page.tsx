@@ -101,7 +101,7 @@ const content: RegionLandingContent = {
 }
 
 export const metadata: Metadata = {
-  title: "Software para inmobiliarias — Captación de inversores internacionales | Estalara",
+  title: "Software para Inmobiliarias | Compradores Internacionales en Tiempo Real | Estalara",
   description:
     "Plataforma moderna para inmobiliarias. Presenta propiedades en directo a inversores internacionales, puntúa la intención de compra y capta leads sin pagar comisiones a portales.",
   keywords:

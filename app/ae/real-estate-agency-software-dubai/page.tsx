@@ -110,7 +110,7 @@ const breadcrumbJsonLd = {
 }
 
 export const metadata: Metadata = {
-  title: "Real Estate Agency Software Dubai — International Buyer Platform | Estalara",
+  title: "Real Estate Agency Software Dubai | International Buyer Platform UAE | Estalara",
   description:
     "Property marketing platform for Dubai real estate agencies. Live showcase to global investors, AI-powered multilingual chat, and intent scoring for the world's most competitive market.",
   keywords:
