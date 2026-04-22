@@ -35,7 +35,7 @@ export function EstalaraHero() {
             <br />
             This is your white-label sales infrastructure.
           </h1>
-          <p className="font-serif text-3xl sm:text-5xl lg:text-7xl font-normal text-[#1A1A1A] leading-[1.1] tracking-tight mb-4 sm:mb-6 text-balance">
+          <p className="font-serif text-2xl sm:text-4xl lg:text-6xl font-normal text-[#1A1A1A] leading-[1.1] tracking-tight mb-4 sm:mb-6 text-balance">
             Estalara enables live interaction, captures buyer intent, and tells you exactly when and how to act.
           </p>
           <p className="text-base sm:text-lg lg:text-xl text-[#5C5C5C] max-w-2xl mx-auto leading-relaxed text-pretty">
