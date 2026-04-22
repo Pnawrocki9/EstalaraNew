@@ -39,7 +39,7 @@ export function EstalaraHero() {
             Estalara enables live interaction, captures buyer intent, and tells you exactly when and how to act.
           </p>
           <p className="text-base sm:text-lg lg:text-xl text-[#5C5C5C] max-w-2xl mx-auto leading-relaxed text-pretty">
-            Know who&apos;s ready to buy - before you pick up the phone.
+            Perfect for cross-border and off-market property experts.
           </p>
         </div>
 
